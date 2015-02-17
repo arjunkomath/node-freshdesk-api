@@ -1,6 +1,6 @@
 {
   "name": "freshdesk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A nodejs sdk for the Freshdesk API. Some major routes are implemented, but this SDK exposes the basic GET, POST, PUT, DELETE routes so that you can fill in the gaps in your apps for the unimplemented routes, and send a pull request to complete it!",
   "main": "index.js",
   "scripts": {
