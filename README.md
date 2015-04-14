@@ -14,7 +14,7 @@ You'll need your API Key and the base url of your support portal handy for confi
 
 ```
 var _fd = require('freshdesk')
-var Freshdesk = _fd('http://mydomain.freshdesk.com', 'MyR4nD0MAp1KeY');
+var Freshdesk = new _fd('http://mydomain.freshdesk.com', 'MyR4nD0MAp1KeY');
 
 Freshdesk.listTickets(function(err, res, body) {
   console.log("The tickets are: ", body);
