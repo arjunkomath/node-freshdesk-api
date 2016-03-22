@@ -46,6 +46,9 @@ class Freshdesk
   listTickets: (cb) =>
     @get '/helpdesk/tickets.json', cb
 
+  allTickets: (cb) =>
+    @get '/helpdesk/tickets/filter/all_tickets?format=json', cb
+
   getTicket: (id, cb) =>
     @get "/helpdesk/tickets/#{id}.json", cb
 
