@@ -35,6 +35,10 @@ Here are the currently supported functions. For a detailed explanation of the ar
   method: get
   url: `/helpdesk/tickets.json`
 
+* **allTickets** (cb <function>)
+  method: get
+  url: `/helpdesk/tickets/filter/all_tickets?format=json`
+
 * **getTicket** (id <number>, cb <function>)
   method: get
   url: `/helpdesk/tickets/#{id}.json`
