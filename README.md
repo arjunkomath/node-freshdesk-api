@@ -71,4 +71,4 @@ Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkom
 Built with <3 by Arjun Komath, [arjunkomath@gmail.com](mailto:arjunkomath@gmail.com)
  
 ## License
-- See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/LICENSE) file for license rights and limitations (MIT).
+See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/LICENSE) file for license rights and limitations (MIT).
