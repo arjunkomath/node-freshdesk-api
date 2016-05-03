@@ -1,7 +1,7 @@
 {
   "name": "node-freshdesk-api",
-  "version": "0.0.2",
-  "description": "Node wrapper for Freshdesh v2 API",
+  "version": "0.0.3",
+  "description": "Node wrapper for Freshdesk v2 API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
