@@ -1,6 +1,6 @@
 {
   "name": "node-freshdesk-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node wrapper for Freshdesh v2 API",
   "main": "index.js",
   "scripts": {
