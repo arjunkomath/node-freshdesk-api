@@ -13,6 +13,8 @@ var freshdesk = new fd('https://domain.freshdesk.com', 'yourApiKey');
 ```
 
 ## Functions and Responses
+
+### Tickets
 - **createTicket(ticket, callback)** - Create a new ticket, list of [parameters](http://developer.freshdesk.com/api/#create_ticket)
 - **getTicket(id, callback)** - Get a ticket by its id
 - **updateTicket(id, ticket, callback)** - Update a ticket by its id, list of [parameters](http://developer.freshdesk.com/api/#update_ticket)
@@ -22,6 +24,21 @@ var freshdesk = new fd('https://domain.freshdesk.com', 'yourApiKey');
 - **listAllTicketFields(callback)** - List All Ticket Fields
 - **listAllConversations(id, callback)** - List All Conversations of a Ticket by its id
 - **listAllTimeEntries(id, callback)** - List All Time Entries of a Ticket by its id
+ 
+### Conversations
+- **createReply(id, reply, callback)** - Create a Reply for a ticket by its id, list of [parameters](http://developer.freshdesk.com/api/#reply_ticket)
+- **createNote(id, note, callback)** - Create a Note for a ticket by its id, list of [parameters](http://developer.freshdesk.com/api/#add_note_to_a_ticket)
+- **updateConversation(id, conversation, callback)** - Update a conversation by its id, list of [parameters](http://developer.freshdesk.com/api/#update_conversation)
+- **deleteConversation(id, callback)** - Delete a conversation by its id
+
+### Contacts
+- **createContact(contact, callback)** - Create a new contact, list of [parameters](http://developer.freshdesk.com/api/#create_contact)
+- **getContact(id, callback)** - Get a contact by its id
+- **updateContact(id, contact, callback)** - Update a contact by its id, list of [parameters](http://developer.freshdesk.com/api/#update_contact)
+- **deleteContact(id, callback)** - Delete a contact by its id
+- **listAllContacts(filter, callback)** - List All Contact, check list of [filters](http://developer.freshdesk.com/api/#list_all_contacts)
+- **listAllContactFields(callback)** - List All Contact Fields
+- **makeAgent(id, callback)** - Make a contact an Agent, [read more](http://developer.freshdesk.com/api/#make_agent)
 
 ## Examples
 
