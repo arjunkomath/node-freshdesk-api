@@ -2,6 +2,8 @@
 
 A NodeJS library for integrating your backend with Freshdesk.
 
+[![npm version](https://badge.fury.io/js/freshdesk.svg)](https://badge.fury.io/js/freshdesk)
+
 # Install
 
 ```
@@ -120,6 +122,14 @@ Freshdesk.createTicket(100, function(err, res) {
 });
 ```
 
+# Contributors
+
+* Angad Nadkarni (@angadn) - Support for HTML tickets (#3)
+* Scott Hasbrouck (@scotthasbrouck) - #1
+* Martin Edwards (@mledwards) - #2
+
 # Contributing
 
-If you feel the need to add more functions, just fork this repo, add your functions and submit a PR. Wanna improve docs or the source, or even add test? Be my guest! This is just a side project I created because I needed it, and the existing `node-freshdesk` [lacked](https://github.com/capraconsulting/node-freshdesk/issues/2) some functions which my project needed.
+If you feel the need to add more functions, just fork this repo, add your functions and submit a PR. Wanna improve docs or the source, or even add tests? You're more than welcome :)
+This is just a side project I created because I needed it, and the existing `node-freshdesk` [lacked some functions](https://github.com/capraconsulting/node-freshdesk/issues/2) which my project needed.
+
