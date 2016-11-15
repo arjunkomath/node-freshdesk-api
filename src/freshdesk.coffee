@@ -70,10 +70,10 @@ class Freshdesk
   ticketFields: (cb) =>
     @get "/ticket_fields.json", cb
 
-  addNoteToTicket: (id, note, is_private, callback) =>
+  addNoteToTicket: (id, note, is_private, cb) =>
     data =
       helpdesk_note:
-        body: note,
+        body_html: note,
         private: is_private
     @post "/helpdesk/tickets/#{id}/conversations/note.json", data, cb
 
