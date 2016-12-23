@@ -1,0 +1,31 @@
+# This file is for unifying the coding style for different editors and IDEs
+# editorconfig.org
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_style = tab
+indent_size = 4
+
+[*.json]
+indent_style = tab
+indent_size = 4
+
+# Troubles with TABS. Use 2 spaces
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[*.hbs]
+insert_final_newline = false
+
+[*.{diff,md}]
+trim_trailing_whitespace = false
+
+# They have troubles with TABS. Use 2 spaces
+[{bower,package}.json]
+indent_style = space
+indent_size = 2
