@@ -19,10 +19,7 @@ http://spdx.org/licenses/MIT
 "use strict";
 
 exports = module.exports = {
-	"env": {
-		"mocha": true,
-	},
-	"globals": {
-		"expect": true,
-	}
+	"extends": [
+		'volebo'
+	]
 }
