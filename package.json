@@ -4,7 +4,9 @@
   "description": "Node wrapper for Freshdesk v2 API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "`npm bin`/mocha",
+    "lint": "`npm bin`/eslint ./",
+    "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha -- --reporter min"
   },
   "keywords": [
     "freshdesk",
