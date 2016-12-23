@@ -1,3 +1,6 @@
+.env
+docs/index.html
+
 # Logs
 logs
 *.log
