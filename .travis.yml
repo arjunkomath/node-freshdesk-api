@@ -1,6 +1,14 @@
 language: node_js
 node_js:
-  - "6"
-  - "6.2.2"
-  - "5.11"
-  - "4.0"
+- '6'
+- '6.2.2'
+- '5.11'
+- '4.0'
+deploy:
+  provider: npm
+  email: arjunkomath@gmail.com
+  api_key:
+    secure: lHakSy4Yyw+NLJ7jh7pO4XlO7lc6h4srhZwLWTMX++Jw9ldnwbU60Abu2d9gBcOfX52GUmI6wT5mw5UUkHEUdKg8PPvzzzDUGZHxkGqMHsEa2a967pL150fpIDK2FT6t8CT+fZW+TH3+jAPBg7posV7FSAz+7is9DZDqhN7uflSzTL2TMXy/UUMX0QP0rjwfVL5g+qoNOnniB+Uap2VfhWfzvXB/g+fVDHv+ZxGo9KAawhDXPPnmRc9cRR1UOYNBh9txe64qgmWtqvHDYblDfRUPIWeqI1QT2pGh47WJ6sEWBXnxiFQuWR3nQ8FAywBPgPi8iyW5Orjm3WfmChvfAEA4M+YF+6S7sZhLkFaGET6PPj3jV+cpD1MwsocLcyPtTwkq2aJEk0MLgCN7EuB4aLAzqDDuPovLrbkARyu76OT+QD8QyeQbGbBfOUupTheObY9zuXm6CKifSVOtxR/WUwToWZ9dGRth0rSTt6Tg1PeZahaUIR1oby98fuK1ReIkKTxW8H4pnoJP9di5mN4EMlx6zxPGc79R/sBZ5Ml4CAerZf2IXXU0BPGno49VpKGvztK3Jf1p3szoiJaxYYBRGy8syuvDq5IEkCSybLIQl6SUuT/NfzJq8OSEYCmd4zO+dUPhz5ufUtLhX9p+wmb/+3eVUGIyUNXbZT1IMb9O0I8=
+  on:
+    tags: true
+    repo: arjunkomath/node-freshdesk-api
