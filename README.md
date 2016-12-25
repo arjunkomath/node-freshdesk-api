@@ -81,7 +81,9 @@ freshdesk.deleteTicket(21, function (err, data) {
 })
 ```
 
-## Contribute
+## Contributors
+- Maksim Koryukov [@maxkoryukov](https://github.com/maxkoryukov)
+
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
 ## About Author
