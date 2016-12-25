@@ -4,7 +4,10 @@
   "description": "Node wrapper for Freshdesk v2 API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "`npm bin`/mocha",
+    "lint": "`npm bin`/eslint ./",
+    "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha -- --reporter min",
+    "docs": "`npm bin`/doxdox ./ ./lib/client.js -o docs/index.html --layout Bootstrap"
   },
   "keywords": [
     "freshdesk",
@@ -18,5 +21,28 @@
     "url": "https://github.com/arjunkomath/node-freshdesk-api"
   },
   "author": "Arjun Komath <arjunkomath@gmail.com>",
-  "license": "MIT"
+  "contributors": [
+    {
+      "name": "Koryukov Maksim",
+      "email": "maxkoryukov@gmail.com",
+      "url": "https://github.com/maxkoryukov"
+    }
+  ],
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
+  "homepage": "https://github.com/arjunkomath/node-freshdesk-api",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "eslint-config-volebo": "^2.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "debug": "^2.5.1",
+    "request": "^2.79.0"
+  }
 }
