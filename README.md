@@ -1,5 +1,7 @@
-# node-freshdesk-api
+# Node Freshdesk SDK [![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
 Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduction)
+
+[![NPM](https://nodei.co/npm/node-freshdesk-api.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-freshdesk-api/)
 
 ## Install
 ```
@@ -81,7 +83,9 @@ freshdesk.deleteTicket(21, function (err, data) {
 })
 ```
 
-## Contribute
+## Contributors
+- Maksim Koryukov [@maxkoryukov](https://github.com/maxkoryukov)
+
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
 ## About Author
