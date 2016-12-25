@@ -1,5 +1,6 @@
-# node-freshdesk-api
+# Node Freshdesk SDK
 Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduction)
+[![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
 
 ## Install
 ```
