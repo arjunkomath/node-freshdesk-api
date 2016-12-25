@@ -34,6 +34,10 @@ before_install:
   - npm install -g npm
 
 install:
+  - npm --version
+  - node --version
+
+  - npm install
   - npm install -g codecov
   # - npm install -g bithound
 
