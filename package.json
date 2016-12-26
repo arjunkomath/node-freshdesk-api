@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "`npm bin`/mocha",
-    "release": "node ./node_modules/gulp/bin/gulp.js && git push origin master",
+    "release": "node ./node_modules/gulp/bin/gulp.js && git push origin master --follow-tags",
     "lint": "`npm bin`/eslint ./",
     "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha -- --reporter min",
     "docs": "`npm bin`/doxdox ./ ./lib/client.js -o docs/index.html --layout Bootstrap"
