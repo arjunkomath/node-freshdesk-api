@@ -11,19 +11,17 @@ gulp.task('bump', function () {
 	};
 	gulp.src('./package.json')
 		.pipe(bump(options))
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest('./'))
+		.pipe(git.commit('bumps package version'))
+		.pipe(tag_version());
 });
 
 gulp.task('patch', function () {
 	gulp.src('./package.json')
 		.pipe(bump())
-		.pipe(gulp.dest('./build'));
-});
-
-gulp.task('tag', function () {
-	return gulp.src(['./package.json'])
-		.pipe(git.commit('bumps package version'))
+		.pipe(gulp.dest('./'))
+		.pipe(git.commit('patch package version'))
 		.pipe(tag_version());
 });
 
-gulp.task('default', ['bump', 'tag']);
+gulp.task('default', ['patch']);
