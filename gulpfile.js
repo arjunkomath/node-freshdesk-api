@@ -12,16 +12,16 @@ gulp.task('bump', function () {
 	gulp.src('./package.json')
 		.pipe(bump(options))
 		.pipe(gulp.dest('./'))
-		.pipe(git.commit('bumps package version'))
-		.pipe(tag_version());
+		.pipe(tag_version())
+		.pipe(git.commit('bumps package version'));
 });
 
 gulp.task('patch', function () {
 	gulp.src('./package.json')
 		.pipe(bump())
 		.pipe(gulp.dest('./'))
-		.pipe(git.commit('patch package version'))
-		.pipe(tag_version());
+		.pipe(tag_version())
+		.pipe(git.commit('patch package version'));
 });
 
 gulp.task('default', ['patch']);
