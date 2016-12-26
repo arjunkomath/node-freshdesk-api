@@ -42,6 +42,13 @@ var freshdesk = new fd('https://domain.freshdesk.com', 'yourApiKey');
 - **listAllContactFields(callback)** - List All Contact Fields
 - **makeAgent(id, callback)** - Make a contact an Agent, [read more](http://developer.freshdesk.com/api/#make_agent)
 
+### Companies
+- **createCompany(data, callback)** - Create a new company record using [parameters](http://developers.freshdesk.com/api/#create_company)
+- **getCompany(id, callback)** - Get company by ID; [read more](http://developers.freshdesk.com/api/#view_company)
+- **listAllCompanies(callback)** - List all companies; [parameters](http://developers.freshdesk.com/api/#list_all_companies)
+- **updateCompany(id, data, callback)** - Update a company by ID; [parameters](http://developers.freshdesk.com/api/#update_company)
+- **deleteCompany(id, callback)** - Delelete a company by ID, [read more](http://developers.freshdesk.com/api/#delete_company)
+
 ## Examples
 
 ### Create a new ticket
