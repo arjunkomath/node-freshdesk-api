@@ -136,11 +136,11 @@ To enable debug info, run your program with environment flags
 
 ### Agents
 
-#### Not implemented: http://developers.freshdesk.com/api/#agents
+Not implemented: http://developers.freshdesk.com/api/#agents
 
 ### Roles
 
-#### Not implemented: http://developers.freshdesk.com/api/#roles
+Not implemented: http://developers.freshdesk.com/api/#roles
 
 ### Groups
 
@@ -198,14 +198,15 @@ Not implemented: http://developers.freshdesk.com/api/#settings
 
 ## Contributors
 
-- Maksim Koryukov [@maxkoryukov]
+- Arjun Komath [arjunkomath][email:arjunkomath]
 - Kumar Harsh [@kumarharsh]
+- Maksim Koryukov [@maxkoryukov]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
 ## About Author
 
-Built with <3 by Arjun Komath (and contributors), [arjunkomath@gmail.com](mailto:arjunkomath@gmail.com)
+Built with <3 by Arjun Komath (and contributors), [arjunkomath@gmail.com][email:arjunkomath]
 
 ## License
 
@@ -213,3 +214,4 @@ See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/
 
 [@maxkoryukov]: https://www.npmjs.com/~maxkoryukov
 [@kumarharsh]: https://github.com/kumarharsh
+[email:arjunkomath]: mailto:arjunkomath@gmail.com
