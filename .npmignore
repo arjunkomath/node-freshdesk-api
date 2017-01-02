@@ -5,17 +5,17 @@ test/
 coverage/
 docs/
 CONTRIBUTING.md
-README.md
 .bithoundrc
 .codeclimate.yml
 .editorconfig
 .eslintignore
+.npmignore
 .eslintrc.js
 .gitignore
 .node-inspectorrc
 .travis.yml
 _config.yml
-
+gulpfile.js
 
 # FROM gitignore:
 
