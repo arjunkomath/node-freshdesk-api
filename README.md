@@ -77,7 +77,7 @@ freshdesk.deleteTicket(21, function (err, data) {
 
 ### Get a ticket PROMISIfied
 
-_for promisified version only_
+_* for promisified version only_
 
 ```javascript
 asyncFreshdesk.getTicketAsync(21)
