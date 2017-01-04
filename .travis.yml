@@ -38,10 +38,12 @@ install:
   - node --version
 
   - npm install
+  - npm install -g gulp
   - npm install -g codecov
   # - npm install -g bithound
 
 script:
+  - gulp build
   - npm run lint
   - npm test
   - npm run coverage
