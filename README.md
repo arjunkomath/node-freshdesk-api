@@ -9,6 +9,12 @@ Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduc
 npm install --save freshdesk-api
 ```
 
+Also, you could use **version 1 of API**, provided by Kumar Harsh [@kumarharsh], but this version is obsolete, and marked as _deprecated_:
+
+```shell
+npm install freshdesk-api@APIv1
+```
+
 ## Usage
 
 ```javascript

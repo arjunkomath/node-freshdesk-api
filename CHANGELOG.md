@@ -6,6 +6,12 @@ This is the history of changes of the `freshdesk-api` package
 
 ## unreleased // ???
 
+## 2017-01-04 // 1.1.1
+
+Published APIv1 version `1.1.1`, using sources provided by Kumar Harsh (@kumarharsh, https://github.com/kumarharsh)
+
+This version marked as deprecated in favor of version 2.0.0
+
 ## 2017-01-02 // 2.0.0-beta.2
 
 fixed
