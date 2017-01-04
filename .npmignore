@@ -2,6 +2,7 @@
 .npmrc
 
 src/
+gulpfile.coffee
 
 .github/
 test/
