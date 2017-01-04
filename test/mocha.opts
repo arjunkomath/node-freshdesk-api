@@ -1,7 +1,0 @@
---reporter spec
---recursive
---check-leaks
---ui bdd
---prof
---require test/bootstrap
-test/**/*.test.js
