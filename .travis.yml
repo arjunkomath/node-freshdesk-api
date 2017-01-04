@@ -1,0 +1,63 @@
+# Node wrapper for Freshdesk v2 API
+
+# Copyright (C) 2016-2017 Maksim Koryukov <maxkoryukov@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the MIT License, attached to this software package.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+# You should have received a copy of the MIT License along with this
+# program. If not, see <https://opensource.org/licenses/MIT>.
+
+# http://spdx.org/licenses/MIT
+
+sudo: false
+
+language: node_js
+
+node_js:
+  - 6
+  - 6.2.2
+  - 5.11
+  - 4
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - npm config set spin false
+  # update NPM:
+  - npm install -g npm
+
+install:
+  - npm --version
+  - node --version
+
+  - npm install
+  - npm install -g gulp
+  - npm install -g codecov
+  # - npm install -g bithound
+
+script:
+  - gulp build
+  - npm run lint
+  - npm test
+  - npm run coverage
+  # - bithound check git@github.com:$TRAVIS_REPO_SLUG.git
+
+after_success:
+  - codecov
+
+deploy:
+  provider: npm
+  email: arjunkomath@gmail.com
+  api_key:
+    secure: lHakSy4Yyw+NLJ7jh7pO4XlO7lc6h4srhZwLWTMX++Jw9ldnwbU60Abu2d9gBcOfX52GUmI6wT5mw5UUkHEUdKg8PPvzzzDUGZHxkGqMHsEa2a967pL150fpIDK2FT6t8CT+fZW+TH3+jAPBg7posV7FSAz+7is9DZDqhN7uflSzTL2TMXy/UUMX0QP0rjwfVL5g+qoNOnniB+Uap2VfhWfzvXB/g+fVDHv+ZxGo9KAawhDXPPnmRc9cRR1UOYNBh9txe64qgmWtqvHDYblDfRUPIWeqI1QT2pGh47WJ6sEWBXnxiFQuWR3nQ8FAywBPgPi8iyW5Orjm3WfmChvfAEA4M+YF+6S7sZhLkFaGET6PPj3jV+cpD1MwsocLcyPtTwkq2aJEk0MLgCN7EuB4aLAzqDDuPovLrbkARyu76OT+QD8QyeQbGbBfOUupTheObY9zuXm6CKifSVOtxR/WUwToWZ9dGRth0rSTt6Tg1PeZahaUIR1oby98fuK1ReIkKTxW8H4pnoJP9di5mN4EMlx6zxPGc79R/sBZ5Ml4CAerZf2IXXU0BPGno49VpKGvztK3Jf1p3szoiJaxYYBRGy8syuvDq5IEkCSybLIQl6SUuT/NfzJq8OSEYCmd4zO+dUPhz5ufUtLhX9p+wmb/+3eVUGIyUNXbZT1IMb9O0I8=
+  on:
+    tags: true
+    node_js: 4
+    repo: arjunkomath/node-freshdesk-api

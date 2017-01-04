@@ -1,6 +1,28 @@
 .env
 .npmrc
 
+src/
+
+.github/
+test/
+coverage/
+docs/
+CONTRIBUTING.md
+README.md
+.bithoundrc
+.codeclimate.yml
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+.node-inspectorrc
+.travis.yml
+_config.yml
+
+
+# FROM gitignore:
+
+.env
 docs/index.html
 
 # Logs
@@ -19,11 +41,6 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Compiled artifacts
-lib
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
 # nyc test coverage
 .nyc_output
 
@@ -33,6 +50,9 @@ build/Release
 
 # node-waf configuration
 .lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
 
 # Dependency directories
 node_modules

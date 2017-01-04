@@ -1,29 +1,65 @@
 {
-  "name": "freshdesk",
-  "version": "1.1.0",
-  "description": "A nodejs sdk for the Freshdesk API. Some major routes are implemented, but this SDK exposes the basic GET, POST, PUT, DELETE routes so that you can fill in the gaps in your apps for the unimplemented routes, and send a pull request to complete it!",
+  "name": "freshdesk-api",
+  "version": "1.1.1",
+  "description": "Node wrapper for Freshdesk v1 API",
   "main": "index.js",
   "scripts": {
-    "prepublish": "gulp build"
+    "prepublish": "gulp build",
+    "test": "`npm bin`/mocha",
+    "lint": "`npm bin`/eslint ./",
+    "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha -- --reporter min",
+    "docs": "`npm bin`/doxdox ./ ./lib/client.js -o docs/index.html --layout Bootstrap"
   },
-  "license": "MIT",
+  "keywords": [
+    "freshdesk",
+    "v2",
+    "api",
+    "node",
+    "client"
+  ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/kumarharsh/node-freshdesk.git"
+    "url": "https://github.com/arjunkomath/node-freshdesk-api"
   },
-  "homepage": "http://github.com/kumarharsh/node-freshdesk",
   "author": {
     "name": "Kumar Harsh",
     "email": "khs@playlyfe.com"
   },
+  "contributors": [
+    {
+      "name": "Kumar Harsh",
+      "email": "khs@playlyfe.com"
+    }, {
+      "name": "Koryukov Maksim",
+      "url": "https://github.com/maxkoryukov"
+    }, {
+      "name": "Arjun Komath",
+      "email": "arjunkomath@gmail.com"
+    }
+  ],
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
+  "homepage": "https://github.com/arjunkomath/node-freshdesk-api",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.9.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "eslint-config-volebo": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.1",
+    "gulp-plumber": "^0.6.6",
+    "gulp-util": "^3.0.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  },
   "dependencies": {
     "request": "^2.53.0"
   },
-  "devDependencies": {
-    "coffee-script": "^1.9.0",
-    "gulp": "^3.8.11",
-    "gulp-coffee": "^2.3.1",
-    "gulp-plumber": "^0.6.6",
-    "gulp-util": "^3.0.3"
+  "publishConfig": {
+    "tag": "APIv1",
+    "access": "public"
   }
 }

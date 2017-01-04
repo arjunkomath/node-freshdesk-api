@@ -1,29 +1,33 @@
-# node-freshdesk
+# Node Freshdesk APIv1 
 
 A NodeJS library for integrating your backend with Freshdesk.
 
 [![npm version](https://badge.fury.io/js/freshdesk.svg)](https://badge.fury.io/js/freshdesk)
 
-# Install
+## Install
+
+Note, that this package contains two API clients: **v1** and **v2**
+
+To use version v1 of the package use:
 
 ```
-npm install freshdesk
+npm install freshdesk-api@APIv1
 ```
 
-# Usage
+## Usage
 
 You'll need your API Key and the base url of your support portal handy for configuring the SDK. To get your API key, refer the [Freshdesk Docs](http://freshdesk.com/api#authentication).
 
-```
-var _fd = require('freshdesk')
-var Freshdesk = new _fd('http://mydomain.freshdesk.com', 'MyR4nD0MAp1KeY');
+```javascript
+var Freshdesk = require('freshdesk-api')
+var freshdesk = new Freshdesk('http://domain.freshdesk.com', 'MyR4nD0MAp1KeY');
 
 Freshdesk.listTickets(function(err, res, body) {
   console.log("The tickets are: ", body);
 });
 ```
 
-# Supported Functions
+## Supported Functions
 
 Most of the functions pertaining **Tickets** and **Users** are implemented. For unimplemented routes, you can use the raw routes, such as `Freshdesk.get()` to make the requests directly.
 
@@ -98,7 +102,7 @@ Freshdesk.pickTicket(100, function(err, res) {
 });
 ```
 
-### Create a New TIcket
+### Create a New Ticket
 ```
 var ticket = {
   'helpdesk_ticket': {
@@ -122,14 +126,29 @@ Freshdesk.createTicket(100, function(err, res) {
 });
 ```
 
-# Contributors
+## Contributors
 
-* Angad Nadkarni (@angadn) - Support for HTML tickets (#3)
-* Scott Hasbrouck (@scotthasbrouck) - #1
-* Martin Edwards (@mledwards) - #2
+* Angad Nadkarni (@angadn) - Support for HTML tickets (kumarharsh/node-freshdesk#3)
+* Scott Hasbrouck (@scotthasbrouck) - kumarharsh/node-freshdesk#1
+* Martin Edwards (@mledwards) - kumarharsh/node-freshdesk#2
 
-# Contributing
+## Authors and Maintainers
+
+Built and maintained by:
+
+- Kumar Harsh [@kumarharsh] (**author of this version**)
+- Arjun Komath [arjunkomath][email:arjunkomath]
+- Maksim Koryukov [@maxkoryukov]
+
+## Contributing
 
 If you feel the need to add more functions, just fork this repo, add your functions and submit a PR. Wanna improve docs or the source, or even add tests? You're more than welcome :)
 This is just a side project I created because I needed it, and the existing `node-freshdesk` [lacked some functions](https://github.com/capraconsulting/node-freshdesk/issues/2) which my project needed.
 
+## License
+
+See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
+
+[@maxkoryukov]: https://www.npmjs.com/~maxkoryukov
+[@kumarharsh]: https://github.com/kumarharsh
+[email:arjunkomath]: mailto:arjunkomath@gmail.com
