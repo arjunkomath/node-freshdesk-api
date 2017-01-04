@@ -1,4 +1,6 @@
 .env
+.npmrc
+
 docs/index.html
 
 # Logs
@@ -17,6 +19,11 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
+# Compiled artifacts
+lib
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
 # nyc test coverage
 .nyc_output
 
@@ -26,9 +33,6 @@ coverage
 
 # node-waf configuration
 .lock-wscript
-
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
 
 # Dependency directories
 node_modules
