@@ -1,6 +1,6 @@
 {
-  "name": "node-freshdesk-api",
-  "version": "0.1.8",
+  "name": "freshdesk-api",
+  "version": "2.0.0-beta.3",
   "description": "Node wrapper for Freshdesk v2 API",
   "main": "index.js",
   "scripts": {
@@ -26,14 +26,18 @@
     {
       "name": "Koryukov Maksim",
       "email": "maxkoryukov@gmail.com",
-      "url": "https://github.com/maxkoryukov"
+      "url": "https://www.npmjs.com/~maxkoryukov"
+    }, {
+      "name": "Kumar Harsh",
+      "email": "khs@playlyfe.com",
+      "url": "https://github.com/kumarharsh"
     }
   ],
   "engines": {
     "node": ">=4.0.0",
     "npm": ">=3.0.0"
   },
-  "homepage": "https://github.com/arjunkomath/node-freshdesk-api",
+  "homepage": "http://arjunkomath.github.io/node-freshdesk-api/",
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
@@ -49,5 +53,9 @@
   "dependencies": {
     "debug": "^2.5.1",
     "request": "^2.79.0"
+  },
+  "publishConfig": {
+    "tag": "latest",
+    "access": "public"
   }
 }
