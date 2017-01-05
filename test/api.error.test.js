@@ -39,7 +39,7 @@ describe('api.error', function(){
 
 		it('should throw FreshdeskError', (done) => {
 
-			freshdesk.getCompany(0, (err, res) => {
+			freshdesk.getCompany(0, (err) => {
 				expect(err).is.not.null
 				expect(err).to.be.instanceof(Freshdesk.FreshdeskError)
 				expect(err).has.property('status', 400)
