@@ -7,6 +7,8 @@ This is the history of changes of the `freshdesk-api` package
 
 ## unreleased // ???
 
+## 2017-01-07 // 2.1.0
+
 * Error Handling: filter for errors on JSON-parse, now it handles on JSON errors
 * Error Handling: `apiTarget` field on FreshdeskError, containing the name of method and requested URL of the API
 * Error Handling: HTTP status **404** handled correctly (there is an empty body)
