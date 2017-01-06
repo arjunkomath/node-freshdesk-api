@@ -7,7 +7,14 @@ This is the history of changes of the `freshdesk-api` package
 
 ## unreleased // ???
 
-* ??
+* Error Handling: filter for errors on JSON-parse, now it handles on JSON errors
+* Error Handling: `apiTarget` field on FreshdeskError, containing the name of method and requested URL of the API
+* Error Handling: HTTP status **404** handled correctly (there is an empty body)
+* Test: added test for network errors
+
+Fixed:
+
+* bug `response.request is not defined`, caused by network-errors, in the `debug` call
 
 ## 2017-01-06 // 2.0.1
 

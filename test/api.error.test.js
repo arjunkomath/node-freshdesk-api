@@ -33,18 +33,42 @@ describe('api.error', function(){
 
 		before(()=>{
 			nock('https://test.freshdesk.com')
-				.get('/api/v2/companies/0')
+				.get(/.*/)
 				.reply(400, {msg:"err 123"})
 		})
 
-		it('should throw FreshdeskError', (done) => {
+		it('should pass FreshdeskError to callback', (done) => {
 
-			freshdesk.getCompany(0, (err) => {
+			freshdesk.getCompany(2139, (err) => {
 				expect(err).is.not.null
 				expect(err).to.be.instanceof(Freshdesk.FreshdeskError)
 				expect(err).has.property('status', 400)
 				expect(err).has.property('message', "Error in Freshdesk's client API")
 				expect(err).has.property('data').to.deep.equal({msg: "err 123"})
+				expect(err).has.property('apiTarget').to.equal('GET https://test.freshdesk.com/api/v2/companies/2139')
+
+				done()
+			})
+
+			//throw(Freshdesk.FreshdeskError)
+		})
+	})
+
+
+	describe('on network error', () => {
+
+		before(()=>{
+			nock('https://test.freshdesk.com')
+				.get(/.*/)
+				.replyWithError('my network error')
+		})
+
+		it('should pass Error to callback', (done) => {
+
+			freshdesk.getTicket(111, (err) => {
+				expect(err).is.not.null
+				expect(err).to.be.instanceof(Error)
+				expect(err).has.property('message', "my network error")
 
 				done()
 			})
