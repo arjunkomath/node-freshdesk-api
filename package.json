@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "debug": "^2.5.1",
+    "parse-link-header": "^0.4.1",
     "request": "^2.79.0"
   },
   "publishConfig": {

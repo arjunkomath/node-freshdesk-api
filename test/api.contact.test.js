@@ -24,18 +24,20 @@ const Freshdesk = require('..')
 
 describe('api.contact', function(){
 
-	let freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
+	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
 
 	describe('update', () => {
 
 		it('should send PUT request to /api/v2/contacts/NNNN', (done) => {
 
 			const res = {
-				"id":22000991607,
-				"deleted":false,
-				"description":null,
-				"email":"gwuzi@mail.ru",
-				"name":"Clark Kent"
+				data: {
+					"id":22000991607,
+					"deleted":false,
+					"description":null,
+					"email":"gwuzi@mail.ru",
+					"name":"Clark Kent"
+				}
 			}
 
 			// SET UP expected request
@@ -49,7 +51,7 @@ describe('api.contact', function(){
 
 			freshdesk.updateContact(22000991607, {"name":"Clark Kent"}, (err, data) => {
 				expect(err).is.null
-				expect(data).to.deep.equal(res)
+				expect(data.data).to.deep.equal(res)
 				done()
 			})
 		})
@@ -60,11 +62,13 @@ describe('api.contact', function(){
 		it('should send GET request to /api/v2/contacts/NNNN', (done) => {
 
 			const res = {
-				"id":22000991607,
-				"deleted":false,
-				"description":null,
-				"email":"gwuzi@mail.ru",
-				"name":"Clark Kent"
+				data: {
+					"id":22000991607,
+					"deleted":false,
+					"description":null,
+					"email":"gwuzi@mail.ru",
+					"name":"Clark Kent"
+				}
 			}
 
 			// SET UP expected request
@@ -76,7 +80,7 @@ describe('api.contact', function(){
 
 			freshdesk.getContact(22000991607, (err, data) => {
 				expect(err).is.null
-				expect(data).to.deep.equal(res)
+				expect(data.data).to.deep.equal(res)
 				done()
 			})
 		})

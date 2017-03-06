@@ -27,7 +27,7 @@ describe('api.error', function(){
 	//this.timeout(5000)
 	//this.slow(3000)
 
-	let freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
+	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
 
 	describe('on API response status 400', () => {
 
@@ -44,7 +44,7 @@ describe('api.error', function(){
 				expect(err).to.be.instanceof(Freshdesk.FreshdeskError)
 				expect(err).has.property('status', 400)
 				expect(err).has.property('message', "Error in Freshdesk's client API")
-				expect(err).has.property('data').to.deep.equal({msg: "err 123"})
+				expect(err).has.property('data').to.deep.equal({data: {msg: "err 123"}})
 				expect(err).has.property('apiTarget').to.equal('GET https://test.freshdesk.com/api/v2/companies/2139')
 
 				done()
