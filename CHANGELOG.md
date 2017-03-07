@@ -7,6 +7,10 @@ This is the history of changes of the `freshdesk-api` package
 
 ## unreleased // ???
 
+## 2017-03-07 // 2.2.0
+
+* argument `extra` was added for callback-function to allow handle paging
+
 ## 2017-01-07 // 2.1.0
 
 * Error Handling: filter for errors on JSON-parse, now it handles on JSON errors
