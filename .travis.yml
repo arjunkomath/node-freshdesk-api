@@ -19,10 +19,12 @@ sudo: false
 language: node_js
 
 node_js:
-  - 6
-  - 6.2.2
-  - 5.11
   - 4
+  - 6
+
+matrix:
+  allow_failures:
+    - node_js: 7  # unstable upstream
 
 cache:
   directories:
@@ -32,11 +34,10 @@ before_install:
   - npm config set spin false
   # update NPM:
   - npm install -g npm
-
-install:
   - npm --version
   - node --version
 
+install:
   - npm install
   - npm install -g codecov
   # - npm install -g bithound
