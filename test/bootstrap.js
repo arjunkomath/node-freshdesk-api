@@ -16,7 +16,7 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-"use strict";
+"use strict"
 
-const chai = require("chai");
-global.expect = chai.expect;
+const chai = require("chai")
+global.expect = chai.expect

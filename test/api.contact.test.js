@@ -24,7 +24,7 @@ const Freshdesk = require('..')
 
 describe('api.contact', function(){
 
-	let freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
+	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
 
 	describe('update', () => {
 
@@ -47,9 +47,10 @@ describe('api.contact', function(){
 				.reply(200, res)
 
 
-			freshdesk.updateContact(22000991607, {"name":"Clark Kent"}, (err, data) => {
+			freshdesk.updateContact(22000991607, {"name": "Clark Kent"}, (err, data, extra) => {
 				expect(err).is.null
 				expect(data).to.deep.equal(res)
+				expect(extra).to.exist
 				done()
 			})
 		})
@@ -74,9 +75,57 @@ describe('api.contact', function(){
 				.reply(200, res)
 
 
-			freshdesk.getContact(22000991607, (err, data) => {
+			freshdesk.getContact(22000991607, (err, data, extra) => {
 				expect(err).is.null
 				expect(data).to.deep.equal(res)
+				expect(extra).to.exist
+				done()
+			})
+		})
+	})
+
+	describe('listAllContacts', () => {
+
+		it('should send GET request to /api/v2/contacts', (done) => {
+
+			const res = [
+				{
+					"id":22000991607,
+					"deleted":false,
+					"description":null,
+					"email":"gwuzi@mail.ru",
+					"name":"Clark Kent"
+				}, {
+					"id":22000991608,
+					"deleted":false,
+					"description":null,
+					"email":"donna@example.com",
+					"name":"Donna Example"
+				}
+
+			]
+
+			// SET UP expected request
+
+			nock('https://test.freshdesk.com')
+				.get('/api/v2/contacts')
+				.query({"page": 12, "per_page": 10})
+				.reply(200, res, {
+					"link": '< https://test.freshdesk.com/api/v2/contacts?page=13&per_page=10>;rel="next"',
+				})
+
+			const options = {
+				"page": 12,
+				"per_page": 10,
+			}
+
+			freshdesk.listAllContacts(options, (err, data, extra) => {
+				expect(err).is.null
+				expect(data).to.deep.equal(res)
+				expect(extra).to.exist
+				expect(extra).to.be.an('object')
+					.that.have.property('pageIsLast', false)
+
 				done()
 			})
 		})

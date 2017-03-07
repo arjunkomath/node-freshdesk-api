@@ -27,7 +27,7 @@ describe('api.error', function(){
 	//this.timeout(5000)
 	//this.slow(3000)
 
-	let freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
+	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
 
 	describe('on API response status 400', () => {
 
