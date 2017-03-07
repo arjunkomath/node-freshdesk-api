@@ -53,7 +53,7 @@ freshdesk.createTicket({
     status: 2,
     priority: 1
 }, function (err, data) {
-    console.log(err || data);
+    console.log(err || data)
 })
 ```
 
@@ -64,24 +64,24 @@ freshdesk.updateTicket(21, {
     description: 'updated description',
     status: 2,
     priority: 1
-}, function (err, data) {
-    console.log(err || data);
+}, function (err, data, extra) {
+    console.log(err || data)
 })
 ```
 
 ### Get a ticket
 
 ```javascript
-freshdesk.getTicket(21, function (err, data) {
-    console.log(err || data);
+freshdesk.getTicket(21, function (err, data, extra) {
+    console.log(err || data)
 })
 ```
 
 ### Delete a ticket
 
 ```javascript
-freshdesk.deleteTicket(21, function (err, data) {
-    console.log(err || data);
+freshdesk.deleteTicket(21, function (err, data, extra) {
+    console.log(err || data)
 })
 ```
 
@@ -91,8 +91,8 @@ _* for promisified version only_
 
 ```javascript
 asyncFreshdesk.getTicketAsync(21)
-    .then(data => {
-        console.log(data);
+    .then((data, extra) => {
+        console.log(data, extra)
     })
 
     .catch(Freshdesk.FreshdeskError, err => {
@@ -102,6 +102,21 @@ asyncFreshdesk.getTicketAsync(21)
     })
 })
 ```
+
+## Callback
+
+Every SDK method receives a `callback` parameter. It is a function, which will be called on Freshdesk response received.
+
+Callback called with following arguments:
+* `err` - `Error` instance (if occured) or `null`
+* `data` - `object`. Freshdesk response, an object, parsed from JSON
+* `extra` - additional data, gathered from response. For example, information about paging
+
+### extra parameter
+
+`extra` is an object with following fields:
+
+* `pageIsLast` - indicates, that the response is generated from the last page, and there is no sense to play with `page` and `per_page` parameters. This parameter is useful for `listXXX` methods, called with pagination
 
 ## Extended/debugging output
 
