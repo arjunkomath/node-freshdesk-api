@@ -165,7 +165,8 @@ Not implemented: http://developers.freshdesk.com/api/#agents
 
 ### Roles
 
-Not implemented: http://developers.freshdesk.com/api/#roles
+- **getRole(id, callback)** - View a Role
+- **listAllRoles(callback)** - List All Roles
 
 ### Groups
 

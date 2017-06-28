@@ -5,8 +5,9 @@ This is the history of changes of the `freshdesk-api` package
 > This file should be filled by maintainers, using pull requests
 > Please, follow this [guide](http://keepachangelog.com/en/0.3.0/)
 
-## unreleased // ???
+## 2017-06-29 // 2.3.0
 
+* **ROLES** implemented
 * update dependencies
 * implement ticket field filtering by type (see https://developers.freshdesk.com/api/#list_all_ticket_fields)
 
