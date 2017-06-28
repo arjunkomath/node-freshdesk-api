@@ -7,6 +7,12 @@ This is the history of changes of the `freshdesk-api` package
 
 ## unreleased // ???
 
+* update dependencies
+* implement ticket field filtering by type (see https://developers.freshdesk.com/api/#list_all_ticket_fields)
+
+* more tests
+* several new functions in `utils` (internal stuff)
+
 ## 2017-03-07 // 2.2.0
 
 * argument `extra` was added for callback-function to allow handle paging
