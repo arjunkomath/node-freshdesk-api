@@ -124,7 +124,7 @@ describe('api.agent', function(){
 				expect(data).to.deep.equal(res)
 				expect(extra).to.exist
 				expect(extra).to.be.an('object')
-					.that.have.property('pageIsLast', true)
+					.that.have.property('pageIsLast', false)
 
 				done()
 			})
