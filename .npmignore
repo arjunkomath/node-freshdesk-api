@@ -1,5 +1,6 @@
 .npmrc
 .env
+
 .github/
 test/
 coverage/
@@ -12,6 +13,7 @@ CONTRIBUTING.md
 .npmignore
 .eslintrc.js
 .gitignore
+.jsdoc.rc
 .node-inspectorrc
 .travis.yml
 _config.yml

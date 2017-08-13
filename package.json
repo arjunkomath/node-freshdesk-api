@@ -2,13 +2,13 @@
   "name": "freshdesk-api",
   "version": "2.3.0",
   "description": "Node wrapper for Freshdesk v2 API",
-  "main": "index.js",
+  "main": "./lib/client",
   "scripts": {
     "test": "`npm bin`/mocha",
     "release": "node ./node_modules/gulp/bin/gulp.js && git push origin master --follow-tags",
     "lint": "`npm bin`/eslint ./",
     "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha -- --reporter min",
-    "docs": "`npm bin`/doxdox ./ ./lib/client.js -o docs/index.html --layout Bootstrap"
+    "docs": "`npm bin`/jsdoc -c .jsdoc.rc"
   },
   "keywords": [
     "freshdesk",
@@ -43,9 +43,11 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.0.2",
+    "docdash": "^0.4.0",
     "eslint": "^4.1.1",
     "eslint-config-volebo": "^2.2.0",
     "istanbul": "^0.4.5",
+    "jsdoc": "^3.5.4",
     "mocha": "^3.4.2",
     "nock": "^9.0.13"
   },

@@ -16,10 +16,10 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-"use strict";
+'use strict'
 
 exports = module.exports = {
-	"extends": [
+	'extends': [
 		'volebo'
 	]
 }
