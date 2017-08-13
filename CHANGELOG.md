@@ -8,6 +8,7 @@ This is the history of changes of the `freshdesk-api` package
 ## ?? // unreleased
 
 * documentation improved (use JSDoc)
+* enable tests on NodeJS 8 on Travis CI
 
 ## 2017-06-29 // 2.3.0
 
