@@ -50,7 +50,7 @@
     "nock": "^9.0.13"
   },
   "dependencies": {
-    "debug": "^2.6.8",
+    "debug": "^3.0.0",
     "request": "^2.81.0"
   },
   "publishConfig": {
