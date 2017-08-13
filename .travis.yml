@@ -34,7 +34,8 @@ cache:
 before_install:
   - npm config set spin false
   # update NPM:
-  - npm install -g npm
+  # BUG IN NPM https://github.com/npm/npm/issues/17858
+  # - npm install -g npm
   - npm --version
   - node --version
 
