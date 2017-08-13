@@ -35,7 +35,7 @@ before_install:
   - npm config set spin false
   # update NPM:
   # BUG IN NPM https://github.com/npm/npm/issues/17858
-  # - npm install -g npm
+  - npm install -g npm@4
   - npm --version
   - node --version
 
