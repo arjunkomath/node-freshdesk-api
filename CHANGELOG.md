@@ -7,8 +7,12 @@ This is the history of changes of the `freshdesk-api` package
 
 ## ?? // unreleased
 
+## 2017-08-26 // 2.3.2
+
 * documentation improved (use JSDoc)
 * enable tests on NodeJS 8 on Travis CI
+* rename endpoint _ticket_: `Tickets` -> `ticket` (now lowercase)
+* update deps
 
 ## 2017-06-29 // 2.3.0
 

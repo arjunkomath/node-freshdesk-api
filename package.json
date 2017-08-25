@@ -1,6 +1,6 @@
 {
   "name": "freshdesk-api",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Node wrapper for Freshdesk v2 API",
   "main": "./lib/client",
   "scripts": {
@@ -44,15 +44,15 @@
   "devDependencies": {
     "chai": "^4.0.2",
     "docdash": "^0.4.0",
-    "eslint": "^4.1.1",
-    "eslint-config-volebo": "^2.2.0",
+    "eslint": "^4.5.0",
+    "eslint-config-volebo": "^2.3.3",
     "istanbul": "^0.4.5",
     "jsdoc": "^3.5.4",
     "mocha": "^3.4.2",
     "nock": "^9.0.13"
   },
   "dependencies": {
-    "debug": "^3.0.0",
+    "debug": "^3.0.1",
     "request": "^2.81.0"
   },
   "publishConfig": {
