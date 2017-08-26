@@ -199,7 +199,7 @@ Not implemented: http://developers.freshdesk.com/api/#satisfaction-ratings
 ### Time Entries
 
 **createTimeEntry(ticketID, data, callback)** - Create new ticket [read more](https://developer.freshdesk.com/api/#create_time_entry)
-**listAllTimeEntries(params, callback)** - Lists all time entries [read more](https://developer.freshdesk.com/api/#list_all_time_entries)
+**listAllTimeEntries(params, callback)** - Lists all time entries, if no params pass 'null' [read more](https://developer.freshdesk.com/api/#list_all_time_entries)
 **updateTimeEntry(entryID, data, callback)** - Update a time entry by ID [read more](https://developer.freshdesk.com/api/#update_time_entry)
 **toggleTimer(entryID, callback)** - Toggle timer on time entry by ID [read more](https://developer.freshdesk.com/api/#toggle_time_entry)
 **deleteTimeEntry(id, callback)** - Deletes a time entry by ID [read more](https://developer.freshdesk.com/api/#delete_time_entry)
