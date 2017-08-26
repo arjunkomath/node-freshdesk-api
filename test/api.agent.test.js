@@ -2,6 +2,7 @@
 Node wrapper for Freshdesk v2 API
 
 Copyright (C) 2016-2017 Maksim Koryukov <maxkoryukov@gmail.com>
+Davin Smith <https://github.com/davinthesmith>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the MIT License, attached to this software package.
@@ -16,7 +17,7 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-"use strict";
+'use strict'
 
 const nock = require('nock')
 
