@@ -231,6 +231,7 @@ Not implemented: http://developers.freshdesk.com/api/#settings
 - Arjun Komath [arjunkomath][email:arjunkomath]
 - Kumar Harsh [@kumarharsh]
 - Maksim Koryukov [@maxkoryukov]
+- John Williamson [@velua]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
@@ -245,3 +246,4 @@ See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/
 [@maxkoryukov]: https://www.npmjs.com/~maxkoryukov
 [@kumarharsh]: https://github.com/kumarharsh
 [email:arjunkomath]: mailto:arjunkomath@gmail.com
+[@velua]: http://jjs.life
