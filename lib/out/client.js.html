@@ -1,9 +1,37 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: client.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: client.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * A module with the main client-class {@link module:client~Freshdesk}.
  *
  * @module
- * @author Arjun Komath <arjunkomath@gmail.com>
- * @author Maksim Koryukov <maxkoryukov@gmail.com>
+ * @author Arjun Komath &lt;arjunkomath@gmail.com>
+ * @author Maksim Koryukov &lt;maxkoryukov@gmail.com>
  */
 
 'use strict'
@@ -62,7 +90,7 @@ class Freshdesk {
 	 *
 	 * @param  {Freshdesk.TicketsFilter}            params  Dictionary with request parameters for the API method, for example : `{"company_id": "YOUR_ID"}`
 	 * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
-	 * @return {Array.<Freshdesk.Tickets>}                  The array of tickets found
+	 * @return {Array.&lt;Freshdesk.Tickets>}                  The array of tickets found
 	 */
 	listAllTickets (params, cb) {
 		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/Tickets`, params, null, cb)
@@ -70,7 +98,7 @@ class Freshdesk {
 
 	listAllTicketFields(params, cb) {
 		// param shift
-		if (utils.isNil(cb) && utils.isFunction(params)) {
+		if (utils.isNil(cb) &amp;&amp; utils.isFunction(params)) {
 			cb = params
 			params = undefined
 		}
@@ -266,9 +294,9 @@ class Freshdesk {
 	 *
 	 * @name Freshdesk.CompanyData
 	 * @typedef {Object}
-	 * @property {Object.<string, Object>}   [custom_fields]   Key value pairs containing the names and values of custom fields. Only dates in the format YYYY-MM-DD are accepted as input for custom date fields. Read more here
+	 * @property {Object.&lt;string, Object>}   [custom_fields]   Key value pairs containing the names and values of custom fields. Only dates in the format YYYY-MM-DD are accepted as input for custom date fields. Read more here
 	 * @property {string}                    [description]     Description of the company
-	 * @property {Array.<string>}            [domains]         Domains of the company. Email addresses of contacts that contain this domain will be associated with that company automatically.
+	 * @property {Array.&lt;string>}            [domains]         Domains of the company. Email addresses of contacts that contain this domain will be associated with that company automatically.
 	 * @property {string}                    [name]            **UNIQUE** Name of the company
 	 * @property {string}                    [note]            Any specific note about the company
 	 */
@@ -282,11 +310,11 @@ class Freshdesk {
 	 * @typedef {Object}
 	 * @property {string}                    name              **UNIQUE** Name of the company
 	 * @property {string}                    description       Description of the company
-	 * @property {Array.<string>}            domains           Domains of the company. Email addresses of contacts that contain this domain will be associated with that company automatically.
+	 * @property {Array.&lt;string>}            domains           Domains of the company. Email addresses of contacts that contain this domain will be associated with that company automatically.
 	 * @property {string}                    note              Any specific note about the company
 	 * @property {Date}                      created_at        Creation date
 	 * @property {Date}                      updated_at        Last update date
-	 * @property {Object.<string, Object>}   custom_fields     Key value pairs containing the names and values of custom fields. Only dates in the format YYYY-MM-DD are accepted as input for custom date fields. Read more here
+	 * @property {Object.&lt;string, Object>}   custom_fields     Key value pairs containing the names and values of custom fields. Only dates in the format YYYY-MM-DD are accepted as input for custom date fields. Read more here
 	 */
 
 	/**
@@ -327,7 +355,7 @@ class Freshdesk {
 	 * @tag Companies
 	 *
 	 * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
-	 * @return {Array.<Freshdesk.CompanyViewData>}          Company information
+	 * @return {Array.&lt;Freshdesk.CompanyViewData>}          Company information
 	 */
 	listAllCompanies(cb) {
 		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/companies`, null, null, cb)
@@ -372,3 +400,26 @@ class Freshdesk {
 module.exports = Freshdesk
 
 module.exports.FreshdeskError = FreshdeskError
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-client.html">client</a></li></ul><h3>Classes</h3><ul><li><a href="module-client-Freshdesk.html">Freshdesk</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Tue Aug 29 2017 20:18:37 GMT+1000 (AEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
