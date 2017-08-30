@@ -1,13 +1,16 @@
 # CHANGELOG
 
-This is the history of changes of the `freshdesk-api` package
+This is the history of changes of the `node-freshdesk-api` package
 
 > This file should be filled by maintainers, using pull requests
 > Please, follow this [guide](http://keepachangelog.com/en/0.3.0/)
 
 ## ?? // 2.4.x
 
-* **TIME ENTRIES** implemented // thanks to https://github.com/Velua
+* **TIME ENTRIES** implemented // thanks to @Velua
+* **AGENTS** implemented // thanks to @davinthesmith and @Velua
+
+* CI: Build over Node 8 **MUST NOT** fail
 
 ## 2017-08-26 // 2.3.2
 
