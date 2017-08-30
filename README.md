@@ -165,7 +165,7 @@ To enable debug info, run your program with environment flags
 - **listAllAgents(params, callback)** - List all agents [read more](https://developer.freshdesk.com/api/#list_all_agents)
 - **updateAgent(id, data, callback)** - Update an agent by ID [read more](https://developer.freshdesk.com/api/#update_agent)
 - **deleteAgent(id, callback)** - Delete an agent by ID [read more](https://developer.freshdesk.com/api/#delete_agent)
-- **currentlyAuthedAgent(callback)** - Currently Authenticated Agent[read more](https://developer.freshdesk.com/api/#me)
+- **currentAgent(callback)** - Currently Authenticated Agent[read more](https://developer.freshdesk.com/api/#me)
 
 ### Roles
 
