@@ -139,7 +139,7 @@ To enable debug info, run your program with environment flags
 - **listAllTickets(filter, callback)** - List All Tickets, check list of [filters](http://developer.freshdesk.com/api/#list_all_tickets)
 - **listAllTicketFields(callback)** - List All Ticket Fields
 - **listAllConversations(id, callback)** - List All Conversations of a Ticket by its id
-- **listAllTimeEntries(id, callback)** - List All Time Entries of a Ticket by its id
+- **listAllTicketTimeEntries(id, callback)** - List All Time Entries of a Ticket by its id
 - **listAllSatisfactionRatings** - **NOT IMPLEMENTED** http://developers.freshdesk.com/api/#view_ticket_satisfaction_ratings
 
 ### Conversations
@@ -161,7 +161,11 @@ To enable debug info, run your program with environment flags
 
 ### Agents
 
-Not implemented: http://developers.freshdesk.com/api/#agents
+- **getAgent(id, callback)** - Get agent by ID [read more](https://developer.freshdesk.com/api/#view_agent)
+- **listAllAgents(params, callback)** - List all agents [read more](https://developer.freshdesk.com/api/#list_all_agents)
+- **updateAgent(id, data, callback)** - Update an agent by ID [read more](https://developer.freshdesk.com/api/#update_agent)
+- **deleteAgent(id, callback)** - Delete an agent by ID [read more](https://developer.freshdesk.com/api/#delete_agent)
+- **currentlyAuthedAgent(callback)** - Currently Authenticated Agent[read more](https://developer.freshdesk.com/api/#me)
 
 ### Roles
 
@@ -178,7 +182,7 @@ Not implemented: http://developers.freshdesk.com/api/#groups
 - **getCompany(id, callback)** - Get company by ID; [read more](http://developers.freshdesk.com/api/#view_company)
 - **listAllCompanies(callback)** - List all companies; [parameters](http://developers.freshdesk.com/api/#list_all_companies)
 - **updateCompany(id, data, callback)** - Update a company by ID; [parameters](http://developers.freshdesk.com/api/#update_company)
-- **deleteCompany(id, callback)** - Delelete a company by ID, [read more](http://developers.freshdesk.com/api/#delete_company)
+- **deleteCompany(id, callback)** - Delete a company by ID, [read more](http://developers.freshdesk.com/api/#delete_company)
 
 ### Discussions
 
@@ -231,6 +235,7 @@ Not implemented: http://developers.freshdesk.com/api/#settings
 - Arjun Komath [arjunkomath][email:arjunkomath]
 - Kumar Harsh [@kumarharsh]
 - Maksim Koryukov [@maxkoryukov]
+- Davin Smith [@davinthesmith]
 - John Williamson [@velua]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
@@ -243,7 +248,8 @@ Built with <3 by Arjun Komath (and contributors), [arjunkomath@gmail.com][email:
 
 See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/LICENSE) file for license rights and limitations (MIT).
 
-[@maxkoryukov]: https://www.npmjs.com/~maxkoryukov
-[@kumarharsh]: https://github.com/kumarharsh
-[email:arjunkomath]: mailto:arjunkomath@gmail.com
-[@velua]: http://jjs.life
+  [@maxkoryukov]: https://www.npmjs.com/~maxkoryukov
+  [@kumarharsh]: https://github.com/kumarharsh
+  [email:arjunkomath]: mailto:arjunkomath@gmail.com
+  [@davinthesmith]: https://github.com/davinthesmith
+  [@velua]: http://jjs.life
