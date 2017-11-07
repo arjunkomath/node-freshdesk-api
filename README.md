@@ -102,7 +102,28 @@ asyncFreshdesk.getTicketAsync(21)
         console.log('ERROR OCCURED', err)
     })
 })
+
 ```
+## Use with Webpack
+
+Here is a part of `webpack.config`:
+
+```js
+webpackConfig.node = {
+
+	// ...
+
+	console: true,
+	fs: 'empty',
+	net: 'empty',
+	tls: 'empty',
+
+	// ...
+}
+
+```
+
+A little bit more [about webpack here](https://github.com/arjunkomath/node-freshdesk-api/issues/43)
 
 ## Callback
 
