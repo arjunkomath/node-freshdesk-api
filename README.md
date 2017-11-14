@@ -159,6 +159,7 @@ To enable debug info, run your program with environment flags
 - **deleteTicket(id, callback)** - Delete a ticket by its id
 - **restoreTicket(id, callback)** - Restore a ticket by its id
 - **listAllTickets(filter, callback)** - List All Tickets, check list of [filters](http://developer.freshdesk.com/api/#list_all_tickets)
+- **filterTickets(filter, callback)** - Filter tickets, based on ticket [fields](https://developer.freshdesk.com/api/#filter_tickets)
 - **listAllTicketFields(callback)** - List All Ticket Fields
 - **listAllConversations(id, callback)** - List All Conversations of a Ticket by its id
 - **listAllTicketTimeEntries(id, callback)** - List All Time Entries of a Ticket by its id
