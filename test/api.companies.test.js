@@ -26,6 +26,33 @@ describe('api.companies', function(){
 
 	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
 
+	describe('create', () => {
+
+		it('should send POST request to /api/v2/companies', (done) => {
+
+			const res = {
+				"id": 1000,
+				"name": "ACME"}
+
+
+			// SET UP expected request
+
+			nock('https://test.freshdesk.com')
+				.post(`/api/v2/companies`, {
+					"name": "ACME"
+				})
+				.reply(200, res)
+
+			freshdesk.createCompany({"name": "ACME"}, (err, data) => {
+				expect(err).is.null
+				expect(data).to.deep.equal(res)
+				done()
+			})
+
+		})
+
+	})
+
 	describe('update', () => {
 
 		it('should send PUT request to /api/v2/companies', (done) => {
@@ -44,6 +71,42 @@ describe('api.companies', function(){
 				.reply(200, res)
 
 			freshdesk.updateCompany(1000, {"name": "ACME"}, (err, data) => {
+				expect(err).is.null
+				expect(data).to.deep.equal(res)
+				done()
+			})
+
+		})
+
+	})
+
+	describe('list all companies', () => {
+
+		it('should send GET request to /api/v2/companies', (done) => {
+
+			const res = [
+				{
+					"id":8,
+					"name":"Super Nova",
+					"description":"Space Shuttle Manufacturing",
+					"domains":["supernova","nova","super"],
+					"note":null,
+					"created_at":"2014-01-08T09:08:53+05:30",
+					"updated_at":"2014-01-08T09:08:53+05:30",
+					"custom_fields" : {
+						"website": "https://www.supernova.org",
+						"address": "123, Baker Street,\r\nNew York"
+					}
+				}]
+
+
+			// SET UP expected request
+
+			nock('https://test.freshdesk.com')
+				.get(`/api/v2/companies`)
+				.reply(200, res)
+
+			freshdesk.listAllCompanies((err, data) => {
 				expect(err).is.null
 				expect(data).to.deep.equal(res)
 				done()
