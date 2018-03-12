@@ -26,6 +26,41 @@ describe('api.companies', function(){
 
 	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
 
+	describe('update', () => {
+
+		let res = null
+
+		beforeEach(() => {
+
+			// SET UP expected request
+
+			nock('https://test.freshdesk.com')
+				.post('/api/v2/companies', {
+					"name": "ACME"
+				})
+				.reply(200, res)
+		})
+
+		it('should send PUT request to /api/v2/companies', (done) => {
+
+			freshdesk.updateCompany(res.id, {"name": "ACME 2"}, (err, data) => {
+				expect(err).is.null
+				expect(data.name).to.deep.equal("ACME 2")
+				done()
+			})
+
+		})
+
+		afterEach(() => {
+
+			freshdesk.deleteCompany(res.id, (err, data) => {
+				expect(err).is.null
+				done()
+			})
+		})
+
+	})
+
 	describe('listAllCompanyFields', () => {
 
 		describe('without params', () => {
