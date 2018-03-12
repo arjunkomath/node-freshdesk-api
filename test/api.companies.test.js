@@ -53,10 +53,8 @@ describe('api.companies', function(){
 
 		afterEach(() => {
 
-			freshdesk.deleteCompany(res.id, (err, data) => {
-				expect(err).is.null
-				done()
-			})
+			nock('https://test.freshdesk.com')
+				.delete(`/api/v2/companies/${res.id}`).reply(204)
 		})
 
 	})
@@ -68,8 +66,6 @@ describe('api.companies', function(){
 			let res = null
 
 			beforeEach(() => {
-				res = [
-				]
 
 				// SET UP expected request
 				nock('https://test.freshdesk.com')
