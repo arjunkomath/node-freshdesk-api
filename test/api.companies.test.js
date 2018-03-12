@@ -61,17 +61,17 @@ describe('api.companies', function(){
 
 			beforeEach(() => {
 				res = [
-				   {
-					  "id":1,
-					  "name":"name",
-					  "label":"Company name",
-					  "field_type":"default_name",
-					  "required_for_agent":true,
-					  "position":1,
-					  "default":true,
-					  "created_at":"2014-12-12T12:29:46+05:30",
-					  "updated_at":"2014-12-12T12:29:46+05:30"
-				   }]
+					{
+						"id":1,
+						"name":"name",
+						"label":"Company name",
+						"field_type":"default_name",
+						"required_for_agent":true,
+						"position":1,
+						"default":true,
+						"created_at":"2014-12-12T12:29:46+05:30",
+						"updated_at":"2014-12-12T12:29:46+05:30"
+					}]
 
 				// SET UP expected request
 				nock('https://test.freshdesk.com')
