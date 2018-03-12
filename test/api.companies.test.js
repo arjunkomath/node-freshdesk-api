@@ -116,6 +116,51 @@ describe('api.companies', function(){
 
 	})
 
+	describe('filter company', () => {
+
+		it('should send GET request to /api/v2/search/companies with query string', (done) => {
+
+			const res = {
+				"total":1,
+				"results":[
+					{
+						"id": 33,
+						"name": "Lex Corp",
+						"description": "Sales and Marketing",
+						"note": "Sales division of Alexander Luthor's companies",
+						"domains": [
+							"lexcorp.org",
+							"lexcorp.us"
+						],
+						"custom_fields": {
+							"sector": 5,
+							"private": true
+						},
+						"created_at": "2017-12-15T06:34:09Z",
+						"updated_at": "2017-12-15T06:34:09Z"
+					}
+				]
+			}
+
+
+			// SET UP expected request
+
+			const filter = "domain:lexcorp.org"
+
+			nock('https://test.freshdesk.com')
+				.get(`/api/v2/search/companies?query=${encodeURI('"' + filter + '"')}`)
+				.reply(200, res)
+
+			freshdesk.filterCompany(filter, (err, data) => {
+				expect(err).is.null
+				expect(data).to.deep.equal(res)
+				done()
+			})
+
+		})
+
+	})
+
 	describe('listAllCompanyFields', () => {
 
 		describe('without params', () => {
