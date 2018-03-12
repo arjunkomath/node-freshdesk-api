@@ -28,33 +28,27 @@ describe('api.companies', function(){
 
 	describe('update', () => {
 
-		let res = null
+		it('should send PUT request to /api/v2/companies', (done) => {
 
-		beforeEach(() => {
+			const res = {
+				"id": 1000,
+				"name": "ACME"}
+
 
 			// SET UP expected request
 
 			nock('https://test.freshdesk.com')
-				.post('/api/v2/companies', {
+				.put(`/api/v2/companies/1000`, {
 					"name": "ACME"
 				})
 				.reply(200, res)
-		})
 
-		it('should send PUT request to /api/v2/companies', (done) => {
-
-			freshdesk.updateCompany(res.id, {"name": "ACME 2"}, (err, data) => {
+			freshdesk.updateCompany(1000, {"name": "ACME"}, (err, data) => {
 				expect(err).is.null
-				expect(data.name).to.deep.equal("ACME 2")
+				expect(data).to.deep.equal(res)
 				done()
 			})
 
-		})
-
-		afterEach(() => {
-
-			nock('https://test.freshdesk.com')
-				.delete(`/api/v2/companies/${res.id}`).reply(204)
 		})
 
 	})
@@ -66,6 +60,18 @@ describe('api.companies', function(){
 			let res = null
 
 			beforeEach(() => {
+				res = [
+				   {
+					  "id":1,
+					  "name":"name",
+					  "label":"Company name",
+					  "field_type":"default_name",
+					  "required_for_agent":true,
+					  "position":1,
+					  "default":true,
+					  "created_at":"2014-12-12T12:29:46+05:30",
+					  "updated_at":"2014-12-12T12:29:46+05:30"
+				   }]
 
 				// SET UP expected request
 				nock('https://test.freshdesk.com')
