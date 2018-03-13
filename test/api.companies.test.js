@@ -116,7 +116,7 @@ describe('api.companies', function(){
 
 	})
 
-	describe('filter company', () => {
+	describe('filter companies', () => {
 
 		it('should send GET request to /api/v2/search/companies with query string', (done) => {
 
@@ -151,7 +151,7 @@ describe('api.companies', function(){
 				.get(`/api/v2/search/companies?query=${encodeURI('"' + filter + '"')}`)
 				.reply(200, res)
 
-			freshdesk.filterCompany(filter, (err, data) => {
+			freshdesk.filterCompanies(filter, (err, data) => {
 				expect(err).is.null
 				expect(data).to.deep.equal(res)
 				done()

@@ -206,6 +206,8 @@ Not implemented: http://developers.freshdesk.com/api/#groups
 - **listAllCompanies(callback)** - List all companies; [parameters](http://developers.freshdesk.com/api/#list_all_companies)
 - **updateCompany(id, data, callback)** - Update a company by ID; [parameters](http://developers.freshdesk.com/api/#update_company)
 - **deleteCompany(id, callback)** - Delete a company by ID, [read more](http://developers.freshdesk.com/api/#delete_company)
+- **filterCompanies(query, callback) - Filter companies (beta), based on company fields, [read more](http://developers.freshdesk.com/api/#filter_companies)
+- **listAllCompanyFields(callback) - List All Company Fields
 
 ### Discussions
 
