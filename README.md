@@ -159,6 +159,7 @@ To enable debug info, run your program with environment flags
 - **deleteTicket(id, callback)** - Delete a ticket by its id
 - **restoreTicket(id, callback)** - Restore a ticket by its id
 - **listAllTickets(filter, callback)** - List All Tickets, check list of [filters](http://developer.freshdesk.com/api/#list_all_tickets)
+- **filterTickets(query, callback)** - Filter tickets, based on ticket fields, [read more](https://developer.freshdesk.com/api/#filter_tickets)
 - **listAllTicketFields(callback)** - List All Ticket Fields
 - **listAllConversations(id, callback)** - List All Conversations of a Ticket by its id
 - **listAllTicketTimeEntries(id, callback)** - List All Time Entries of a Ticket by its id
@@ -205,6 +206,8 @@ Not implemented: http://developers.freshdesk.com/api/#groups
 - **listAllCompanies(callback)** - List all companies; [parameters](http://developers.freshdesk.com/api/#list_all_companies)
 - **updateCompany(id, data, callback)** - Update a company by ID; [parameters](http://developers.freshdesk.com/api/#update_company)
 - **deleteCompany(id, callback)** - Delete a company by ID, [read more](http://developers.freshdesk.com/api/#delete_company)
+- **filterCompanies(query, callback)** - Filter companies (beta), based on company fields, [read more](http://developers.freshdesk.com/api/#filter_companies)
+- **listAllCompanyFields(callback)** - List All Company Fields
 
 ### Discussions
 
@@ -259,6 +262,7 @@ Not implemented: http://developers.freshdesk.com/api/#settings
 - Maksim Koryukov [@maxkoryukov]
 - Davin Smith [@davinthesmith]
 - John Williamson [@velua]
+- _Roniger_ [@roniger]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
@@ -270,8 +274,9 @@ Built with <3 by Arjun Komath (and contributors), [arjunkomath@gmail.com][email:
 
 See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/LICENSE) file for license rights and limitations (MIT).
 
+  [email:arjunkomath]: mailto:arjunkomath@gmail.com
   [@maxkoryukov]: https://www.npmjs.com/~maxkoryukov
   [@kumarharsh]: https://github.com/kumarharsh
-  [email:arjunkomath]: mailto:arjunkomath@gmail.com
   [@davinthesmith]: https://github.com/davinthesmith
   [@velua]: http://jjs.life
+  [@roniger]: https://github.com/roniger
