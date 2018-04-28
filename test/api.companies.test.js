@@ -2,7 +2,7 @@
 Node wrapper for Freshdesk v2 API
 
 Copyright (C) 2016-2018 Maksim Koryukov <maxkoryukov@gmail.com>
-Copyright (C) 2018 Roniger <https://github.com/roniger>
+Copyright (C) 2018 Ori Roniger <https://github.com/roniger>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the MIT License, attached to this software package.

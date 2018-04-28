@@ -262,7 +262,7 @@ Not implemented: http://developers.freshdesk.com/api/#settings
 - Maksim Koryukov [@maxkoryukov]
 - Davin Smith [@davinthesmith]
 - John Williamson [@velua]
-- _Roniger_ [@roniger]
+- Ori Roniger [@roniger]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
