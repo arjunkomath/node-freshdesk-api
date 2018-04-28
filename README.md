@@ -206,8 +206,8 @@ Not implemented: http://developers.freshdesk.com/api/#groups
 - **listAllCompanies(callback)** - List all companies; [parameters](http://developers.freshdesk.com/api/#list_all_companies)
 - **updateCompany(id, data, callback)** - Update a company by ID; [parameters](http://developers.freshdesk.com/api/#update_company)
 - **deleteCompany(id, callback)** - Delete a company by ID, [read more](http://developers.freshdesk.com/api/#delete_company)
-- **filterCompanies(query, callback) - Filter companies (beta), based on company fields, [read more](http://developers.freshdesk.com/api/#filter_companies)
-- **listAllCompanyFields(callback) - List All Company Fields
+- **filterCompanies(query, callback)** - Filter companies (beta), based on company fields, [read more](http://developers.freshdesk.com/api/#filter_companies)
+- **listAllCompanyFields(callback)** - List All Company Fields
 
 ### Discussions
 
@@ -262,6 +262,7 @@ Not implemented: http://developers.freshdesk.com/api/#settings
 - Maksim Koryukov [@maxkoryukov]
 - Davin Smith [@davinthesmith]
 - John Williamson [@velua]
+- _Roniger_ [@roniger]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
@@ -273,8 +274,9 @@ Built with <3 by Arjun Komath (and contributors), [arjunkomath@gmail.com][email:
 
 See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/LICENSE) file for license rights and limitations (MIT).
 
+  [email:arjunkomath]: mailto:arjunkomath@gmail.com
   [@maxkoryukov]: https://www.npmjs.com/~maxkoryukov
   [@kumarharsh]: https://github.com/kumarharsh
-  [email:arjunkomath]: mailto:arjunkomath@gmail.com
   [@davinthesmith]: https://github.com/davinthesmith
   [@velua]: http://jjs.life
+  [@roniger]: https://github.com/roniger

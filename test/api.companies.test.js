@@ -1,7 +1,8 @@
 /*
 Node wrapper for Freshdesk v2 API
 
-Copyright (C) 2016-2017 Maksim Koryukov <maxkoryukov@gmail.com>
+Copyright (C) 2016-2018 Maksim Koryukov <maxkoryukov@gmail.com>
+Copyright (C) 2018 Roniger <https://github.com/roniger>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the MIT License, attached to this software package.
@@ -148,7 +149,7 @@ describe('api.companies', function(){
 			const filter = "domain:lexcorp.org"
 
 			nock('https://test.freshdesk.com')
-				.get(`/api/v2/search/companies?query=${encodeURI('"' + filter + '"')}`)
+				.get(`/api/v2/search/companies?query=%22domain:lexcorp.org%22`)
 				.reply(200, res)
 
 			freshdesk.filterCompanies(filter, (err, data) => {
