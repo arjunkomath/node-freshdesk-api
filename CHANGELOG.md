@@ -5,6 +5,14 @@ This is the history of changes of the `node-freshdesk-api` package
 > This file should be filled by maintainers, using pull requests
 > Please, follow this [guide](http://keepachangelog.com/en/0.3.0/)
 
+## unpublished // ??
+
+## 2018-04-28 // 2.5.0
+
+* **Company:filterCompanies** implemented // thanks, @roniger (a5fad8d)
+* **Company:listAllCompanyFields** implemented // thanks, @roniger (a5fad8d)
+* update dependencies
+
 ## 2017-08-30 // 2.4.0
 
 #### Breaking
