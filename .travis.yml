@@ -19,6 +19,7 @@ sudo: false
 language: node_js
 
 node_js:
+  - 4
   - 6
   - 8
   - 9
@@ -27,6 +28,7 @@ node_js:
 matrix:
   fast_finish: true
   allow_failures:
+    - node_js: 4 # OLD VERSION
     - node_js: 9  # unstable upstream
     - node_js: 10
 
@@ -37,21 +39,18 @@ cache:
 before_install:
   - npm config set spin false
   # update NPM:
-  # TODO: uncomment these lines (https://github.com/arjunkomath/node-freshdesk-api/issues/50)
-  # - npm install -g npm
-  # - npm --version
-  # - node --version
+  - npm install -g npm
+  - npm --version
+  - node --version
 
 install:
   - npm install
   - npm install -g codecov
-  # - npm install -g bithound
 
 script:
   - npm run lint
   - npm test
   - npm run coverage
-  # - bithound check git@github.com:$TRAVIS_REPO_SLUG.git
 
 after_success:
   - codecov
