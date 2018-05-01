@@ -19,9 +19,16 @@ sudo: false
 language: node_js
 
 node_js:
-  - 4
   - 6
   - 8
+  - 9
+  - 10
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - node_js: 9  # unstable upstream
+    - node_js: 10
 
 cache:
   directories:
