@@ -130,4 +130,54 @@ describe('api.contact', function(){
 			})
 		})
 	})
+
+	describe('filter contacts', () => {
+
+		it('should send GET request to /api/v2/search/contacts with query string', (done) => {
+
+			const res = {
+				"total":1,
+				"results":[
+					{
+						"active": true,
+						"address": "11 Park Avenue,",
+						"company_id": 331,
+						"description": "alien hero",
+						"email": "john@marsspace.com",
+						"id": 112,
+						"job_title": "Superhero",
+						"language": "en",
+						"mobile": "992339928",
+						"name": "John Jonz",
+						"phone": "+1992842882",
+						"time_zone": "Eastern Time (US & Canada)",
+						"twitter_id": "martian",
+						"custom_fields": {
+							"location": "Watch tower",
+							"sector": "outer space"
+						},
+						"created_at": "2017-07-19T12:29:36Z",
+						"updated_at": "2017-07-19T12:38:26Z"
+					},
+				]
+			}
+
+
+			// SET UP expected request
+
+			const filter = "name:John Jonz"
+
+			nock('https://test.freshdesk.com')
+				.get(`/api/v2/search/contacts?query=%22name:John%20Jonz%22`)
+				.reply(200, res)
+
+			freshdesk.filterContacts(filter, (err, data) => {
+				expect(err).is.null
+				expect(data).to.deep.equal(res)
+				done()
+			})
+
+		})
+
+	})
 })
