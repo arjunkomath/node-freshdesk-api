@@ -182,6 +182,7 @@ To enable debug info, run your program with environment flags
 - **listAllContacts(filter, callback)** - List All Contact, check list of [filters](http://developer.freshdesk.com/api/#list_all_contacts)
 - **listAllContactFields(callback)** - List All Contact Fields
 - **makeAgent(id, callback)** - Make a contact an Agent, [read more](http://developer.freshdesk.com/api/#make_agent)
+- **filterContacts(query, callback)** - Filter contacts (beta), based on contact fields, [read more](http://developers.freshdesk.com/api/#filter_contacts)
 
 ### Agents
 
