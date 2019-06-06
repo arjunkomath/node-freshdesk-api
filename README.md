@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
 [![codecov](https://codecov.io/gh/arjunkomath/node-freshdesk-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arjunkomath/node-freshdesk-api)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/214a7b2a2b454d5380179427ca5023b6)](https://www.codacy.com/app/arjunkomath/node-freshdesk-api?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arjunkomath/node-freshdesk-api&amp;utm_campaign=Badge_Grade)
-[![NSP Status](https://nodesecurity.io/orgs/volebo/projects/acba4934-5f94-42cb-80db-d456734626d5/badge)](https://nodesecurity.io/orgs/volebo/projects/acba4934-5f94-42cb-80db-d456734626d5)
 
 Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduction)
 
