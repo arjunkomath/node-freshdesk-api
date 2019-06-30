@@ -86,7 +86,7 @@ freshdesk.deleteTicket(21, function (err, data, extra) {
 })
 ```
 
-### Ticket attachmenents
+### Ticket attachments
 
 ```javascript
 freshdesk.createTicket({
