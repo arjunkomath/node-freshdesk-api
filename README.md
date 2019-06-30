@@ -86,6 +86,20 @@ freshdesk.deleteTicket(21, function (err, data, extra) {
 })
 ```
 
+### Ticket attachmenents
+
+```javascript
+freshdesk.createTicket({
+    description: 'test description',
+    attachments: [
+    	fs.createReadStream('/path/to/file1.ext'),
+    	fs.createReadStream('/path/to/file2.ext')
+    ]
+}, function (err, data) {
+    console.log(err || data)
+})
+```
+
 ### Get a ticket PROMISIfied
 
 _* for promisified version only_
