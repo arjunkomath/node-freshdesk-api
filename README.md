@@ -230,7 +230,7 @@ Not implemented: http://developers.freshdesk.com/api/#discussions
 
 ### Solutions
 
-Not implemented: http://developers.freshdesk.com/api/#solutions
+Partially implemented: http://developers.freshdesk.com/api/#solutions
 
 ### Surveys
 
@@ -278,6 +278,8 @@ Not implemented: http://developers.freshdesk.com/api/#settings
 - Davin Smith [@davinthesmith]
 - John Williamson [@velua]
 - Ori Roniger [@roniger]
+- Joël Cox [@joelcox]
+
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
