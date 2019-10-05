@@ -268,7 +268,7 @@ Not implemented: http://developers.freshdesk.com/api/#sla-policies
 
 ### Settings
 
-Not implemented: http://developers.freshdesk.com/api/#settings
+- **getSettings(callback)** - View Helpdesk Settings [read more](http://developers.freshdesk.com/api/#settings)
 
 ## Contributors
 
