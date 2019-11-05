@@ -63,9 +63,11 @@ describe('api.tickets', function(){
 			})
 
 			it('(explicit null) should send GET request to /api/v2/ticket_fields', function(done) {
-				freshdesk.listAllTicketFields(null, (err, data) => {
+				freshdesk.listAllTicketFields(null, (err, data, extra) => {
 					expect(err).is.null
 					expect(data).to.deep.equal(res)
+					expect(extra).to.be.an('object')
+						.that.have.property('requestId', '')
 
 					done()
 				})
