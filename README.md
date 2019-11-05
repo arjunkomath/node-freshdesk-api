@@ -153,6 +153,7 @@ Callback called with following arguments:
 `extra` is an object with following fields:
 
 * `pageIsLast` - indicates, that the response is generated from the last page, and there is no sense to play with `page` and `per_page` parameters. This parameter is useful for `listXXX` methods, called with pagination
+* `requestId` - value of `x-request-id` header from API response
 
 ## Extended/debugging output
 
