@@ -221,4 +221,197 @@ describe('api.tickets', function () {
 
 		})
 	})
+
+	describe('createTicket', () => {
+
+		describe('with params', () => {
+
+			let res = null
+			let data = {
+				"description": "Details about the issue...",
+				"subject": "Support Needed...",
+				"email": "tom@outerspace.com",
+				"priority": 1,
+				"status": 2,
+				"cc_emails": ["ram@freshdesk.com", "diana@freshdesk.com"],
+			}
+
+			beforeEach(() => {
+				res = {
+					"cc_emails": ["ram@freshdesk.com", "diana@freshdesk.com"],
+					"fwd_emails": [],
+					"reply_cc_emails": ["ram@freshdesk.com", "diana@freshdesk.com"],
+					"email_config_id": null,
+					"group_id": null,
+					"priority": 1,
+					"requester_id": 129,
+					"responder_id": null,
+					"source": 2,
+					"status": 2,
+					"subject": "Support needed..",
+					"company_id": 1,
+					"id": 1,
+					"type": "Question",
+					"to_emails": null,
+					"product_id": null,
+					"fr_escalated": false,
+					"spam": false,
+					"urgent": false,
+					"is_escalated": false,
+					"created_at": "2015-07-09T13:08:06Z",
+					"updated_at": "2015-07-23T04:41:12Z",
+					"due_by": "2015-07-14T13:08:06Z",
+					"fr_due_by": "2015-07-10T13:08:06Z",
+					"description_text": "Some details on the issue ...",
+					"description": "<div>Some details on the issue ..</div>",
+					"tags": [],
+					"attachments": [],
+				}
+
+				// SET UP expected request
+				nock('https://test.freshdesk.com')
+					.post(`/api/v2/tickets`, data)
+					.reply(200, res)
+			})
+
+			it('should send POST request to /api/v2/tickets', function (done) {
+
+				freshdesk.createTicket(data, (err, data) => {
+					expect(err).is.null
+					expect(data).to.deep.equal(res)
+
+					done()
+				})
+			})
+
+		})
+
+	})
+
+	describe('updateTicket', () => {
+
+		describe('with params', () => {
+
+			let res = null
+			let ticket_id = 'ticket_id'
+			let data = {
+				"description": "Details about the issue...",
+				"subject": "Support Needed...",
+				"email": "tom@outerspace.com",
+				"priority": 1,
+				"status": 2,
+				"cc_emails": ["ram@freshdesk.com", "diana@freshdesk.com"],
+			}
+
+			beforeEach(() => {
+				res = {
+					"cc_emails": ["ram@freshdesk.com", "diana@freshdesk.com"],
+					"fwd_emails": [],
+					"reply_cc_emails": ["ram@freshdesk.com", "diana@freshdesk.com"],
+					"email_config_id": null,
+					"group_id": null,
+					"priority": 1,
+					"requester_id": 129,
+					"responder_id": null,
+					"source": 2,
+					"status": 2,
+					"subject": "Support needed..",
+					"company_id": 1,
+					"id": 1,
+					"type": "Question",
+					"to_emails": null,
+					"product_id": null,
+					"fr_escalated": false,
+					"spam": false,
+					"urgent": false,
+					"is_escalated": false,
+					"created_at": "2015-07-09T13:08:06Z",
+					"updated_at": "2015-07-23T04:41:12Z",
+					"due_by": "2015-07-14T13:08:06Z",
+					"fr_due_by": "2015-07-10T13:08:06Z",
+					"description_text": "Some details on the issue ...",
+					"description": "<div>Some details on the issue ..</div>",
+					"tags": [],
+					"attachments": [],
+				}
+
+				// SET UP expected request
+				nock('https://test.freshdesk.com/')
+					.put(`/api/v2/tickets/${ticket_id}`, data)
+					.reply(200, res)
+			})
+
+			it('should send PUT request to /api/v2/tickets/id', function (done) {
+
+				freshdesk.updateTicket(ticket_id, data, (err, data) => {
+					expect(err).is.null
+					expect(data).to.deep.equal(res)
+
+					done()
+				})
+			})
+
+		})
+
+	})
+
+	describe('deleteTicket', () => {
+
+		describe('with params', () => {
+
+			let res = null
+			let ticket_id = 'ticket_id'
+
+			beforeEach(() => {
+				res = null
+
+				// SET UP expected request
+				nock('https://test.freshdesk.com/')
+					.delete(`/api/v2/tickets/${ticket_id}`)
+					.reply(204, res)
+			})
+
+			it('should send DELETE request to /api/v2/tickets/id', function (done) {
+
+				freshdesk.deleteTicket(ticket_id, (err, data) => {
+					expect(err).is.null
+					expect(data).to.deep.equal(res)
+
+					done()
+				})
+			})
+
+		})
+
+	})
+
+	describe('restoreTicket', () => {
+
+		describe('with params', () => {
+
+			let res = null
+			let ticket_id = 'ticket_id'
+
+			beforeEach(() => {
+				res = null
+
+				// SET UP expected request
+				nock('https://test.freshdesk.com/')
+					.put(`/api/v2/tickets/${ticket_id}/restore`)
+					.reply(204, res)
+			})
+
+			it('should send PUT request to /api/v2/tickets/id/restore', function (done) {
+
+				freshdesk.restoreTicket(ticket_id, (err, data) => {
+					expect(err).is.null
+					expect(data).to.deep.equal(res)
+
+					done()
+				})
+			})
+
+		})
+
+	})
 })
