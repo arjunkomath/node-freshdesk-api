@@ -7,7 +7,7 @@
     "test": "`npm bin`/mocha",
     "release": "node ./node_modules/gulp/bin/gulp.js && git push origin master --follow-tags",
     "lint": "`npm bin`/eslint ./",
-    "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha -- --reporter min",
+    "coverage": "`npm bin`/nyc `npm bin`/_mocha",
     "docs": "`npm bin`/jsdoc -c .jsdoc.rc"
   },
   "keywords": [
@@ -46,14 +46,14 @@
     "docdash": "^0.4.0",
     "eslint": "^5.16.0",
     "eslint-config-volebo": "^2.3.3",
-    "istanbul": "^0.4.5",
     "jsdoc": "^3.6.2",
     "mocha": "^5.1.1",
-    "nock": "^9.2.5"
+    "nock": "^9.2.5",
+    "nyc": "^15.1.0"
   },
   "dependencies": {
-    "debug": "^3.1.0",
-    "request": "^2.88.0"
+    "debug": "^4.1.1",
+    "request": "^2.88.2"
   },
   "publishConfig": {
     "tag": "latest",
