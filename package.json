@@ -1,6 +1,6 @@
 {
   "name": "freshdesk-api",
-  "version": "2.9.3",
+  "version": "2.10.0",
   "description": "Node wrapper for Freshdesk v2 API",
   "main": "./lib/client",
   "scripts": {
