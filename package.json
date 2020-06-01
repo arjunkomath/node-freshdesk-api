@@ -42,13 +42,13 @@
   "homepage": "http://arjunkomath.github.io/node-freshdesk-api/",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "docdash": "^0.4.0",
-    "eslint": "^5.16.0",
+    "eslint": "^7.1.0",
     "eslint-config-volebo": "^2.3.3",
-    "jsdoc": "^3.6.2",
+    "jsdoc": "^3.6.4",
     "mocha": "^5.1.1",
-    "nock": "^9.2.5",
+    "nock": "^12.0.3",
     "nyc": "^15.1.0"
   },
   "dependencies": {
