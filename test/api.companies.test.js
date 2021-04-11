@@ -116,38 +116,45 @@ describe('api.companies', function(){
 
 	describe('list all companies', () => {
 
-		it('should send GET request to /api/v2/companies', (done) => {
+		describe('without params', () => {
 
-			const res = [
-				{
-					"id":8,
-					"name":"Super Nova",
-					"description":"Space Shuttle Manufacturing",
-					"domains":["supernova","nova","super"],
-					"note":null,
-					"created_at":"2014-01-08T09:08:53+05:30",
-					"updated_at":"2014-01-08T09:08:53+05:30",
-					"custom_fields" : {
-						"website": "https://www.supernova.org",
-						"address": "123, Baker Street,\r\nNew York"
-					}
-				}]
+			let res = null
+
+			beforeEach(() => {
+
+				res = [
+					{
+						"id":8,
+						"name":"Super Nova",
+						"description":"Space Shuttle Manufacturing",
+						"domains":["supernova","nova","super"],
+						"note":null,
+						"created_at":"2014-01-08T09:08:53+05:30",
+						"updated_at":"2014-01-08T09:08:53+05:30",
+						"custom_fields" : {
+							"website": "https://www.supernova.org",
+							"address": "123, Baker Street,\r\nNew York"
+						}
+					}]
 
 
-			// SET UP expected request
+				// SET UP expected request
 
-			nock('https://test.freshdesk.com')
-				.get(`/api/v2/companies`)
-				.reply(200, res)
+				nock('https://test.freshdesk.com')
+					.get(`/api/v2/companies`)
+					.reply(200, res)
 
-			freshdesk.listAllCompanies((err, data) => {
-				expect(err).is.null
-				expect(data).to.deep.equal(res)
-				done()
 			})
 
-		})
+			it('should send GET request to /api/v2/companies', (done) => {
 
+				freshdesk.listAllCompanies((err, data) => {
+					expect(err).is.null
+					expect(data).to.deep.equal(res)
+					done()
+				})
+			})
+		})
 	})
 
 	describe('filter companies', () => {
@@ -175,7 +182,6 @@ describe('api.companies', function(){
 					}
 				]
 			}
-
 
 			// SET UP expected request
 
