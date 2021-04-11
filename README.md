@@ -280,6 +280,7 @@ Not implemented: http://developers.freshdesk.com/api/#sla-policies
 - Davin Smith [@davinthesmith]
 - John Williamson [@velua]
 - Ori Roniger [@roniger]
+- Derrick Mehaffy [@derrickmehaffy]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
