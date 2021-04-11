@@ -219,7 +219,8 @@ Not implemented: http://developers.freshdesk.com/api/#groups
 
 - **createCompany(data, callback)** - Create a new company record using [parameters](http://developers.freshdesk.com/api/#create_company)
 - **getCompany(id, callback)** - Get company by ID; [read more](http://developers.freshdesk.com/api/#view_company)
-- **listAllCompanies(callback)** - List all companies; [parameters](http://developers.freshdesk.com/api/#list_all_companies)
+- **searchCompany(params, callback)** - Get company by name; [read more](https://developers.freshdesk.com/api/#search_companies)
+- **listAllCompanies(params, callback)** - List all companies; [parameters](http://developers.freshdesk.com/api/#list_all_companies)
 - **updateCompany(id, data, callback)** - Update a company by ID; [parameters](http://developers.freshdesk.com/api/#update_company)
 - **deleteCompany(id, callback)** - Delete a company by ID, [read more](http://developers.freshdesk.com/api/#delete_company)
 - **filterCompanies(query, callback)** - Filter companies (beta), based on company fields, [read more](http://developers.freshdesk.com/api/#filter_companies)
