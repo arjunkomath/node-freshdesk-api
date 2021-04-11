@@ -81,6 +81,39 @@ describe('api.companies', function(){
 
 	})
 
+	describe('search for a company by name with query string', () => {
+
+		it('should send GET request to /api/v2/companies/autocomplete', (done) => {
+
+			let params = { 'name': 'Super Nova' }
+
+			const res = {
+				"companies": [
+					{
+						"id": 8,
+						"name": "Super Nova"
+					}
+				]
+			}
+
+
+			// SET UP expected request
+
+			nock('https://test.freshdesk.com')
+				.get(`/api/v2/companies/autocomplete`)
+				.query(params)
+				.reply(200, res)
+
+			freshdesk.searchCompany(params, (err, data) => {
+				expect(err).is.null
+				expect(data).to.deep.equal(res)
+				done()
+			})
+
+		})
+
+	})
+
 	describe('list all companies', () => {
 
 		it('should send GET request to /api/v2/companies', (done) => {
