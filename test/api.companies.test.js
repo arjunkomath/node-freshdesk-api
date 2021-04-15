@@ -81,33 +81,30 @@ describe('api.companies', function(){
 
 	})
 
-	describe('list all companies', () => {
+	describe('search for a company by name with query string', () => {
 
-		it('should send GET request to /api/v2/companies', (done) => {
+		it('should send GET request to /api/v2/companies/autocomplete', (done) => {
 
-			const res = [
-				{
-					"id":8,
-					"name":"Super Nova",
-					"description":"Space Shuttle Manufacturing",
-					"domains":["supernova","nova","super"],
-					"note":null,
-					"created_at":"2014-01-08T09:08:53+05:30",
-					"updated_at":"2014-01-08T09:08:53+05:30",
-					"custom_fields" : {
-						"website": "https://www.supernova.org",
-						"address": "123, Baker Street,\r\nNew York"
+			let params = { 'name': 'Super Nova' }
+
+			const res = {
+				"companies": [
+					{
+						"id": 8,
+						"name": "Super Nova"
 					}
-				}]
+				]
+			}
 
 
 			// SET UP expected request
 
 			nock('https://test.freshdesk.com')
-				.get(`/api/v2/companies`)
+				.get(`/api/v2/companies/autocomplete`)
+				.query(params)
 				.reply(200, res)
 
-			freshdesk.listAllCompanies((err, data) => {
+			freshdesk.searchCompany(params, (err, data) => {
 				expect(err).is.null
 				expect(data).to.deep.equal(res)
 				done()
@@ -115,6 +112,49 @@ describe('api.companies', function(){
 
 		})
 
+	})
+
+	describe('list all companies', () => {
+
+		describe('without params', () => {
+
+			let res = null
+
+			beforeEach(() => {
+
+				res = [
+					{
+						"id":8,
+						"name":"Super Nova",
+						"description":"Space Shuttle Manufacturing",
+						"domains":["supernova","nova","super"],
+						"note":null,
+						"created_at":"2014-01-08T09:08:53+05:30",
+						"updated_at":"2014-01-08T09:08:53+05:30",
+						"custom_fields" : {
+							"website": "https://www.supernova.org",
+							"address": "123, Baker Street,\r\nNew York"
+						}
+					}]
+
+
+				// SET UP expected request
+
+				nock('https://test.freshdesk.com')
+					.get(`/api/v2/companies`)
+					.reply(200, res)
+
+			})
+
+			it('should send GET request to /api/v2/companies', (done) => {
+
+				freshdesk.listAllCompanies((err, data) => {
+					expect(err).is.null
+					expect(data).to.deep.equal(res)
+					done()
+				})
+			})
+		})
 	})
 
 	describe('filter companies', () => {
@@ -142,7 +182,6 @@ describe('api.companies', function(){
 					}
 				]
 			}
-
 
 			// SET UP expected request
 
