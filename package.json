@@ -47,7 +47,7 @@
     "eslint": "^7.6.0",
     "eslint-config-volebo": "^2.3.5",
     "jsdoc": "^3.6.5",
-    "mocha": "^8.1.1",
+    "mocha": "^9.0.2",
     "nock": "13.0.11",
     "nyc": "^15.1.0"
   },
