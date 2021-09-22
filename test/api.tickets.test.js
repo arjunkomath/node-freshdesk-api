@@ -264,7 +264,7 @@ describe('api.tickets', function () {
 					"fr_due_by": "2015-07-10T13:08:06Z",
 					"description_text": "Some details on the issue ...",
 					"description": "<div>Some details on the issue ..</div>",
-					"tags": [],
+					"tags": ["tag1", "tag2"],
 					"attachments": [],
 				}
 
