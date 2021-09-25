@@ -45,7 +45,7 @@ describe('api.error', function(){
 				expect(err).has.property('status', 400)
 				expect(err).has.property('message', "Error in Freshdesk's client API")
 				expect(err).has.property('data').to.deep.equal({msg: "err 123"})
-				expect(err).has.property('apiTarget').to.equal('GET https://test.freshdesk.com/api/v2/companies/2139')
+				expect(err).has.property('apiTarget').to.equal('GET /api/v2/companies/2139')
 
 				done()
 			})
