@@ -54,7 +54,8 @@
   "dependencies": {
     "axios": "^0.21.4",
     "bluebird": "^3.7.2",
-    "debug": "^4.1.1"
+    "debug": "^4.1.1",
+    "form-data": "^4.0.0"
   },
   "publishConfig": {
     "tag": "latest",
