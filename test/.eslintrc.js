@@ -16,13 +16,13 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-'use strict'
+"use strict";
 
 exports = module.exports = {
-	"env": {
-		"mocha": true,
+	env: {
+		mocha: true,
 	},
-	"globals": {
-		"expect": true,
-	}
-}
+	globals: {
+		expect: true,
+	},
+};

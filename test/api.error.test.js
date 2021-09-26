@@ -16,64 +16,65 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-'use strict'
+"use strict";
 
-const nock = require('nock')
+const nock = require("nock");
 
-const Freshdesk = require('..')
+const Freshdesk = require("..");
 
-describe('api.error', function(){
-
+describe("api.error", function () {
 	//this.timeout(5000)
 	//this.slow(3000)
 
-	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
+	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
 
-	describe('on API response status 400', () => {
-
-		before(()=>{
-			nock('https://test.freshdesk.com')
+	describe("on API response status 400", () => {
+		before(() => {
+			nock("https://test.freshdesk.com")
 				.get(/.*/)
-				.reply(400, {msg:"err 123"})
-		})
+				.reply(400, { msg: "err 123" });
+		});
 
-		it('should pass FreshdeskError to callback', (done) => {
-
+		it("should pass FreshdeskError to callback", (done) => {
 			freshdesk.getCompany(2139, (err) => {
-				expect(err).is.not.null
-				expect(err).to.be.instanceof(Freshdesk.FreshdeskError)
-				expect(err).has.property('status', 400)
-				expect(err).has.property('message', "Error in Freshdesk's client API")
-				expect(err).has.property('data').to.deep.equal({msg: "err 123"})
-				expect(err).has.property('apiTarget').to.equal('GET /api/v2/companies/2139')
+				expect(err).is.not.null;
+				expect(err).to.be.instanceof(Freshdesk.FreshdeskError);
+				expect(err).has.property("status", 400);
+				expect(err).has.property(
+					"message",
+					"Error in Freshdesk's client API"
+				);
+				expect(err)
+					.has.property("data")
+					.to.deep.equal({ msg: "err 123" });
+				expect(err)
+					.has.property("apiTarget")
+					.to.equal("GET /api/v2/companies/2139");
 
-				done()
-			})
+				done();
+			});
 
 			//throw(Freshdesk.FreshdeskError)
-		})
-	})
+		});
+	});
 
-
-	describe('on network error', () => {
-
-		before(()=>{
-			nock('https://test.freshdesk.com')
+	describe("on network error", () => {
+		before(() => {
+			nock("https://test.freshdesk.com")
 				.get(/.*/)
-				.replyWithError('my network error')
-		})
+				.replyWithError("my network error");
+		});
 
-		it('should pass Error to callback', (done) => {
-
+		it("should pass Error to callback", (done) => {
 			freshdesk.getTicket(111, (err) => {
-				expect(err).is.not.null
-				expect(err).to.be.instanceof(Error)
-				expect(err).has.property('message', "my network error")
+				expect(err).is.not.null;
+				expect(err).to.be.instanceof(Error);
+				expect(err).has.property("message", "my network error");
 
-				done()
-			})
+				done();
+			});
 
 			//throw(Freshdesk.FreshdeskError)
-		})
-	})
-})
+		});
+	});
+});

@@ -17,227 +17,198 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-'use strict'
+"use strict";
 
-const nock = require('nock')
+const nock = require("nock");
 
-const Freshdesk = require('..')
+const Freshdesk = require("..");
 
-describe('api.companies', function(){
+describe("api.companies", function () {
+	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
 
-	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
-
-	describe('create', () => {
-
-		it('should send POST request to /api/v2/companies', (done) => {
-
+	describe("create", () => {
+		it("should send POST request to /api/v2/companies", (done) => {
 			const res = {
-				"id": 1000,
-				"name": "ACME"}
-
+				id: 1000,
+				name: "ACME",
+			};
 
 			// SET UP expected request
 
-			nock('https://test.freshdesk.com')
+			nock("https://test.freshdesk.com")
 				.post(`/api/v2/companies`, {
-					"name": "ACME"
+					name: "ACME",
 				})
-				.reply(200, res)
+				.reply(200, res);
 
-			freshdesk.createCompany({"name": "ACME"}, (err, data) => {
-				expect(err).is.null
-				expect(data).to.deep.equal(res)
-				done()
-			})
+			freshdesk.createCompany({ name: "ACME" }, (err, data) => {
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				done();
+			});
+		});
+	});
 
-		})
-
-	})
-
-	describe('update', () => {
-
-		it('should send PUT request to /api/v2/companies', (done) => {
-
+	describe("update", () => {
+		it("should send PUT request to /api/v2/companies", (done) => {
 			const res = {
-				"id": 1000,
-				"name": "ACME"}
-
+				id: 1000,
+				name: "ACME",
+			};
 
 			// SET UP expected request
 
-			nock('https://test.freshdesk.com')
+			nock("https://test.freshdesk.com")
 				.put(`/api/v2/companies/1000`, {
-					"name": "ACME"
+					name: "ACME",
 				})
-				.reply(200, res)
+				.reply(200, res);
 
-			freshdesk.updateCompany(1000, {"name": "ACME"}, (err, data) => {
-				expect(err).is.null
-				expect(data).to.deep.equal(res)
-				done()
-			})
+			freshdesk.updateCompany(1000, { name: "ACME" }, (err, data) => {
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				done();
+			});
+		});
+	});
 
-		})
-
-	})
-
-	describe('search for a company by name with query string', () => {
-
-		it('should send GET request to /api/v2/companies/autocomplete', (done) => {
-
-			let params = { 'name': 'Super Nova' }
+	describe("search for a company by name with query string", () => {
+		it("should send GET request to /api/v2/companies/autocomplete", (done) => {
+			let params = { name: "Super Nova" };
 
 			const res = {
-				"companies": [
+				companies: [
 					{
-						"id": 8,
-						"name": "Super Nova"
-					}
-				]
-			}
-
+						id: 8,
+						name: "Super Nova",
+					},
+				],
+			};
 
 			// SET UP expected request
 
-			nock('https://test.freshdesk.com')
+			nock("https://test.freshdesk.com")
 				.get(`/api/v2/companies/autocomplete`)
 				.query(params)
-				.reply(200, res)
+				.reply(200, res);
 
 			freshdesk.searchCompany(params, (err, data) => {
-				expect(err).is.null
-				expect(data).to.deep.equal(res)
-				done()
-			})
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				done();
+			});
+		});
+	});
 
-		})
-
-	})
-
-	describe('list all companies', () => {
-
-		describe('without params', () => {
-
-			let res = null
+	describe("list all companies", () => {
+		describe("without params", () => {
+			let res = null;
 
 			beforeEach(() => {
-
 				res = [
 					{
-						"id":8,
-						"name":"Super Nova",
-						"description":"Space Shuttle Manufacturing",
-						"domains":["supernova","nova","super"],
-						"note":null,
-						"created_at":"2014-01-08T09:08:53+05:30",
-						"updated_at":"2014-01-08T09:08:53+05:30",
-						"custom_fields" : {
-							"website": "https://www.supernova.org",
-							"address": "123, Baker Street,\r\nNew York"
-						}
-					}]
-
+						id: 8,
+						name: "Super Nova",
+						description: "Space Shuttle Manufacturing",
+						domains: ["supernova", "nova", "super"],
+						note: null,
+						created_at: "2014-01-08T09:08:53+05:30",
+						updated_at: "2014-01-08T09:08:53+05:30",
+						custom_fields: {
+							website: "https://www.supernova.org",
+							address: "123, Baker Street,\r\nNew York",
+						},
+					},
+				];
 
 				// SET UP expected request
 
-				nock('https://test.freshdesk.com')
+				nock("https://test.freshdesk.com")
 					.get(`/api/v2/companies`)
-					.reply(200, res)
+					.reply(200, res);
+			});
 
-			})
-
-			it('should send GET request to /api/v2/companies', (done) => {
-
+			it("should send GET request to /api/v2/companies", (done) => {
 				freshdesk.listAllCompanies((err, data) => {
-					expect(err).is.null
-					expect(data).to.deep.equal(res)
-					done()
-				})
-			})
-		})
-	})
+					expect(err).is.null;
+					expect(data).to.deep.equal(res);
+					done();
+				});
+			});
+		});
+	});
 
-	describe('filter companies', () => {
-
-		it('should send GET request to /api/v2/search/companies with query string', (done) => {
-
+	describe("filter companies", () => {
+		it("should send GET request to /api/v2/search/companies with query string", (done) => {
 			const res = {
-				"total":1,
-				"results":[
+				total: 1,
+				results: [
 					{
-						"id": 33,
-						"name": "Lex Corp",
-						"description": "Sales and Marketing",
-						"note": "Sales division of Alexander Luthor's companies",
-						"domains": [
-							"lexcorp.org",
-							"lexcorp.us"
-						],
-						"custom_fields": {
-							"sector": 5,
-							"private": true
+						id: 33,
+						name: "Lex Corp",
+						description: "Sales and Marketing",
+						note: "Sales division of Alexander Luthor's companies",
+						domains: ["lexcorp.org", "lexcorp.us"],
+						custom_fields: {
+							sector: 5,
+							private: true,
 						},
-						"created_at": "2017-12-15T06:34:09Z",
-						"updated_at": "2017-12-15T06:34:09Z"
-					}
-				]
-			}
+						created_at: "2017-12-15T06:34:09Z",
+						updated_at: "2017-12-15T06:34:09Z",
+					},
+				],
+			};
 
 			// SET UP expected request
 
-			const filter = "domain:lexcorp.org"
+			const filter = "domain:lexcorp.org";
 
-			nock('https://test.freshdesk.com')
+			nock("https://test.freshdesk.com")
 				.get(`/api/v2/search/companies?query=%22domain:lexcorp.org%22`)
-				.reply(200, res)
+				.reply(200, res);
 
 			freshdesk.filterCompanies(filter, (err, data) => {
-				expect(err).is.null
-				expect(data).to.deep.equal(res)
-				done()
-			})
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				done();
+			});
+		});
+	});
 
-		})
-
-	})
-
-	describe('listAllCompanyFields', () => {
-
-		describe('without params', () => {
-
-			let res = null
+	describe("listAllCompanyFields", () => {
+		describe("without params", () => {
+			let res = null;
 
 			beforeEach(() => {
 				res = [
 					{
-						"id":1,
-						"name":"name",
-						"label":"Company name",
-						"field_type":"default_name",
-						"required_for_agent":true,
-						"position":1,
-						"default":true,
-						"created_at":"2014-12-12T12:29:46+05:30",
-						"updated_at":"2014-12-12T12:29:46+05:30"
-					}]
+						id: 1,
+						name: "name",
+						label: "Company name",
+						field_type: "default_name",
+						required_for_agent: true,
+						position: 1,
+						default: true,
+						created_at: "2014-12-12T12:29:46+05:30",
+						updated_at: "2014-12-12T12:29:46+05:30",
+					},
+				];
 
 				// SET UP expected request
-				nock('https://test.freshdesk.com')
-					.get('/api/v2/company_fields')
+				nock("https://test.freshdesk.com")
+					.get("/api/v2/company_fields")
 					//.query({})
-					.reply(200, res)
-			})
+					.reply(200, res);
+			});
 
-			it('should send GET request to /api/v2/company_fields', function(done) {
+			it("should send GET request to /api/v2/company_fields", function (done) {
 				freshdesk.listAllCompanyFields((err, data) => {
-					expect(err).is.null
-					expect(data).to.deep.equal(res)
+					expect(err).is.null;
+					expect(data).to.deep.equal(res);
 
-					done()
-				})
-			})
-
-		})
-
-	})
-})
+					done();
+				});
+			});
+		});
+	});
+});

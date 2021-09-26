@@ -16,41 +16,37 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-'use strict'
+"use strict";
 
-const nock = require('nock')
+const nock = require("nock");
 
-const Freshdesk = require('../lib/client')
+const Freshdesk = require("../lib/client");
 
-describe('api.settings', function () {
+describe("api.settings", function () {
+	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
 
-	const freshdesk = new Freshdesk('https://test.freshdesk.com', 'TESTKEY')
-
-	describe('get', () => {
-
-		it('should send GET request to /api/v2/settings/helpdesk', (done) => {
-
+	describe("get", () => {
+		it("should send GET request to /api/v2/settings/helpdesk", (done) => {
 			const res = {
-				"id": 22000991607,
-				"deleted": false,
-				"description": null,
-				"email": "gwuzi@mail.ru",
-				"name": "Clark Kent"
-			}
+				id: 22000991607,
+				deleted: false,
+				description: null,
+				email: "gwuzi@mail.ru",
+				name: "Clark Kent",
+			};
 
 			// SET UP expected request
 
-			nock('https://test.freshdesk.com')
-				.get('/api/v2/settings/helpdesk')
-				.reply(200, res)
-
+			nock("https://test.freshdesk.com")
+				.get("/api/v2/settings/helpdesk")
+				.reply(200, res);
 
 			freshdesk.getSettings((err, data, extra) => {
-				expect(err).is.null
-				expect(data).to.deep.equal(res)
-				expect(extra).to.exist
-				done()
-			})
-		})
-	})
-})
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				expect(extra).to.exist;
+				done();
+			});
+		});
+	});
+});
