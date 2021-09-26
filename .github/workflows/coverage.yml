@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: npm ci
-      - run: npm run coverage
+      - run: npx nyc --reporter=lcov npm test
       - uses: codecov/codecov-action@v2
         with:
           verbose: true # optional (default = false)
