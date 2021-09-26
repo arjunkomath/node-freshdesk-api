@@ -16,14 +16,12 @@ program. If not, see <https://opensource.org/licenses/MIT>.
 http://spdx.org/licenses/MIT
 */
 
-'use strict'
+"use strict";
 
-const freshdesk = require('..')
+const freshdesk = require("..");
 
-describe('module test', function(){
-
-	it('should export Freshdesk constructor', () => {
-
-		expect(freshdesk).to.be.a('function')
-	})
-})
+describe("module test", function () {
+	it("should export Freshdesk constructor", () => {
+		expect(freshdesk).to.be.a("function");
+	});
+});

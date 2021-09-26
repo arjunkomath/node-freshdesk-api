@@ -1,7 +1,7 @@
 If you experience troubles with `freshdesk-api` lib, please provide as much as possible information below
 
-* [ ] freshdesk-api V2
-* [ ] freshdesk-api V1 (obsolete)
+-   [ ] freshdesk-api V2
+-   [ ] freshdesk-api V1 (obsolete)
 
 ## Current behavior
 
