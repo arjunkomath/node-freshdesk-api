@@ -54,12 +54,11 @@ http://spdx.org/licenses/MIT
  * @author Roniger &lt;https://github.com/roniger>
  */
 
-'use strict'
+"use strict";
 
-const utils = require('./utils')
-const makeRequest = utils.makeRequest
-const FreshdeskError = utils.FreshdeskError
-
+const utils = require("./utils");
+const makeRequest = utils.makeRequest;
+const FreshdeskError = utils.FreshdeskError;
 
 /**
  * Freshdesk APIv2 client.
@@ -68,7 +67,6 @@ const FreshdeskError = utils.FreshdeskError
  * @public
  */
 class Freshdesk {
-
 	/**
 	 * This callback is called on API call ended.
 	 * @name Freshdesk.requestCallback
@@ -86,8 +84,9 @@ class Freshdesk {
 	 * @public
 	 */
 	constructor(baseUrl, apiKey) {
-		this.baseUrl = baseUrl
-		this._auth = 'Basic ' + Buffer.from(`${apiKey}:X`, 'utf-8').toString('base64')
+		this.baseUrl = baseUrl;
+		this._auth =
+			"Basic " + Buffer.from(`${apiKey}:X`, "utf-8").toString("base64");
 	}
 
 	/**
@@ -113,7 +112,14 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	listAllTickets(params, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/tickets`, params, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets`,
+			params,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -125,104 +131,246 @@ class Freshdesk {
 	filterTickets(query, page, cb) {
 		// param shift
 		if (utils.isNil(page) &amp;&amp; utils.isFunction(page)) {
-			cb = page
-			page = 1
+			cb = page;
+			page = 1;
 		}
 
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/search/tickets?query="${encodeURI(query)}"&amp;page=${page}`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/search/tickets?query="${encodeURI(
+				query
+			)}"&amp;page=${page}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	listAllTicketFields(params, cb) {
 		// param shift
 		if (utils.isNil(cb) &amp;&amp; utils.isFunction(params)) {
-			cb = params
-			params = undefined
+			cb = params;
+			params = undefined;
 		}
 
-		const qs = {}
+		const qs = {};
 		if (params) {
 			if (params.type) {
-				qs['type'] = params.type
+				qs["type"] = params.type;
 			}
 		}
 
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/ticket_fields`, qs, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/ticket_fields`,
+			qs,
+			null,
+			cb
+		);
 	}
 
 	createTicket(data, cb) {
-		makeRequest('POST', this._auth, `${this.baseUrl}/api/v2/tickets`, null, data, cb)
+		makeRequest(
+			"POST",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	getTicket(id, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/tickets/${id}`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	updateTicket(id, data, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/tickets/${id}`, null, data, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	deleteTicket(id, cb) {
-		makeRequest('DELETE', this._auth, `${this.baseUrl}/api/v2/tickets/${id}`, null, null, cb)
+		makeRequest(
+			"DELETE",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	restoreTicket(id, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/tickets/${id}/restore`, null, null, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}/restore`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	listAllConversations(id, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/tickets/${id}/conversations`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}/conversations`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	listAllTicketTimeEntries(id, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/tickets/${id}/time_entries`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}/time_entries`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	//Conversations
 
 	createReply(id, data, cb) {
-		makeRequest('POST', this._auth, `${this.baseUrl}/api/v2/tickets/${id}/reply`, null, data, cb)
+		makeRequest(
+			"POST",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}/reply`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	createNote(id, data, cb) {
-		makeRequest('POST', this._auth, `${this.baseUrl}/api/v2/tickets/${id}/notes`, null, data, cb)
+		makeRequest(
+			"POST",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${id}/notes`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	updateConversation(id, data, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/conversations/${id}`, null, data, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/conversations/${id}`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	deleteConversation(id, cb) {
-		makeRequest('DELETE', this._auth, `${this.baseUrl}/api/v2/conversations/${id}`, null, null, cb)
+		makeRequest(
+			"DELETE",
+			this._auth,
+			`${this.baseUrl}/api/v2/conversations/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	//Contacts
 
 	createContact(data, cb) {
-		makeRequest('POST', this._auth, `${this.baseUrl}/api/v2/contacts`, null, data, cb)
+		makeRequest(
+			"POST",
+			this._auth,
+			`${this.baseUrl}/api/v2/contacts`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	getContact(id, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/contacts/${id}`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/contacts/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	listAllContacts(params, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/contacts`, params, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/contacts`,
+			params,
+			null,
+			cb
+		);
 	}
 
 	updateContact(id, data, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/contacts/${id}`, null, data, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/contacts/${id}`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	deleteContact(id, cb) {
-		makeRequest('DELETE', this._auth, `${this.baseUrl}/api/v2/contacts/${id}`, null, null, cb)
+		makeRequest(
+			"DELETE",
+			this._auth,
+			`${this.baseUrl}/api/v2/contacts/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	makeAgent(id, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/contacts/${id}/make_agent`, null, null, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/contacts/${id}/make_agent`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	listAllContactFields(cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/contact_fields`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/contact_fields`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -243,10 +391,16 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	filterContacts(query, cb) {
-		const encodedQuery = encodeURI(query)
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/search/contacts?query="${encodedQuery}"`, null, null, cb)
+		const encodedQuery = encodeURI(query);
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/search/contacts?query="${encodedQuery}"`,
+			null,
+			null,
+			cb
+		);
 	}
-
 
 	// =========================================================================
 	// Agents
@@ -327,7 +481,14 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	getAgent(id, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/agents/${id}`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/agents/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -342,7 +503,14 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	listAllAgents(params, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/agents`, params, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/agents`,
+			params,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -358,7 +526,14 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	updateAgent(id, data, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/agents/${id}`, null, data, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/agents/${id}`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	/**
@@ -373,7 +548,14 @@ class Freshdesk {
 	 *
 	 */
 	deleteAgent(id, cb) {
-		makeRequest('DELETE', this._auth, `${this.baseUrl}/api/v2/agents/${id}`, null, null, cb)
+		makeRequest(
+			"DELETE",
+			this._auth,
+			`${this.baseUrl}/api/v2/agents/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -387,7 +569,14 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	currentAgent(cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/agents/me`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/agents/me`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	// Roles
@@ -403,7 +592,14 @@ class Freshdesk {
 	 * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
 	 */
 	getRole(id, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/roles/${id}`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/roles/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -417,7 +613,14 @@ class Freshdesk {
 	 * @return {void}          `void`
 	 */
 	listAllRoles(cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/roles`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/roles`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	// Companies
@@ -464,7 +667,14 @@ class Freshdesk {
 	 * @return {void}          `void`
 	 */
 	createCompany(data, cb) {
-		makeRequest('POST', this._auth, `${this.baseUrl}/api/v2/companies`, null, data, cb);
+		makeRequest(
+			"POST",
+			this._auth,
+			`${this.baseUrl}/api/v2/companies`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	/**
@@ -479,10 +689,17 @@ class Freshdesk {
 	 * Callback function
 	 */
 	getCompany(id, cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/companies/${id}`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/companies/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
-		/**
+	/**
 	 * Search Companies.
 	 *
 	 * @see {@link https://developers.freshdesk.com/api/#search_companies}
@@ -496,18 +713,25 @@ class Freshdesk {
 	searchCompany(params, cb) {
 		// param shift
 		if (utils.isNil(cb) &amp;&amp; utils.isFunction(params)) {
-			cb = params
-			params = undefined
+			cb = params;
+			params = undefined;
 		}
 
-		const qs = {}
+		const qs = {};
 		if (params) {
 			if (params.name) {
-				qs['name'] = params.name
+				qs["name"] = params.name;
 			}
 		}
 
-		makeRequest("GET", this._auth, `${this.baseUrl}/api/v2/companies/autocomplete`, qs, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/companies/autocomplete`,
+			qs,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -524,18 +748,25 @@ class Freshdesk {
 	listAllCompanies(params, cb) {
 		// param shift
 		if (utils.isNil(cb) &amp;&amp; utils.isFunction(params)) {
-			cb = params
-			params = undefined
+			cb = params;
+			params = undefined;
 		}
 
-		const qs = {}
+		const qs = {};
 		if (params) {
 			if (params.page) {
-				qs['page'] = params.page
+				qs["page"] = params.page;
 			}
 		}
 
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/companies`, qs, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/companies`,
+			qs,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -556,12 +787,26 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	filterCompanies(query, cb) {
-		const encodedQuery = encodeURI(query)
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/search/companies?query="${encodedQuery}"`, null, null, cb)
+		const encodedQuery = encodeURI(query);
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/search/companies?query="${encodedQuery}"`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	listAllCompanyFields(cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/company_fields`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/company_fields`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -577,7 +822,14 @@ class Freshdesk {
 	 * @return {void}          `void`
 	 */
 	updateCompany(id, data, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/companies/${id}`, null, data, cb);
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/companies/${id}`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	/**
@@ -595,7 +847,14 @@ class Freshdesk {
 	 * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
 	 */
 	deleteCompany(id, cb) {
-		makeRequest('DELETE', this._auth, `${this.baseUrl}/api/v2/companies/${id}`, null, null, cb)
+		makeRequest(
+			"DELETE",
+			this._auth,
+			`${this.baseUrl}/api/v2/companies/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	// =========================================================================
@@ -656,7 +915,14 @@ class Freshdesk {
 	 * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
 	 */
 	createTimeEntry(ticket_id, data, cb) {
-		makeRequest('POST', this._auth, `${this.baseUrl}/api/v2/tickets/${ticket_id}/time_entries`, null, data, cb);
+		makeRequest(
+			"POST",
+			this._auth,
+			`${this.baseUrl}/api/v2/tickets/${ticket_id}/time_entries`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	/**
@@ -676,28 +942,35 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	listAllTimeEntries(params, cb) {
-		const qs = {}
+		const qs = {};
 
 		if (params) {
-			if ('billable' in params) {
-				qs.billable = Boolean(params.billable).toString()
+			if ("billable" in params) {
+				qs.billable = Boolean(params.billable).toString();
 			}
 
-			if ('executed_before' in params) {
-				qs.executed_before = params.executed_before.toISOString()
+			if ("executed_before" in params) {
+				qs.executed_before = params.executed_before.toISOString();
 			}
-			if ('executed_after' in params) {
-				qs.executed_after = params.executed_after.toISOString()
-			}
-
-			if ('page' in params) {
-				qs.page = params.page
+			if ("executed_after" in params) {
+				qs.executed_after = params.executed_after.toISOString();
 			}
 
-			qs.company_id = params.company_id
-			qs.agent_id = params.agent_id
+			if ("page" in params) {
+				qs.page = params.page;
+			}
+
+			qs.company_id = params.company_id;
+			qs.agent_id = params.agent_id;
 		}
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/time_entries`, qs, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/time_entries`,
+			qs,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -720,7 +993,14 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	updateTimeEntry(id, data, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/time_entries/${id}`, null, data, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/time_entries/${id}`,
+			null,
+			data,
+			cb
+		);
 	}
 
 	/**
@@ -735,7 +1015,14 @@ class Freshdesk {
 	 * Callback function {@link Freshdesk.requestCallback}
 	 */
 	toggleTimer(id, cb) {
-		makeRequest('PUT', this._auth, `${this.baseUrl}/api/v2/time_entries/${id}/toggle_timer`, null, null, cb)
+		makeRequest(
+			"PUT",
+			this._auth,
+			`${this.baseUrl}/api/v2/time_entries/${id}/toggle_timer`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	/**
@@ -752,7 +1039,14 @@ class Freshdesk {
 	 * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
 	 */
 	deleteTimeEntry(id, cb) {
-		makeRequest('DELETE', this._auth, `${this.baseUrl}/api/v2/time_entries/${id}`, null, null, cb)
+		makeRequest(
+			"DELETE",
+			this._auth,
+			`${this.baseUrl}/api/v2/time_entries/${id}`,
+			null,
+			null,
+			cb
+		);
 	}
 
 	// =========================================================================
@@ -769,13 +1063,20 @@ class Freshdesk {
 	 * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
 	 */
 	getSettings(cb) {
-		makeRequest('GET', this._auth, `${this.baseUrl}/api/v2/settings/helpdesk`, null, null, cb)
+		makeRequest(
+			"GET",
+			this._auth,
+			`${this.baseUrl}/api/v2/settings/helpdesk`,
+			null,
+			null,
+			cb
+		);
 	}
 }
 
-module.exports = Freshdesk
+module.exports = Freshdesk;
 
-module.exports.FreshdeskError = FreshdeskError
+module.exports.FreshdeskError = FreshdeskError;
 </code></pre>
         </article>
     </section>
@@ -792,7 +1093,7 @@ module.exports.FreshdeskError = FreshdeskError
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sun Sep 26 2021 00:25:02 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sun Sep 26 2021 02:57:25 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
