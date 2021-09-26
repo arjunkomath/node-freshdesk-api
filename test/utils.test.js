@@ -50,4 +50,36 @@ describe("utils.test", function () {
 			});
 		});
 	});
+
+	describe("createResponseHandler", () => {
+		const cb = (error, data) => {
+			return error || data;
+		};
+
+		it(`should handle error`, () => {
+			const error = new Error("test error");
+			const act = utils.createResponseHandler(cb)(error, {}, {});
+
+			expect(act).equal(cb(error));
+		});
+
+		it(`should handle 404 response`, () => {
+			const body = { foo: "bar" };
+			const act = utils.createResponseHandler(cb)(
+				null,
+				{
+					status: 404,
+					request: {},
+					response: {},
+					headers: {},
+					data: body,
+				},
+				body
+			);
+
+			expect(act).to.be.instanceof(utils.FreshdeskError);
+			expect(act.message).equal("The requested entity was not found");
+			expect(act.data).equal(body);
+		});
+	});
 });
