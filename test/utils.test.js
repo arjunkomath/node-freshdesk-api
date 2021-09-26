@@ -50,4 +50,17 @@ describe("utils.test", function () {
 			});
 		});
 	});
+
+	describe("createResponseHandler", () => {
+		const cb = (error, data) => {
+			return error || data;
+		};
+
+		it(`should handle error`, () => {
+			const error = new Error("test error");
+			const act = utils.createResponseHandler(cb)(error, {}, {});
+
+			expect(act).equal(cb(error));
+		});
+	});
 });

@@ -28,6 +28,7 @@ describe("api.tickets", function () {
 	describe("listAllTicketFields", () => {
 		describe("without params", () => {
 			let res = null;
+			let requestId = "test-id";
 
 			beforeEach(() => {
 				res = [
@@ -47,11 +48,11 @@ describe("api.tickets", function () {
 				nock("https://test.freshdesk.com")
 					.get("/api/v2/ticket_fields")
 					//.query({})
-					.reply(200, res);
+					.reply(200, res, { "x-request-id": requestId });
 			});
 
 			it("should send GET request to /api/v2/ticket_fields", function (done) {
-				freshdesk.listAllTicketFields((err, data) => {
+				freshdesk.listAllTicketFields((err, data, extra) => {
 					expect(err).is.null;
 					expect(data).to.deep.equal(res);
 
@@ -65,7 +66,7 @@ describe("api.tickets", function () {
 					expect(data).to.deep.equal(res);
 					expect(extra)
 						.to.be.an("object")
-						.that.have.property("requestId", "");
+						.that.have.property("requestId", requestId);
 
 					done();
 				});
