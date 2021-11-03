@@ -3,12 +3,14 @@
   "version": "2.13.0",
   "description": "Node wrapper for Freshdesk v2 API",
   "main": "./lib/client",
+  "types": "./dist/client.d.ts",
   "scripts": {
     "test": "`npm bin`/mocha",
     "release": "node ./node_modules/gulp/bin/gulp.js && git push origin master --follow-tags",
     "lint": "`npm bin`/eslint ./",
     "coverage": "`npm bin`/nyc `npm bin`/_mocha",
-    "docs": "`npm bin`/jsdoc -c .jsdoc.rc"
+    "docs": "`npm bin`/jsdoc -c .jsdoc.rc",
+    "prepare": "tsc"
   },
   "keywords": [
     "freshdesk",
@@ -48,7 +50,8 @@
     "jsdoc": "^3.6.7",
     "mocha": "^8.1.1",
     "nock": "13.0.11",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "typescript": "^4.4.4"
   },
   "dependencies": {
     "axios": "^0.21.4",
