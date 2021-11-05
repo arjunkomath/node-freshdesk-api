@@ -65,3 +65,9 @@ jspm_packages
 
 tests
 .idea
+
+# Prettier
+.prettierignore
+.prettierrc
+CODE_OF_CONDUCT.md
+ISSUE_TEMPLATE.md
