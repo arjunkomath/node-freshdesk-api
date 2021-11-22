@@ -45,7 +45,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^7.6.0",
+    "eslint": "^8.3.0",
     "eslint-config-volebo": "^2.3.5",
     "jsdoc": "^3.6.7",
     "mocha": "^9.1.3",
