@@ -251,7 +251,7 @@ Not implemented: http://developers.freshdesk.com/api/#discussions
 -   **getSolutionCategory(id, cb)** - View a Solution Category [parameters](https://developer.freshdesk.com/api/#view_solution_category)
 -   **listAllSolutionCategories(cb)** - List all Solution Categories [parameters](https://developer.freshdesk.com/api/#list_all_solution_categories)
 -   **deleteSolutionCategory(id, cb)** - Delete a Solution Category [parameters](https://developer.freshdesk.com/api/#delete_solution_category)
--   **createSolutionFolder(data, cb)** - Create a Solution Folder [parameters](https://developer.freshdesk.com/api/#create_solution_folder)
+-   **createSolutionFolder(id, data, cb)** - Create a Solution Folder [parameters](https://developer.freshdesk.com/api/#create_solution_folder)
 -   **createTranslatedSolutionFolder(id, language_code, data, cb)** - Create a translated solution folder [parameters](https://developer.freshdesk.com/api/#create_solution_folder)
 -   **updateSolutionFolder(id, data, cb)** - Update a Solution Folder [parameters](https://developer.freshdesk.com/api/#update_solution_folder)
 -   **updateTranslatedSolutionFolder(id, language_code, data, cb)** - Update a translated solution folder [parameters](https://developer.freshdesk.com/api/#update_solution_folder)
