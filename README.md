@@ -244,7 +244,28 @@ Not implemented: http://developers.freshdesk.com/api/#discussions
 
 ### Solutions
 
-Not implemented: http://developers.freshdesk.com/api/#solutions
+-   **createSolutionCategory(data, cb)** - Create a Solution Category [parameters](https://developer.freshdesk.com/api/#create_solution_category)
+-   **createTranslatedSolutionCategory(id, language_code, data, cb)** - Create a translated solution category [parameters](https://developer.freshdesk.com/api/#create_solution_category)
+-   **updateSolutionCategory(id, data, cb)** - Update a Solution Category [parameters](https://developer.freshdesk.com/api/#update_solution_category)
+-   **updateTranslatedSolutionCategory(id, language_code, data, cb)** - Update a translated solution category [parameters](https://developer.freshdesk.com/api/#update_solution_category)
+-   **getSolutionCategory(id, cb)** - View a Solution Category [parameters](https://developer.freshdesk.com/api/#view_solution_category)
+-   **listAllSolutionCategories(cb)** - List all Solution Categories [parameters](https://developer.freshdesk.com/api/#list_all_solution_categories)
+-   **deleteSolutionCategory(id, cb)** - Delete a Solution Category [parameters](https://developer.freshdesk.com/api/#delete_solution_category)
+-   **createSolutionFolder(id, data, cb)** - Create a Solution Folder [parameters](https://developer.freshdesk.com/api/#create_solution_folder)
+-   **createTranslatedSolutionFolder(id, language_code, data, cb)** - Create a translated solution folder [parameters](https://developer.freshdesk.com/api/#create_solution_folder)
+-   **updateSolutionFolder(id, data, cb)** - Update a Solution Folder [parameters](https://developer.freshdesk.com/api/#update_solution_folder)
+-   **updateTranslatedSolutionFolder(id, language_code, data, cb)** - Update a translated solution folder [parameters](https://developer.freshdesk.com/api/#update_solution_folder)
+-   **getSolutionFolder(id, cb)** - View a Solution Folder [parameters](https://developer.freshdesk.com/api/#view_solution_folder)
+-   **listAllSolutionCategoryFolders(id, cb)** - List all Solution Folders in a Category [parameters](https://developer.freshdesk.com/api/#list_all_solution_folders)
+-   **deleteSolutionFolder(id, cb)** - Delete a Solution Folder [parameters](https://developer.freshdesk.com/api/#delete_solution_folder)
+-   **createSolutionArticle(id, data, cb)** - Create a Solution Article [parameters](https://developer.freshdesk.com/api/#create_solution_article)
+-   **createTranslatedSolutionArticle(id, language_code, data, cb)** - Create a translated solution article [parameters](https://developer.freshdesk.com/api/#create_solution_article)
+-   **updateSolutionArticle(id, data, cb)** - Update a Solution Article [parameters](https://developer.freshdesk.com/api/#update_solution_article)
+-   **updateTranslatedSolutionArticle(id, language_code, data, cb)** - Update a translated solution article [parameters](https://developer.freshdesk.com/api/#update_solution_article)
+-   **getSolutionArticle(id, cb)** - View a Solution Article [parameters](https://developer.freshdesk.com/api/#view_solution_article)
+-   **listAllSolutionFolderArticles(id, cb)** - List all Solution Articles in a Folder [parameters](https://developer.freshdesk.com/api/#list_all_solution_articles)
+-   **deleteSolutionArticle(id, cb)** - Delete a Solution Article [parameters](https://developer.freshdesk.com/api/#delete_solution_article)
+-   **searchSolutionArticles(term, cb)** - Search solution articles [parameters](https://developer.freshdesk.com/api/#search_solution_article)
 
 ### Surveys
 
@@ -293,6 +314,8 @@ Not implemented: http://developers.freshdesk.com/api/#sla-policies
 -   John Williamson [@velua]
 -   Ori Roniger [@roniger]
 -   Derrick Mehaffy [@derrickmehaffy]
+-   Joël Cox [@joelcox]
+-   Wouter van der Neut [@wvdneut]
 
 Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
 
