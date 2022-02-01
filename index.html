@@ -235,7 +235,30 @@ var asyncFreshdesk = Promise.promisifyAll(
 <h3 id="discussions">Discussions</h3>
 <p>Not implemented: http://developers.freshdesk.com/api/#discussions</p>
 <h3 id="solutions">Solutions</h3>
-<p>Not implemented: http://developers.freshdesk.com/api/#solutions</p>
+<ul>
+<li><strong>createSolutionCategory(data, cb)</strong> - Create a Solution Category <a href="https://developer.freshdesk.com/api/#create_solution_category">parameters</a></li>
+<li><strong>createTranslatedSolutionCategory(id, language_code, data, cb)</strong> - Create a translated solution category <a href="https://developer.freshdesk.com/api/#create_solution_category">parameters</a></li>
+<li><strong>updateSolutionCategory(id, data, cb)</strong> - Update a Solution Category <a href="https://developer.freshdesk.com/api/#update_solution_category">parameters</a></li>
+<li><strong>updateTranslatedSolutionCategory(id, language_code, data, cb)</strong> - Update a translated solution category <a href="https://developer.freshdesk.com/api/#update_solution_category">parameters</a></li>
+<li><strong>getSolutionCategory(id, cb)</strong> - View a Solution Category <a href="https://developer.freshdesk.com/api/#view_solution_category">parameters</a></li>
+<li><strong>listAllSolutionCategories(cb)</strong> - List all Solution Categories <a href="https://developer.freshdesk.com/api/#list_all_solution_categories">parameters</a></li>
+<li><strong>deleteSolutionCategory(id, cb)</strong> - Delete a Solution Category <a href="https://developer.freshdesk.com/api/#delete_solution_category">parameters</a></li>
+<li><strong>createSolutionFolder(id, data, cb)</strong> - Create a Solution Folder <a href="https://developer.freshdesk.com/api/#create_solution_folder">parameters</a></li>
+<li><strong>createTranslatedSolutionFolder(id, language_code, data, cb)</strong> - Create a translated solution folder <a href="https://developer.freshdesk.com/api/#create_solution_folder">parameters</a></li>
+<li><strong>updateSolutionFolder(id, data, cb)</strong> - Update a Solution Folder <a href="https://developer.freshdesk.com/api/#update_solution_folder">parameters</a></li>
+<li><strong>updateTranslatedSolutionFolder(id, language_code, data, cb)</strong> - Update a translated solution folder <a href="https://developer.freshdesk.com/api/#update_solution_folder">parameters</a></li>
+<li><strong>getSolutionFolder(id, cb)</strong> - View a Solution Folder <a href="https://developer.freshdesk.com/api/#view_solution_folder">parameters</a></li>
+<li><strong>listAllSolutionCategoryFolders(id, cb)</strong> - List all Solution Folders in a Category <a href="https://developer.freshdesk.com/api/#list_all_solution_folders">parameters</a></li>
+<li><strong>deleteSolutionFolder(id, cb)</strong> - Delete a Solution Folder <a href="https://developer.freshdesk.com/api/#delete_solution_folder">parameters</a></li>
+<li><strong>createSolutionArticle(id, data, cb)</strong> - Create a Solution Article <a href="https://developer.freshdesk.com/api/#create_solution_article">parameters</a></li>
+<li><strong>createTranslatedSolutionArticle(id, language_code, data, cb)</strong> - Create a translated solution article <a href="https://developer.freshdesk.com/api/#create_solution_article">parameters</a></li>
+<li><strong>updateSolutionArticle(id, data, cb)</strong> - Update a Solution Article <a href="https://developer.freshdesk.com/api/#update_solution_article">parameters</a></li>
+<li><strong>updateTranslatedSolutionArticle(id, language_code, data, cb)</strong> - Update a translated solution article <a href="https://developer.freshdesk.com/api/#update_solution_article">parameters</a></li>
+<li><strong>getSolutionArticle(id, cb)</strong> - View a Solution Article <a href="https://developer.freshdesk.com/api/#view_solution_article">parameters</a></li>
+<li><strong>listAllSolutionFolderArticles(id, cb)</strong> - List all Solution Articles in a Folder <a href="https://developer.freshdesk.com/api/#list_all_solution_articles">parameters</a></li>
+<li><strong>deleteSolutionArticle(id, cb)</strong> - Delete a Solution Article <a href="https://developer.freshdesk.com/api/#delete_solution_article">parameters</a></li>
+<li><strong>searchSolutionArticles(term, cb)</strong> - Search solution articles <a href="https://developer.freshdesk.com/api/#search_solution_article">parameters</a></li>
+</ul>
 <h3 id="surveys">Surveys</h3>
 <p>Not implemented: http://developers.freshdesk.com/api/#surveys</p>
 <h3 id="satisfaction-ratings">Satisfaction Ratings</h3>
@@ -270,6 +293,8 @@ var asyncFreshdesk = Promise.promisifyAll(
 <li>John Williamson <a href="http://jjs.life">@velua</a></li>
 <li>Ori Roniger <a href="https://github.com/roniger">@roniger</a></li>
 <li>Derrick Mehaffy [@derrickmehaffy]</li>
+<li>Joël Cox [@joelcox]</li>
+<li>Wouter van der Neut [@wvdneut]</li>
 </ul>
 <p>Feature Request, Bugs and Ideas can be added <a href="https://github.com/arjunkomath/node-freshdesk-api/issues">here.</a></p>
 <h2 id="about-author">About Author</h2>
@@ -292,7 +317,7 @@ var asyncFreshdesk = Promise.promisifyAll(
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed Dec 15 2021 08:13:48 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Feb 01 2022 10:39:06 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
