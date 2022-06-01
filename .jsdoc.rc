@@ -15,5 +15,14 @@
 	},
 	"markdown": {
 		"idInHeadings": true
-	}
+	},
+	"templates": {
+		"default": {
+			"staticFiles": {
+				"include": [
+					"./docs/custom.css" // file position
+				]
+			}
+		}
+  	}
 }
