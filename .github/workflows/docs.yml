@@ -19,6 +19,16 @@ jobs:
         with:
           config_file: .jsdoc.rc
           front_page: README.md
+      
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@2.0.0
+        with:
+          # A glob of files to include in our find and replace
+          include: 'index.html'
+          # The regular expression (or fixed string) we want to replace
+          find: '<!--SPONSOR-->'
+          # The new string to replace with
+          replace: '<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEAIC5QJ&placement=arjunkomathgithubio" id="_carbonads_js"></script>'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
