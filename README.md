@@ -7,6 +7,8 @@
 
 ## Thanks 💙
 
+<!--SPONSOR-->
+
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=aed42342d15d&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 <img height="60" src="https://resources.jetbrains.com/storage/products/company/brand/logos/WebStorm_icon.png"/>
 
