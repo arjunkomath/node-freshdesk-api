@@ -645,6 +645,43 @@ describe("api.solutions", function () {
 		});
 	});
 
+	describe("get a translated solution article", () => {
+		it("should send GET request to /api/v2/solutions/articles/NNNN/SSSS", (done) => {
+			const res = {
+				id: 2,
+				type: 1,
+				category_id: 3,
+				folder_id: 4,
+				thumbs_up: 0,
+				thumbs_down: 0,
+				hits: 0,
+				tags: [],
+				seo_data: {},
+				agent_id: 2,
+				title: "artículo de la muestra",
+				description: "actualizada descripción",
+				description_text: "actualizada descripción",
+				status: 2,
+				created_at: "2016-09-09T07:02:27Z",
+				updated_at: "2016-09-09T07:14:28Z",
+			};
+			const id = 2;
+			const language_code = "es";
+
+			// SET UP expected request
+
+			nock("https://test.freshdesk.com")
+				.get(`/api/v2/solutions/articles/2/es`)
+				.reply(200, res);
+
+			freshdesk.getTranslatedSolutionArticle(id, language_code, (err, data) => {
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				done();
+			});
+		});
+	});
+
 	describe("list all solution folder articles", () => {
 		it("should send GET request to /api/v2/solutions/folders/NNNN/articles", (done) => {
 			const res = [
