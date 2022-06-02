@@ -45,7 +45,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Array.<Freshdesk.Tickets>>}  cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    listAllTickets(params: any, cb: any): void;
+    listAllTickets(params: Freshdesk.TicketsFilter, cb: Freshdesk.requestCallback<Freshdesk.Tickets[]>): void;
     /**
      * Filter tickets
      * @param {*} query Query tickets, refer https://developers.freshdesk.com/api/#filter_tickets
@@ -89,7 +89,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Array.<Freshdesk.ContactViewData>>}  cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    filterContacts(query: string, cb: any): void;
+    filterContacts(query: string, cb: Freshdesk.requestCallback<Freshdesk.ContactViewData[]>): void;
     /**
      * Agent settings, for {@link updateAgent}.
      *
@@ -161,7 +161,7 @@ declare class Freshdesk {
      * @param {Freshdesk.requestCallback<Freshdesk.AgentResponse>} cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    getAgent(id: number, cb: any): void;
+    getAgent(id: number, cb: Freshdesk.requestCallback<Freshdesk.AgentResponse>): void;
     /**
      * List All Agents.
      *
@@ -173,7 +173,7 @@ declare class Freshdesk {
      * @param {Freshdesk.requestCallback<Array.<Freshdesk.AgentResponse>>}  cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    listAllAgents(params: any, cb: any): void;
+    listAllAgents(params: Freshdesk.AgentFilter, cb: Freshdesk.requestCallback<Freshdesk.AgentResponse[]>): void;
     /**
      * Update an Agent.
      *
@@ -186,7 +186,7 @@ declare class Freshdesk {
      * @param {Freshdesk.requestCallback<Freshdesk.AgentResponse>} cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    updateAgent(id: number, data: any, cb: any): void;
+    updateAgent(id: number, data: Freshdesk.AgentData, cb: Freshdesk.requestCallback<Freshdesk.AgentResponse>): void;
     /**
      * Delete an Agent.
      *
@@ -198,7 +198,7 @@ declare class Freshdesk {
      * @param {Freshdesk.requestCallback}  cb  Callback function {@link Freshdesk.requestCallback}
      *
      */
-    deleteAgent(id: number, cb: any): void;
+    deleteAgent(id: number, cb: Freshdesk.requestCallback): void;
     /**
      * Currently Authenticated Agent.
      *
@@ -209,7 +209,7 @@ declare class Freshdesk {
      * @param {Freshdesk.requestCallback<Freshdesk.AgentResponse>} cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    currentAgent(cb: any): void;
+    currentAgent(cb: Freshdesk.requestCallback<Freshdesk.AgentResponse>): void;
     /**
      * View a Role.
      *
@@ -220,7 +220,7 @@ declare class Freshdesk {
      * @param  {Number}                             id      Unique ID of the Role
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      */
-    getRole(id: number, cb: any): void;
+    getRole(id: number, cb: Freshdesk.requestCallback): void;
     /**
      * List All Roles.
      *
@@ -231,7 +231,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      * @return {void}          `void`
      */
-    listAllRoles(cb: any): void;
+    listAllRoles(cb: Freshdesk.requestCallback): void;
     /**
      * Company settings, for {@link updateCompany} and {@link createCompany}.
      *
@@ -271,7 +271,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      * @return {void}          `void`
      */
-    createCompany(data: any, cb: any): void;
+    createCompany(data: any, cb: Freshdesk.requestCallback): void;
     /**
      * View a Company.
      *
@@ -283,7 +283,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Freshdesk.CompanyViewData>}  cb
      * Callback function
      */
-    getCompany(id: number, cb: any): void;
+    getCompany(id: number, cb: Freshdesk.requestCallback<Freshdesk.CompanyViewData>): void;
     /**
      * Search Companies.
      *
@@ -295,7 +295,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Freshdesk.CompanyViewData>}  cb
      * Callback function
      */
-    searchCompany(params: any, cb: any): void;
+    searchCompany(params: any, cb: Freshdesk.requestCallback<Freshdesk.CompanyViewData>): void;
     /**
      * List All Companies.
      *
@@ -307,7 +307,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Array.<Freshdesk.CompanyViewData>>}  cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    listAllCompanies(params: any, cb: any): void;
+    listAllCompanies(params: any, cb: Freshdesk.requestCallback<Freshdesk.CompanyViewData[]>): void;
     /**
      * Filter Companies.
      *
@@ -325,7 +325,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Array.<Freshdesk.CompanyViewData>>}  cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    filterCompanies(query: string, cb: any): void;
+    filterCompanies(query: string, cb: Freshdesk.requestCallback<Freshdesk.CompanyViewData[]>): void;
     listAllCompanyFields(cb: any): void;
     /**
      * Updates company.
@@ -339,7 +339,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      * @return {void}          `void`
      */
-    updateCompany(id: number, data: any, cb: any): void;
+    updateCompany(id: number, data: Freshdesk.UpdateCompanyData, cb: Freshdesk.requestCallback): void;
     /**
      * Delete a Company.
      *
@@ -354,7 +354,7 @@ declare class Freshdesk {
      * @param  {Number}                             id      Company ID
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      */
-    deleteCompany(id: number, cb: any): void;
+    deleteCompany(id: number, cb: Freshdesk.requestCallback): void;
     /**
      * Time Entry data, returned by view-alike methods.
      *
@@ -406,7 +406,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.TimeEntryData}            data       New time entry data
      * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
      */
-    createTimeEntry(ticket_id: number, data: any, cb: any): void;
+    createTimeEntry(ticket_id: number, data: Freshdesk.TimeEntryData, cb: Freshdesk.requestCallback): void;
     /**
      * List All Time Entries
      *
@@ -429,7 +429,7 @@ declare class Freshdesk {
         executed_before?: Date;
         executed_after?: Date;
         billable?: boolean;
-    }, cb: any): void;
+    }, cb: Freshdesk.requestCallback<Freshdesk.TimeEntryResponse[]>): void;
     /**
      * Update a Time Entry
      *
@@ -449,7 +449,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Freshdesk.TimeEntryResponse>}  cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    updateTimeEntry(id: number, data: any, cb: any): void;
+    updateTimeEntry(id: number, data: Freshdesk.TimeEntryData, cb: Freshdesk.requestCallback<Freshdesk.TimeEntryResponse>): void;
     /**
      * Start/Stop Timer
      *
@@ -461,7 +461,7 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback<Freshdesk.TimeEntryResponse>} cb
      * Callback function {@link Freshdesk.requestCallback}
      */
-    toggleTimer(id: number, cb: any): void;
+    toggleTimer(id: number, cb: Freshdesk.requestCallback<Freshdesk.TimeEntryResponse>): void;
     /**
      * Delete a Time Entry
      *
@@ -475,7 +475,408 @@ declare class Freshdesk {
      * @param  {Number}                             id      Time entry ID
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      */
-    deleteTimeEntry(id: number, cb: any): void;
+    deleteTimeEntry(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * Solution Category data, returned by view-alike methods.
+     *
+     * @category Solutions
+     *
+     * @name Freshdesk.SolutionCategoryResponse
+     * @typedef  {Object}
+     * @property {Number}          id                   Unique ID of the solution category
+     * @property {String}          name                 Name of the solution category
+     * @property {String}          description          Description of the solution category
+     * @property {Array.<Number>}  visible_in_portals   List of portal IDs where this category is visible
+     * @property {Date}            created_at           Solution Category creation timestamp
+     * @property {Date}            updated_at           Solution Category updated timestamp
+     */
+    /**
+     * Solution Category data, for {@link createSolutionCategory}, {@link updateSolutionCategory}, {@link createTranslatedSolutionCategory} and {@link updateTranslatedSolutionCategory}.
+     *
+     * @category Solutions
+     *
+     * @name Freshdesk.SolutionCategoryData
+     * @typedef  {Object}
+     * @property {String}          description           Description of the solution category
+     * @property {String}          name                  Name of the solution category
+     * @property {Array.<Number>}  visible_in_portals    List of portal IDs where this category is visible. Allowed only if the account is configured with multiple portals.
+     */
+    /**
+     * Create a Solution Category
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#create_solution_category}
+     *
+     * @param  {Freshdesk.SolutionCategoryData}     data       New solution category data
+     * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
+     */
+    createSolutionCategory(data: Freshdesk.SolutionCategoryData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Create a translated solution category
+     *
+     * Note:
+     * 1. Multilingual Feature must be enabled for the account
+     * 2. Supported languages have to be configured from *Admin > General Settings > Helpdesk*
+     * 3. Configured languages can be retrieved from *Helpdesk Settings*
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#create_solution_category}
+     *
+     * @param  {Number}                             id             Solution category ID
+     * @param  {String}                             language_code  Language code for the translated solution category
+     * @param  {Freshdesk.SolutionCategoryData}     data           Translated solution category data
+     * @param  {Freshdesk.requestCallback}          cb             Callback function {@link Freshdesk.requestCallback}
+     */
+    createTranslatedSolutionCategory(id: number, language_code: string, data: Freshdesk.SolutionCategoryData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Update a Solution Category
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#update_solution_category}
+     *
+     * @param  {Number}                             id         Solution category ID
+     * @param  {Freshdesk.SolutionCategoryData}     data       Updated solution category data
+     * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
+     */
+    updateSolutionCategory(id: number, data: Freshdesk.SolutionCategoryData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Update a translated solution category
+     *
+     * Note:
+     * 1. Multilingual Feature must be enabled for the account
+     * 2. Supported languages have to be configured from *Admin > General Settings > Helpdesk*
+     * 3. Configured languages can be retrieved from *Helpdesk Settings*
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#update_solution_category}
+     *
+     * @param  {Number}                             id             Solution category ID
+     * @param  {String}                             language_code  Language code for the translated solution category
+     * @param  {Freshdesk.SolutionCategoryData}     data           Updated translated solution category data
+     * @param  {Freshdesk.requestCallback}          cb             Callback function {@link Freshdesk.requestCallback}
+     */
+    updateTranslatedSolutionCategory(id: number, language_code: string, data: Freshdesk.SolutionCategoryData, cb: Freshdesk.requestCallback): void;
+    /**
+     * View a Solution Category
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#view_solution_category}
+     *
+     * @param  {Number}                             id      Solution category ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    getSolutionCategory(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * List all Solution Categories
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#list_all_solution_categories}
+     *
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    listAllSolutionCategories(cb: Freshdesk.requestCallback): void;
+    /**
+     * Delete a Solution Category
+     *
+     * Note:
+     * When deleted, all translated versions will be deleted too.
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#delete_solution_category}
+     *
+     * @param  {Number}                             id      Solution category ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    deleteSolutionCategory(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * Solution Folder data, returned by view-alike methods.
+     *
+     * @category Solutions
+     *
+     * @name Freshdesk.SolutionFolderResponse
+     * @typedef  {Object}
+     * @property {Number}          id                   Unique ID of the solution folder
+     * @property {String}          name                 Name of the solution folder
+     * @property {String}          description          Description of the solution folder
+     * @property {Number}          visibility           Accessibility of this folder. Please refer to Folder Properties table.
+     * @property {Array.<Number>}  company_ids          IDs of the companies to whom this solution folder is visible
+     * @property {Array.<Number>}  contact_segment_ids  IDs of the contact segments to whom this solution folder is visible
+     * @property {Array.<Number>}  company_segment_ids  IDs of the company segments to whom this solution folder is visible
+     * @property {Date}            created_at           Solution Folder creation timestamp
+     * @property {Date}            updated_at           Solution Folder updated timestamp
+     */
+    /**
+     * Solution Folder data, for {@link createSolutionFolder}, {@link updateSolutionFolder}, {@link createTranslatedSolutionFolder} and {@link updateTranslatedSolutionFolder}.
+     *
+     * @category Solutions
+     *
+     * @name Freshdesk.SolutionFolderData
+     * @typedef  {Object}
+     * @property {String}          description           Description of the solution folder
+     * @property {String}          name                  Name of the solution folder
+     * @property {Number}          visibility            Accessibility of this folder. *The default value is 1*
+     * @property {Array.<Number>}  company_ids           IDs of the companies to whom this solution folder is visible
+     * @property {Array.<Number>}  contact_segment_ids   IDs of the contact segments to whom this solution folder is visible
+     * @property {Array.<Number>}  company_segment_ids   IDs of the company segments to whom this solution folder is visible
+     */
+    /**
+     * Create a Solution Folder
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#create_solution_folder}
+     *
+     * @param  {Number}                             id         Solution category ID
+     * @param  {Freshdesk.SolutionFolderData}     data         New solution folder data
+     * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
+     */
+    createSolutionFolder(id: number, data: Freshdesk.SolutionFolderData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Create a translated solution folder
+     *
+     * Note:
+     * 1. Multilingual Feature must be enabled for the account
+     * 2. Supported languages have to be configured from *Admin > General Settings > Helpdesk*
+     * 3. Configured languages can be retrieved from *Helpdesk Settings*
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#create_solution_folder}
+     *
+     * @param  {Number}                             id             Solution folder ID
+     * @param  {String}                             language_code  Language code for the translated solution folder
+     * @param  {Freshdesk.SolutionFolderData}       data           Translated solution folder data
+     * @param  {Freshdesk.requestCallback}          cb             Callback function {@link Freshdesk.requestCallback}
+     */
+    createTranslatedSolutionFolder(id: number, language_code: string, data: Freshdesk.SolutionFolderData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Update a Solution Folder
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#update_solution_folder}
+     *
+     * @param  {Number}                             id         Solution folder ID
+     * @param  {Freshdesk.SolutionFolderData}       data       Updated solution folder data
+     * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
+     */
+    updateSolutionFolder(id: number, data: Freshdesk.SolutionFolderData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Update a translated solution folder
+     *
+     * Note:
+     * 1. Multilingual Feature must be enabled for the account
+     * 2. Supported languages have to be configured from *Admin > General Settings > Helpdesk*
+     * 3. Configured languages can be retrieved from *Helpdesk Settings*
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#update_solution_folder}
+     *
+     * @param  {Number}                             id             Solution folder ID
+     * @param  {String}                             language_code  Language code for the translated solution folder
+     * @param  {Freshdesk.SolutionFolderData}       data           Updated translated solution folder data
+     * @param  {Freshdesk.requestCallback}          cb             Callback function {@link Freshdesk.requestCallback}
+     */
+    updateTranslatedSolutionFolder(id: number, language_code: string, data: Freshdesk.SolutionFolderData, cb: Freshdesk.requestCallback): void;
+    /**
+     * View a Solution Folder
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#view_solution_folder}
+     *
+     * @param  {Number}                             id      Solution folder ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    getSolutionFolder(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * List all Solution Folders in a Category
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#list_all_solution_folders}
+     *
+     * @param  {Number}                             id      Solution category ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    listAllSolutionCategoryFolders(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * Delete a Solution Folder
+     *
+     * Note:
+     * When deleted, all translated versions will be deleted too.
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#delete_solution_folder}
+     *
+     * @param  {Number}                             id      Solution folder ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    deleteSolutionFolder(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * Solution Article data, returned by view-alike methods.
+     *
+     * @category Solutions
+     *
+     * @name Freshdesk.SolutionArticleResponse
+     * @typedef  {Object}
+     * @property {Number}                   id                   Unique ID of the solution article
+     * @property {Number}                   agent_id             ID of the agent who created the solution article
+     * @property {Number}                   category_id          ID of the category to which the solution article belongs
+     * @property {String}                   description          Description of the solution article
+     * @property {String}                   description_text     Description of the solution article in plain text
+     * @property {Number}                   folder_id            ID of the folder to which the solution article belongs
+     * @property {Number}                   hits                 Number of views for the solution article
+     * @property {Number}                   status               Status of the solution article
+     * @property {Object.<string, Object>}  seo_data             Meta data for search engine optimization. Allows meta_title, meta_description and meta_keywords
+     * @property {Array.<String>}           tags                 Tags that have been associated with the solution article
+     * @property {Number}                   thumbs_down          Number of down votes for the solution article
+     * @property {Number}                   thumbs_up            Number of upvotes for the solution article
+     * @property {String}                   title                Title of the solution article
+     * @property {Date}                     created_at           Solution Article creation timestamp
+     * @property {Date}                     updated_at           Solution Article updated timestamp
+     */
+    /**
+     * Solution Article data, for {@link createSolutionArticle}, {@link updateSolutionArticle}, {@link createTranslatedSolutionArticle} and {@link updateTranslatedSolutionArticle}.
+     *
+     * @category Solutions
+     *
+     * @name Freshdesk.SolutionArticleData
+     * @typedef  {Object}
+     * @property {String}                   description           Description of the solution article
+     * @property {Number}                   status                Status of the solution article. *(1 - draft, 2 - published)*
+     * @property {Object.<string, Object>}  seo_data              Meta data for search engine optimization. Allows meta_title, meta_description and meta_keywords
+     * @property {Array.<String>}           tags                  Tags that have been associated with the solution article
+     * @property {String}                   title                 Title of the solution article
+     */
+    /**
+     * Create a Solution Article
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#create_solution_article}
+     *
+     * @param  {Number}                             id         Solution folder ID
+     * @param  {Freshdesk.SolutionFolderData}       data       New solution article data
+     * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
+     */
+    createSolutionArticle(id: number, data: Freshdesk.SolutionFolderData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Create a translated solution article
+     *
+     * Note:
+     * 1. Multilingual Feature must be enabled for the account
+     * 2. Supported languages have to be configured from *Admin > General Settings > Helpdesk*
+     * 3. Configured languages can be retrieved from *Helpdesk Settings*
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#create_solution_article}
+     *
+     * @param  {Number}                             id             Solution article ID
+     * @param  {String}                             language_code  Language code for the translated solution article
+     * @param  {Freshdesk.SolutionArticleData}      data           Translated solution article data
+     * @param  {Freshdesk.requestCallback}          cb             Callback function {@link Freshdesk.requestCallback}
+     */
+    createTranslatedSolutionArticle(id: number, language_code: string, data: Freshdesk.SolutionArticleData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Update a Solution Article
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#update_solution_article}
+     *
+     * @param  {Number}                             id         Solution article ID
+     * @param  {Freshdesk.SolutionArticleData}      data       Updated solution article data
+     * @param  {Freshdesk.requestCallback}          cb         Callback function {@link Freshdesk.requestCallback}
+     */
+    updateSolutionArticle(id: number, data: Freshdesk.SolutionArticleData, cb: Freshdesk.requestCallback): void;
+    /**
+     * Update a translated solution article
+     *
+     * Note:
+     * 1. Multilingual Feature must be enabled for the account
+     * 2. Supported languages have to be configured from *Admin > General Settings > Helpdesk*
+     * 3. Configured languages can be retrieved from *Helpdesk Settings*
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#update_solution_article}
+     *
+     * @param  {Number}                             id             Solution article ID
+     * @param  {String}                             language_code  Language code for the translated solution article
+     * @param  {Freshdesk.SolutionArticleData}      data           Updated translated solution article data
+     * @param  {Freshdesk.requestCallback}          cb             Callback function {@link Freshdesk.requestCallback}
+     */
+    updateTranslatedSolutionArticle(id: number, language_code: string, data: Freshdesk.SolutionArticleData, cb: Freshdesk.requestCallback): void;
+    /**
+     * View a Solution Article
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#view_solution_article}
+     *
+     * @param  {Number}                             id      Solution article ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    getSolutionArticle(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * View a translated Solution Article
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#view_solution_article}
+     *
+     * @param  {Number}                             id      		Solution article ID
+     * @param  {String}                             language_code	Language code for the translated solution article
+     * @param  {Freshdesk.requestCallback}          cb             	Callback function {@link Freshdesk.requestCallback}
+     */
+    getTranslatedSolutionArticle(id: number, language_code: string, cb: Freshdesk.requestCallback): void;
+    /**
+     * List all Solution Articles in a Folder
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#list_all_solution_articles}
+     *
+     * @param  {Number}                             id      Solution folder ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    listAllSolutionFolderArticles(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * Delete a Solution Article
+     *
+     * Note:
+     * When deleted, all translated versions will be deleted too.
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#delete_solution_article}
+     *
+     * @param  {Number}                             id      Solution article ID
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    deleteSolutionArticle(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * Search solution articles
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#search_solution_article}
+     *
+     * @param  {String}                             term    Keyword to search for
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    searchSolutionArticles(term: string, cb: Freshdesk.requestCallback): void;
     /**
      * View Helpdesk Settings
      *
@@ -485,7 +886,7 @@ declare class Freshdesk {
      *
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      */
-    getSettings(cb: any): void;
+    getSettings(cb: Freshdesk.requestCallback): void;
 }
 declare namespace Freshdesk {
     export { FreshdeskError };
