@@ -3,8 +3,6 @@
 [![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
 [![codecov](https://codecov.io/gh/arjunkomath/node-freshdesk-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arjunkomath/node-freshdesk-api)
 
-[![NPM](https://nodei.co/npm/freshdesk-api.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/freshdesk-api/)
-
 ## Thanks 💙
 
 <!--SPONSOR-->
