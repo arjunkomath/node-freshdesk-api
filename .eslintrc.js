@@ -19,5 +19,10 @@ http://spdx.org/licenses/MIT
 "use strict";
 
 exports = module.exports = {
-	extends: ["volebo"],
+	parserOptions: {
+		ecmaVersion: 2017,
+	},
+	env: {
+		es6: true,
+	},
 };

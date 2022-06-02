@@ -46,7 +46,6 @@
   "devDependencies": {
     "chai": "^4.3.6",
     "eslint": "^8.16.0",
-    "eslint-config-volebo": "^2.3.5",
     "jsdoc": "^3.6.10",
     "mocha": "^10.0.0",
     "nock": "^13.2.4",
