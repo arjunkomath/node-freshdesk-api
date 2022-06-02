@@ -20,6 +20,14 @@ jobs:
           config_file: .jsdoc.rc
           front_page: README.md
 
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@2.0.0
+        with:
+          # The regular expression (or fixed string) we want to replace
+          find: '<!--SPONSOR-->'
+          # The new string to replace with
+          replace: '<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEAIC5QJ&placement=arjunkomathgithubio" id="_carbonads_js"></script><link type="text/css" rel="stylesheet" href="./custom.css">'
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
