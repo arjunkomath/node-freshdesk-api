@@ -8,6 +8,8 @@ export function makeRequest(method: any, auth: any, url: any, qs: any, data: any
  */
 export class FreshdeskError extends Error {
     constructor(message: any, data: any, res: any);
+    message: any;
+    stack: string;
     data: any;
     status: any;
     apiTarget: string;
