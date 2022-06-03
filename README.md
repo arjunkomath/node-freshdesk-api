@@ -1,4 +1,7 @@
 # Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduction)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
 [![codecov](https://codecov.io/gh/arjunkomath/node-freshdesk-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arjunkomath/node-freshdesk-api)
@@ -315,3 +318,23 @@ See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/
 [@davinthesmith]: https://github.com/davinthesmith
 [@velua]: http://jjs.life
 [@roniger]: https://github.com/roniger
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/kibertoad"><img src="https://avatars.githubusercontent.com/u/1847934?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Igor Savin</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=kibertoad" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
