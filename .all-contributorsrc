@@ -52,6 +52,17 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "wvdneut",
+      "name": "Wouter van der Neut",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5398059?v=4",
+      "profile": "https://woutertje.com/",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7
