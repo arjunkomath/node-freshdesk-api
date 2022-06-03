@@ -1,6 +1,6 @@
 # Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduction)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
@@ -334,6 +334,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Velua"><img src="https://avatars.githubusercontent.com/u/8017434?v=4?s=100" width="100px;" alt=""/><br /><sub><b>John Williamson</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=Velua" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=Velua" title="Documentation">📖</a></td>
     <td align="center"><a href="https://woutertje.com/"><img src="https://avatars.githubusercontent.com/u/5398059?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wouter van der Neut</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=wvdneut" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=wvdneut" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=wvdneut" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://julianduque.co/"><img src="https://avatars.githubusercontent.com/u/733877?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Julián Duque</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=julianduque" title="Code">💻</a></td>
+    <td align="center"><a href="http://alphageek.com.au/"><img src="https://avatars.githubusercontent.com/u/2154482?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Lambert</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=nibynool" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=nibynool" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=nibynool" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
