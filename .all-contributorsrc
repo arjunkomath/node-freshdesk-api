@@ -83,6 +83,15 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "pongstr",
+      "name": "Pongstr",
+      "avatar_url": "https://avatars.githubusercontent.com/u/962502?v=4",
+      "profile": "https://pongstr.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
