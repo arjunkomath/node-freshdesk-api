@@ -1,4 +1,7 @@
 # Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduction)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
 [![codecov](https://codecov.io/gh/arjunkomath/node-freshdesk-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arjunkomath/node-freshdesk-api)
@@ -315,3 +318,36 @@ See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/
 [@davinthesmith]: https://github.com/davinthesmith
 [@velua]: http://jjs.life
 [@roniger]: https://github.com/roniger
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://techulus.com/"><img src="https://avatars.githubusercontent.com/u/2555067?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arjun Komath</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=arjunkomath" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=arjunkomath" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=arjunkomath" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/maxkoryukov"><img src="https://avatars.githubusercontent.com/u/8887971?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Maksim Koryukov</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=maxkoryukov" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=maxkoryukov" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=maxkoryukov" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://strapi.guru/"><img src="https://avatars.githubusercontent.com/u/8593673?v=4?s=100" width="100px;" alt=""/><br /><sub><b>DMehaffy</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=derrickmehaffy" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=derrickmehaffy" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=derrickmehaffy" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Velua"><img src="https://avatars.githubusercontent.com/u/8017434?v=4?s=100" width="100px;" alt=""/><br /><sub><b>John Williamson</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=Velua" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=Velua" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://woutertje.com/"><img src="https://avatars.githubusercontent.com/u/5398059?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wouter van der Neut</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=wvdneut" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=wvdneut" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=wvdneut" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://julianduque.co/"><img src="https://avatars.githubusercontent.com/u/733877?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Julián Duque</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=julianduque" title="Code">💻</a></td>
+    <td align="center"><a href="http://alphageek.com.au/"><img src="https://avatars.githubusercontent.com/u/2154482?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Lambert</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=nibynool" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=nibynool" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=nibynool" title="Tests">⚠️</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://pongstr.io/"><img src="https://avatars.githubusercontent.com/u/962502?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pongstr</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=pongstr" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/kibertoad"><img src="https://avatars.githubusercontent.com/u/1847934?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Igor Savin</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=kibertoad" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/jkap"><img src="https://avatars.githubusercontent.com/u/224587?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jae kaplan</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=jkap" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/kumarharsh"><img src="https://avatars.githubusercontent.com/u/760112?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kumar Harsh</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=kumarharsh" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/roniger"><img src="https://avatars.githubusercontent.com/u/961431?v=4?s=100" width="100px;" alt=""/><br /><sub><b>roniger</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=roniger" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=roniger" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=roniger" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
