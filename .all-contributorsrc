@@ -92,6 +92,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kibertoad",
+      "name": "Igor Savin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1847934?v=4",
+      "profile": "https://github.com/kibertoad",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
