@@ -305,24 +305,6 @@ Not implemented: http://developers.freshdesk.com/api/#sla-policies
 
 -   **getSettings(callback)** - View Helpdesk Settings [read more](http://developers.freshdesk.com/api/#settings)
 
-## Contributors
-
--   Arjun Komath [arjunkomath][email:arjunkomath]
--   Kumar Harsh [@kumarharsh]
--   Maksim Koryukov [@maxkoryukov]
--   Davin Smith [@davinthesmith]
--   John Williamson [@velua]
--   Ori Roniger [@roniger]
--   Derrick Mehaffy [@derrickmehaffy]
--   Joël Cox [@joelcox]
--   Wouter van der Neut [@wvdneut]
-
-Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/node-freshdesk-api/issues)
-
-## About Author
-
-Built with <3 by Arjun Komath (and contributors), [arjunkomath@gmail.com][email:arjunkomath]
-
 ## License
 
 See the [LICENSE](https://github.com/arjunkomath/node-freshdesk-api/blob/master/LICENSE) file for license rights and limitations (MIT).
