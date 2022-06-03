@@ -119,6 +119,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "roniger",
+      "name": "roniger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/961431?v=4",
+      "profile": "https://github.com/roniger",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7

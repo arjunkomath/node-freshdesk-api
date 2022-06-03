@@ -1,6 +1,6 @@
 # Node wrapper for [Freshdesk v2 API](http://developer.freshdesk.com/api/#introduction)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status](https://travis-ci.org/arjunkomath/node-freshdesk-api.svg?branch=master)](https://travis-ci.org/arjunkomath/node-freshdesk-api)
@@ -341,6 +341,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/kibertoad"><img src="https://avatars.githubusercontent.com/u/1847934?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Igor Savin</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=kibertoad" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/jkap"><img src="https://avatars.githubusercontent.com/u/224587?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jae kaplan</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=jkap" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/kumarharsh"><img src="https://avatars.githubusercontent.com/u/760112?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kumar Harsh</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=kumarharsh" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/roniger"><img src="https://avatars.githubusercontent.com/u/961431?v=4?s=100" width="100px;" alt=""/><br /><sub><b>roniger</b></sub></a><br /><a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=roniger" title="Code">💻</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=roniger" title="Documentation">📖</a> <a href="https://github.com/arjunkomath/node-freshdesk-api/commits?author=roniger" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
