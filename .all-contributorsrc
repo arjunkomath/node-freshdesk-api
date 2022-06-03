@@ -1,0 +1,58 @@
+{
+  "projectName": "node-freshdesk-api",
+  "projectOwner": "arjunkomath",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "arjunkomath",
+      "name": "Arjun Komath",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2555067?v=4",
+      "profile": "http://techulus.com/",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "maxkoryukov",
+      "name": "Maksim Koryukov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8887971?v=4",
+      "profile": "https://github.com/maxkoryukov",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "derrickmehaffy",
+      "name": "DMehaffy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8593673?v=4",
+      "profile": "https://strapi.guru/",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "Velua",
+      "name": "John Williamson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8017434?v=4",
+      "profile": "https://github.com/Velua",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
