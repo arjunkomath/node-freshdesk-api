@@ -20,11 +20,19 @@ http://spdx.org/licenses/MIT
 "use strict";
 
 const nock = require("nock");
+const { expect } = require("chai");
 
 const Freshdesk = require("..");
+const { MockAgent, setGlobalDispatcher } = require("undici");
 
 describe("api.agent", function () {
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
+	let mockAgent
+	beforeEach(() => {
+		mockAgent = new MockAgent()
+		mockAgent.disableNetConnect()
+		setGlobalDispatcher(mockAgent)
+	})
 
 	describe("update", () => {
 		it("should send PUT request to /api/v2/agents/NNNN", (done) => {
@@ -37,10 +45,12 @@ describe("api.agent", function () {
 			};
 
 			// SET UP expected request
-
-			nock("https://test.freshdesk.com")
-				.put("/api/v2/agents/22000991607", {
-					name: "Clark Kent",
+			const client = mockAgent.get("https://test.freshdesk.com")
+			client
+				.intercept({
+					path: "/api/v2/agents/22000991607",
+					body: JSON.stringify({ name: "Clark Kent" }),
+					method: 'PUT',
 				})
 				.reply(200, res);
 
@@ -68,9 +78,12 @@ describe("api.agent", function () {
 			};
 
 			// SET UP expected request
-
-			nock("https://test.freshdesk.com")
-				.get("/api/v2/agents/22000991607")
+			const client = mockAgent.get("https://test.freshdesk.com")
+			client
+				.intercept({
+					path: "/api/v2/agents/22000991607",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getAgent(22000991607, (err, data, extra) => {
@@ -102,13 +115,16 @@ describe("api.agent", function () {
 			];
 
 			// SET UP expected request
-
-			nock("https://test.freshdesk.com")
-				.get("/api/v2/agents")
-				.query({ page: 12, per_page: 10 })
-				.reply(200, res, {
-					link: '< https://test.freshdesk.com/api/v2/agents?page=13&per_page=10>;rel="next"',
-				});
+			const client = mockAgent.get("https://test.freshdesk.com")
+			client
+				.intercept({
+					path: "/api/v2/agents",
+					query: ({ page: 12, per_page: 10 }),
+					method: 'GET',
+				})
+				.reply(200, res, { headers: {
+						link: '< https://test.freshdesk.com/api/v2/agents?page=13&per_page=10>;rel="next"',
+					}});
 
 			const options = {
 				page: 12,

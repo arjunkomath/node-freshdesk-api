@@ -34,4 +34,4 @@ export function isNil(value: any): boolean;
  * @return {boolean}          Returns `true` if value is a `function`; else `false`.
  */
 export function isFunction(value: any): boolean;
-export function createResponseHandler(cb: any): (error: any, response: any, body: any) => any;
+export function createResponseHandler(cb: any): (error: any, response: any, body: any, requestUrl: any) => any;
