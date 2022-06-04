@@ -134,6 +134,12 @@ asyncFreshdesk.getTicketAsync(21)
 
 ```
 
+## Testing & mocking
+
+Note that `node-freshdesk-api` is using [Undici](https://github.com/nodejs/undici) as an HTTP client, which is not based on Node.js `net` module. As a result, it is not compatible with popular `nock` mocking library. When mocking `node-freshdesk-api` interactions, make sure to use built-in Undici [mocking functionality](https://github.com/nodejs/undici/blob/main/docs/api/MockPool.md).
+
+Alternatively, you can use tests of `node-freshdesk-api` itself as an example.
+
 ## Use with Webpack
 
 Here is a part of `webpack.config`:

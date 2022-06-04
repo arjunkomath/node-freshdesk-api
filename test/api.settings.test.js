@@ -18,7 +18,6 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
-const nock = require("nock");
 const { expect } = require("chai");
 
 const Freshdesk = require("../lib/client");
