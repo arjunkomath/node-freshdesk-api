@@ -18,12 +18,20 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
-const nock = require("nock");
+const { expect } = require("chai");
 
 const Freshdesk = require("..");
+const { MockAgent, setGlobalDispatcher } = require("undici");
 
 describe("api.contact", function () {
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
+	let client
+	beforeEach(() => {
+		const mockAgent = new MockAgent()
+		mockAgent.disableNetConnect()
+		setGlobalDispatcher(mockAgent)
+		client = mockAgent.get("https://test.freshdesk.com")
+	})
 
 	describe("update", () => {
 		it("should send PUT request to /api/v2/contacts/NNNN", (done) => {
@@ -36,10 +44,13 @@ describe("api.contact", function () {
 			};
 
 			// SET UP expected request
-
-			nock("https://test.freshdesk.com")
-				.put("/api/v2/contacts/22000991607", {
-					name: "Clark Kent",
+			client
+				.intercept({
+					path: "/api/v2/contacts/22000991607",
+					body: JSON.stringify({
+						name: "Clark Kent",
+					}),
+					method: 'PUT',
 				})
 				.reply(200, res);
 
@@ -68,8 +79,11 @@ describe("api.contact", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get("/api/v2/contacts/22000991607")
+			client
+				.intercept({
+					path: "/api/v2/contacts/22000991607",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getContact(22000991607, (err, data, extra) => {
@@ -87,8 +101,11 @@ describe("api.contact", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.delete("/api/v2/contacts/22000991607")
+			client
+				.intercept({
+					path: "/api/v2/contacts/22000991607",
+					method: 'DELETE',
+				})
 				.reply(200, res);
 
 			freshdesk.deleteContact(22000991607, (err, data, extra) => {
@@ -121,11 +138,16 @@ describe("api.contact", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get("/api/v2/contacts")
-				.query({ page: 12, per_page: 10 })
+			client
+				.intercept({
+					path: "/api/v2/contacts",
+					method: "GET",
+					query: { page: 12, per_page: 10 }
+				})
 				.reply(200, res, {
-					link: '< https://test.freshdesk.com/api/v2/contacts?page=13&per_page=10>;rel="next"',
+					headers: {
+						link: "< https://test.freshdesk.com/api/v2/contacts?page=13&per_page=10>;rel=\"next\""
+					}
 				});
 
 			const options = {
@@ -179,9 +201,12 @@ describe("api.contact", function () {
 
 			const filter = "name:John Jonz";
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/search/contacts?query=%22name:John%20Jonz%22`)
-				.reply(200, res);
+			client
+				.intercept({
+					path: "/api/v2/search/contacts?query=%22name:John%20Jonz%22",
+					method: "GET",
+				})
+				.reply(200, res, );
 
 			freshdesk.filterContacts(filter, (err, data) => {
 				expect(err).is.null;

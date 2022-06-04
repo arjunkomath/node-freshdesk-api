@@ -19,12 +19,20 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
-const nock = require("nock");
+const { expect } = require("chai");
 
 const Freshdesk = require("..");
+const { MockAgent, setGlobalDispatcher } = require("undici");
 
 describe("api.companies", function () {
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
+	let client
+	beforeEach(() => {
+		const mockAgent = new MockAgent()
+		mockAgent.disableNetConnect()
+		setGlobalDispatcher(mockAgent)
+		client = mockAgent.get("https://test.freshdesk.com")
+	})
 
 	describe("create", () => {
 		it("should send POST request to /api/v2/companies", (done) => {
@@ -34,10 +42,13 @@ describe("api.companies", function () {
 			};
 
 			// SET UP expected request
-
-			nock("https://test.freshdesk.com")
-				.post(`/api/v2/companies`, {
-					name: "ACME",
+			client
+				.intercept({
+					path: "/api/v2/companies",
+					body: JSON.stringify({
+						name: "ACME",
+					}),
+					method: 'POST',
 				})
 				.reply(200, res);
 
@@ -57,10 +68,13 @@ describe("api.companies", function () {
 			};
 
 			// SET UP expected request
-
-			nock("https://test.freshdesk.com")
-				.put(`/api/v2/companies/1000`, {
-					name: "ACME",
+			client
+				.intercept({
+					path: "/api/v2/companies/1000",
+					body: JSON.stringify({
+						name: "ACME",
+					}),
+					method: 'PUT',
 				})
 				.reply(200, res);
 
@@ -86,10 +100,12 @@ describe("api.companies", function () {
 			};
 
 			// SET UP expected request
-
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/companies/autocomplete`)
-				.query(params)
+			client
+				.intercept({
+					path: "/api/v2/companies/autocomplete",
+					method: 'GET',
+					query: params,
+				})
 				.reply(200, res);
 
 			freshdesk.searchCompany(params, (err, data) => {
@@ -122,9 +138,11 @@ describe("api.companies", function () {
 				];
 
 				// SET UP expected request
-
-				nock("https://test.freshdesk.com")
-					.get(`/api/v2/companies`)
+				client
+					.intercept({
+						path: "/api/v2/companies",
+						method: 'GET',
+					})
 					.reply(200, res);
 			});
 
@@ -163,8 +181,11 @@ describe("api.companies", function () {
 
 			const filter = "domain:lexcorp.org";
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/search/companies?query=%22domain:lexcorp.org%22`)
+			client
+				.intercept({
+					path: "/api/v2/search/companies?query=%22domain:lexcorp.org%22",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.filterCompanies(filter, (err, data) => {
@@ -195,9 +216,12 @@ describe("api.companies", function () {
 				];
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com")
-					.get("/api/v2/company_fields")
-					//.query({})
+
+				client
+					.intercept({
+						path: "/api/v2/company_fields",
+						method: 'GET',
+					})
 					.reply(200, res);
 			});
 
