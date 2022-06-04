@@ -18,20 +18,31 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
-const nock = require("nock");
+const { expect } = require("chai");
 
 const Freshdesk = require("..");
+const { MockAgent, setGlobalDispatcher } = require("undici");
 
 describe("api.error", function () {
 	//this.timeout(5000)
 	//this.slow(3000)
 
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
+	let client
+	beforeEach(() => {
+		const mockAgent = new MockAgent()
+		mockAgent.disableNetConnect()
+		setGlobalDispatcher(mockAgent)
+		client = mockAgent.get("https://test.freshdesk.com")
+	})
 
 	describe("on API response status 400", () => {
-		before(() => {
-			nock("https://test.freshdesk.com")
-				.get(/.*/)
+		beforeEach(() => {
+			client
+				.intercept({
+					path: /.*/,
+					method: 'GET',
+				})
 				.reply(400, { msg: "err 123" });
 		});
 
@@ -53,16 +64,18 @@ describe("api.error", function () {
 
 				done();
 			});
-
-			//throw(Freshdesk.FreshdeskError)
 		});
 	});
 
 	describe("on network error", () => {
-		before(() => {
-			nock("https://test.freshdesk.com")
-				.get(/.*/)
-				.replyWithError("my network error");
+		beforeEach(() => {
+			client
+				.intercept({
+					path: /.*/,
+					method: 'GET',
+				})
+				.replyWithError(new Error("my network error"));
+
 		});
 
 		it("should pass Error to callback", (done) => {
@@ -73,8 +86,6 @@ describe("api.error", function () {
 
 				done();
 			});
-
-			//throw(Freshdesk.FreshdeskError)
 		});
 	});
 });

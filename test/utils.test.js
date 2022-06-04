@@ -69,13 +69,16 @@ describe("utils.test", function () {
 			const act = utils.createResponseHandler(cb)(
 				null,
 				{
-					status: 404,
+					statusCode: 404,
 					request: {},
 					response: {},
 					headers: {},
 					data: body,
 				},
-				body
+				body,
+				{
+					method: 'GET'
+				}
 			);
 
 			expect(act).to.be.instanceof(utils.FreshdeskError);

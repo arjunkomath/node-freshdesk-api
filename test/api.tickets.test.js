@@ -29,11 +29,12 @@ const Freshdesk = require("..");
 
 describe("api.tickets", function () {
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
-	let mockAgent
+	let client
 	beforeEach(() => {
-		mockAgent = new MockAgent()
+		const mockAgent = new MockAgent()
 		mockAgent.disableNetConnect()
 		setGlobalDispatcher(mockAgent)
+		client = mockAgent.get("https://test.freshdesk.com")
 	})
 
 	describe("listAllTicketFields", () => {
@@ -56,7 +57,6 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: "/api/v2/ticket_fields",
@@ -105,7 +105,6 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: "/api/v2/ticket_fields",
@@ -165,7 +164,6 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: "/api/v2/tickets",
@@ -221,7 +219,6 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: "/api/v2/tickets",
@@ -290,7 +287,6 @@ describe("api.tickets", function () {
 				};
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: "/api/v2/tickets",
@@ -362,7 +358,6 @@ describe("api.tickets", function () {
 				};
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: "/api/v2/tickets",
@@ -434,7 +429,6 @@ describe("api.tickets", function () {
 				};
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: `/api/v2/tickets/${ticket_id}`,
@@ -466,7 +460,6 @@ describe("api.tickets", function () {
 				res = null;
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: `/api/v2/tickets/${ticket_id}`,
@@ -495,7 +488,6 @@ describe("api.tickets", function () {
 				res = null;
 
 				// SET UP expected request
-				const client = mockAgent.get("https://test.freshdesk.com")
 				client
 					.intercept({
 						path: `/api/v2/tickets/${ticket_id}/restore`,
