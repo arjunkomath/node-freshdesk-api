@@ -118,7 +118,7 @@ describe("e2e tests", () => {
 		};
 
 		const app = fastify();
-		app.register(require("@fastify/multipart"));
+		app.register(require("fastify-multipart"));
 		app.post("/api/v2/tickets", async (req, reply) => {
 			expect(req.headers["authorization"]).to.equal("Basic VEVTVEtFWTpY");
 			const content = await req.file();

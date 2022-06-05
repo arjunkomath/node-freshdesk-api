@@ -44,10 +44,10 @@
   "homepage": "http://arjunkomath.github.io/node-freshdesk-api/",
   "license": "MIT",
   "devDependencies": {
-    "@fastify/multipart": "^6.0.0",
+    "fastify-multipart": "^5.4.0",
     "chai": "^4.3.6",
     "eslint": "^8.16.0",
-    "fastify": "^4.0.0-rc.4",
+    "fastify": "^3.29.0",
     "jsdoc": "^3.6.10",
     "mocha": "^10.0.0",
     "nock": "^13.2.6",
