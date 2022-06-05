@@ -44,16 +44,19 @@
   "homepage": "http://arjunkomath.github.io/node-freshdesk-api/",
   "license": "MIT",
   "devDependencies": {
+    "@fastify/multipart": "^6.0.0",
     "chai": "^4.3.6",
     "eslint": "^8.16.0",
+    "fastify": "^4.0.0-rc.4",
     "jsdoc": "^3.6.10",
     "mocha": "^10.0.0",
+    "nock": "^13.2.6",
     "nyc": "^15.1.0",
     "typescript": "^4.7.2"
   },
   "dependencies": {
     "debug": "^4.3.3",
-    "formdata-node": "^4.3.2",
+    "form-data": "^4.0.0",
     "undici": "^5.4.0"
   },
   "publishConfig": {

@@ -237,7 +237,6 @@ describe("api.solutions", function () {
 				})
 				.reply(204, res);
 
-
 			freshdesk.deleteSolutionCategory(id, (err, data) => {
 				expect(err).is.null;
 				expect(data).to.deep.equal(res);

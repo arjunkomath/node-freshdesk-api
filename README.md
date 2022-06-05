@@ -140,6 +140,8 @@ Note that `node-freshdesk-api` is using [Undici](https://github.com/nodejs/undic
 
 Alternatively, you can use tests of `node-freshdesk-api` itself as an example.
 
+The only exception are forms with attachments (field `attachments` is set and is an array) - these requests are handled using `form-data` library, use `net` module and need to be mocked with `nock`.
+
 ## Use with Webpack
 
 Here is a part of `webpack.config`:

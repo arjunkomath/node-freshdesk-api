@@ -7,7 +7,7 @@ export function makeRequest(method: any, auth: any, url: any, qs: any, data: any
  * @param {Object}  data    Parsed response of the Freshdesk API
  */
 export class FreshdeskError extends Error {
-    constructor(message: any, data: any, res: any);
+    constructor(message: any, data: any, res: any, req: any);
     message: any;
     stack: string;
     data: any;

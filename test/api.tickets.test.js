@@ -21,9 +21,10 @@ http://spdx.org/licenses/MIT
 const fs = require("fs");
 const path = require("path");
 
+const nock = require("nock");
 const { expect } = require("chai");
 const { MockAgent, setGlobalDispatcher } = require('undici')
-const { FormData } = require('formdata-node')
+const { FormData } = require('form-data')
 
 const Freshdesk = require("..");
 
@@ -366,7 +367,15 @@ describe("api.tickets", function () {
 							return body instanceof FormData
 						}
 					})
-					.reply(200, res)
+					.reply(200, res, { headers: { 'content-type': 'application/json'}})
+
+				nock("https://test.freshdesk.com")
+					.post(`/api/v2/tickets`, (body) => {
+						return body.includes(
+							`Content-Disposition: form-data; name="attachments[]"; filename="SECURITY.md"`
+						);
+					})
+					.reply(200, res);
 			});
 
 			it("should send POST request to /api/v2/tickets", function (done) {
