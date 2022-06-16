@@ -572,6 +572,18 @@ declare class Freshdesk {
      */
     getSolutionCategory(id: number, cb: Freshdesk.requestCallback): void;
     /**
+     * View a translated solution Category
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#view_solution_category}
+     *
+     * @param  {Number}                             id      		Solution category ID
+     * @param  {String}                             language_code  	Language code for the translated solution category
+     * @param  {Freshdesk.requestCallback}          cb      		Callback function {@link Freshdesk.requestCallback}
+     */
+    getTranslatedSolutionCategory(id: number, language_code: string, cb: Freshdesk.requestCallback): void;
+    /**
      * List all Solution Categories
      *
      * @category Solutions
@@ -697,6 +709,18 @@ declare class Freshdesk {
      * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
      */
     getSolutionFolder(id: number, cb: Freshdesk.requestCallback): void;
+    /**
+     * View a translated solution Folder
+     *
+     * @category Solutions
+     *
+     * @see {@link https://developer.freshdesk.com/api/#view_solution_folder}
+     *
+     * @param  {Number}                             id      Solution folder ID
+     * @param  {String}                             language_code  	Language code for the translated solution folder
+     * @param  {Freshdesk.requestCallback}          cb      Callback function {@link Freshdesk.requestCallback}
+     */
+    getTranslatedSolutionFolder(id: number, language_code: string, cb: Freshdesk.requestCallback): void;
     /**
      * List all Solution Folders in a Category
      *
