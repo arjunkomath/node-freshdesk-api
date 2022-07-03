@@ -24,7 +24,6 @@ const path = require("path");
 const nock = require("nock");
 const { expect } = require("chai");
 const { MockAgent, setGlobalDispatcher } = require('undici')
-const { FormData } = require('form-data')
 
 const Freshdesk = require("..");
 
@@ -357,18 +356,6 @@ describe("api.tickets", function () {
 					tags: [],
 					attachments: [],
 				};
-
-				// SET UP expected request
-				client
-					.intercept({
-						path: "/api/v2/tickets",
-						method: 'POST',
-						body: (body) => {
-							return body instanceof FormData
-						}
-					})
-					.reply(200, res, { headers: { 'content-type': 'application/json'}})
-
 				nock("https://test.freshdesk.com")
 					.post(`/api/v2/tickets`, (body) => {
 						return body.includes(
@@ -385,6 +372,39 @@ describe("api.tickets", function () {
 
 					done();
 				});
+			});
+		});
+	});
+
+	describe("with attachments, text reply", () => {
+		let data = {
+			description: "Details about the issue...",
+			subject: "Support Needed...",
+			email: "tom@outerspace.com",
+			priority: 1,
+			status: 2,
+			cc_emails: ["ram@freshdesk.com", "diana@freshdesk.com"],
+			attachments: [
+				fs.createReadStream(path.resolve("./SECURITY.md")),
+			],
+		};
+
+		beforeEach(() => {
+			nock("https://test.freshdesk.com")
+				.post(`/api/v2/tickets`, (body) => {
+					return body.includes(
+						`Content-Disposition: form-data; name="attachments[]"; filename="SECURITY.md"`
+					);
+				})
+				.reply(200, 'Text reply');
+		});
+
+		it("should send POST request to /api/v2/tickets and parse text reply", function(done) {
+			freshdesk.createTicket(data, (err, data) => {
+				expect(err).is.null;
+				expect(data).to.deep.equal("Text reply");
+
+				done();
 			});
 		});
 	});

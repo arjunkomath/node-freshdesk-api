@@ -18,10 +18,14 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
+const fs = require("fs");
+const path = require("path");
 const { expect } = require("chai");
 
 const Freshdesk = require("..");
 const { MockAgent, setGlobalDispatcher } = require("undici");
+const { FormData } = require("form-data");
+const nock = require("nock");
 
 describe("api.error", function () {
 	//this.timeout(5000)
@@ -88,4 +92,75 @@ describe("api.error", function () {
 			});
 		});
 	});
+
+	describe('form error', () => {
+		let res = null;
+		let data = {
+			description: "Details about the issue...",
+			subject: "Support Needed...",
+			email: "tom@outerspace.com",
+			priority: 1,
+			status: 2,
+			cc_emails: ["ram@freshdesk.com", "diana@freshdesk.com"],
+			attachments: [
+				fs.createReadStream(path.resolve("./SECURITY.md")),
+			],
+		};
+
+		beforeEach(() => {
+			res = {
+				cc_emails: ["ram@freshdesk.com", "diana@freshdesk.com"],
+				fwd_emails: [],
+				reply_cc_emails: [
+					"ram@freshdesk.com",
+					"diana@freshdesk.com",
+				],
+				email_config_id: null,
+				group_id: null,
+				priority: 1,
+				requester_id: 129,
+				responder_id: null,
+				source: 2,
+				status: 2,
+				subject: "Support needed..",
+				company_id: 1,
+				id: 1,
+				type: "Question",
+				to_emails: null,
+				product_id: null,
+				fr_escalated: false,
+				spam: false,
+				urgent: false,
+				is_escalated: false,
+				created_at: "2015-07-09T13:08:06Z",
+				updated_at: "2015-07-23T04:41:12Z",
+				due_by: "2015-07-14T13:08:06Z",
+				fr_due_by: "2015-07-10T13:08:06Z",
+				description_text: "Some details on the issue ...",
+				description: "<div>Some details on the issue ..</div>",
+				tags: [],
+				attachments: [],
+			};
+
+			nock("https://test.freshdesk.com")
+				.post(`/api/v2/tickets`, (body) => {
+					return body.includes(
+						`Content-Disposition: form-data; name="attachments[]"; filename="SECURITY.md"`
+					);
+				})
+				.replyWithError("Form error");
+		});
+
+		it("should throw an error while submitting form", function (done) {
+			freshdesk.createTicket(data, (err, data) => {
+				expect(err).is.not.null;
+				expect(err.message).to.equal("Form error")
+				expect(data).to.be.undefined;
+
+				done();
+			});
+		});
+	})
 });
+
+
