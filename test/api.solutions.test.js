@@ -194,6 +194,32 @@ describe("api.solutions", function () {
 		});
 	});
 
+	describe("get a translated category", () => {
+		it("should send GET request to /api/v2/solutions/categories/NNNN/SSSS", (done) => {
+			const res = {
+				id: 3,
+				name: "la categoría de la muestra",
+				description: "este es creado para fines de demostración",
+				created_at: "2016-09-08T07:04:07Z",
+				updated_at: "2016-09-08T07:04:07Z",
+			};
+			const id = 3;
+			const language_code = 'es';
+
+			// SET UP expected request
+
+			nock("https://test.freshdesk.com")
+				.get(`/api/v2/solutions/categories/3/es`)
+				.reply(200, res);
+
+			freshdesk.getTranslatedSolutionCategory(id, language_code, (err, data) => {
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				done();
+			});
+		});
+	});
+
 	describe("list all solution categories", () => {
 		it("should send GET request to /api/v2/solutions/categories", (done) => {
 			const res = [
@@ -417,6 +443,34 @@ describe("api.solutions", function () {
 				.reply(200, res);
 
 			freshdesk.getSolutionFolder(id, (err, data) => {
+				expect(err).is.null;
+				expect(data).to.deep.equal(res);
+				done();
+			});
+		});
+	});
+
+	describe("get a translated solution folder", () => {
+		it("should send GET request to /api/v2/solutions/folders/NNNN/SSSS", (done) => {
+			const res = {
+				id: 4,
+				name: "carpeta de la muestra",
+				description: "este es creado para fines de demostración",
+				visibility: 1,
+				category_id: 3,
+				created_at: "2016-09-08T12:04:49Z",
+				updated_at: "2016-09-08T12:04:49Z",
+			};
+			const id = 4;
+			const language_code = "es";
+
+			// SET UP expected request
+
+			nock("https://test.freshdesk.com")
+				.get(`/api/v2/solutions/folders/4/es`)
+				.reply(200, res);
+
+			freshdesk.getTranslatedSolutionFolder(id, language_code, (err, data) => {
 				expect(err).is.null;
 				expect(data).to.deep.equal(res);
 				done();
