@@ -208,8 +208,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/categories/3/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3/es",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getTranslatedSolutionCategory(id, language_code, (err, data) => {
@@ -466,8 +469,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/folders/4/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/4/es",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getTranslatedSolutionFolder(id, language_code, (err, data) => {
