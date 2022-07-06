@@ -18,14 +18,24 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
-const nock = require("nock");
 const fs = require("fs");
 const path = require("path");
+
+const nock = require("nock");
+const { expect } = require("chai");
+const { MockAgent, setGlobalDispatcher } = require('undici')
 
 const Freshdesk = require("..");
 
 describe("api.tickets", function () {
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
+	let client
+	beforeEach(() => {
+		const mockAgent = new MockAgent()
+		mockAgent.disableNetConnect()
+		setGlobalDispatcher(mockAgent)
+		client = mockAgent.get("https://test.freshdesk.com")
+	})
 
 	describe("listAllTicketFields", () => {
 		describe("without params", () => {
@@ -47,10 +57,12 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com")
-					.get("/api/v2/ticket_fields")
-					//.query({})
-					.reply(200, res, { "x-request-id": requestId });
+				client
+					.intercept({
+						path: "/api/v2/ticket_fields",
+						method: 'GET',
+					})
+					.reply(200, res, { headers: { "x-request-id": requestId }})
 			});
 
 			it("should send GET request to /api/v2/ticket_fields", function (done) {
@@ -93,10 +105,13 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com")
-					.get("/api/v2/ticket_fields")
-					.query({ type: "default_requester" })
-					.reply(200, res);
+				client
+					.intercept({
+						path: "/api/v2/ticket_fields",
+						method: 'GET',
+						query: { type: "default_requester" }
+					})
+					.reply(200, res)
 			});
 
 			it("should send GET request to /api/v2/ticket_fields?type=xx", function (done) {
@@ -149,10 +164,13 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com")
-					.get("/api/v2/tickets")
-					.query(params)
-					.reply(200, res);
+				client
+					.intercept({
+						path: "/api/v2/tickets",
+						method: 'GET',
+						query: params
+					})
+					.reply(200, res)
 			});
 
 			it("should send GET request to /api/v2/tickets", function (done) {
@@ -201,10 +219,13 @@ describe("api.tickets", function () {
 				];
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com")
-					.get("/api/v2/tickets")
-					.query(params)
-					.reply(200, res);
+				client
+					.intercept({
+						path: "/api/v2/tickets",
+						method: 'GET',
+						query: params
+					})
+					.reply(200, res)
 			});
 
 			it("should send GET request to /api/v2/tickets", function (done) {
@@ -266,9 +287,15 @@ describe("api.tickets", function () {
 				};
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com")
-					.post(`/api/v2/tickets`, data)
-					.reply(200, res);
+				client
+					.intercept({
+						path: "/api/v2/tickets",
+						method: 'POST',
+						body: (body) => {
+							return typeof body === 'string'
+						}
+					})
+					.reply(200, res)
 			});
 
 			it("should send POST request to /api/v2/tickets", function (done) {
@@ -329,8 +356,6 @@ describe("api.tickets", function () {
 					tags: [],
 					attachments: [],
 				};
-
-				// SET UP expected request
 				nock("https://test.freshdesk.com")
 					.post(`/api/v2/tickets`, (body) => {
 						return body.includes(
@@ -347,6 +372,39 @@ describe("api.tickets", function () {
 
 					done();
 				});
+			});
+		});
+	});
+
+	describe("with attachments, text reply", () => {
+		let data = {
+			description: "Details about the issue...",
+			subject: "Support Needed...",
+			email: "tom@outerspace.com",
+			priority: 1,
+			status: 2,
+			cc_emails: ["ram@freshdesk.com", "diana@freshdesk.com"],
+			attachments: [
+				fs.createReadStream(path.resolve("./SECURITY.md")),
+			],
+		};
+
+		beforeEach(() => {
+			nock("https://test.freshdesk.com")
+				.post(`/api/v2/tickets`, (body) => {
+					return body.includes(
+						`Content-Disposition: form-data; name="attachments[]"; filename="SECURITY.md"`
+					);
+				})
+				.reply(200, 'Text reply');
+		});
+
+		it("should send POST request to /api/v2/tickets and parse text reply", function(done) {
+			freshdesk.createTicket(data, (err, data) => {
+				expect(err).is.null;
+				expect(data).to.deep.equal("Text reply");
+
+				done();
 			});
 		});
 	});
@@ -400,9 +458,15 @@ describe("api.tickets", function () {
 				};
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com/")
-					.put(`/api/v2/tickets/${ticket_id}`, data)
-					.reply(200, res);
+				client
+					.intercept({
+						path: `/api/v2/tickets/${ticket_id}`,
+						method: 'PUT',
+						body: (body) => {
+							return typeof body === "string"
+						}
+					})
+					.reply(200, res)
 			});
 
 			it("should send PUT request to /api/v2/tickets/id", function (done) {
@@ -425,9 +489,12 @@ describe("api.tickets", function () {
 				res = null;
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com/")
-					.delete(`/api/v2/tickets/${ticket_id}`)
-					.reply(204, res);
+				client
+					.intercept({
+						path: `/api/v2/tickets/${ticket_id}`,
+						method: 'DELETE',
+					})
+					.reply(204, res)
 			});
 
 			it("should send DELETE request to /api/v2/tickets/id", function (done) {
@@ -450,9 +517,12 @@ describe("api.tickets", function () {
 				res = null;
 
 				// SET UP expected request
-				nock("https://test.freshdesk.com/")
-					.put(`/api/v2/tickets/${ticket_id}/restore`)
-					.reply(204, res);
+				client
+					.intercept({
+						path: `/api/v2/tickets/${ticket_id}/restore`,
+						method: 'PUT',
+					})
+					.reply(204, res)
 			});
 
 			it("should send PUT request to /api/v2/tickets/id/restore", function (done) {

@@ -18,12 +18,20 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
-const nock = require("nock");
+const { expect } = require("chai");
 
 const Freshdesk = require("../lib/client");
+const { MockAgent, setGlobalDispatcher } = require("undici");
 
 describe("api.settings", function () {
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
+	let client
+	beforeEach(() => {
+		const mockAgent = new MockAgent()
+		mockAgent.disableNetConnect()
+		setGlobalDispatcher(mockAgent)
+		client = mockAgent.get("https://test.freshdesk.com")
+	})
 
 	describe("get", () => {
 		it("should send GET request to /api/v2/settings/helpdesk", (done) => {
@@ -37,8 +45,11 @@ describe("api.settings", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get("/api/v2/settings/helpdesk")
+			client
+				.intercept({
+					path: "/api/v2/settings/helpdesk",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getSettings((err, data, extra) => {

@@ -18,7 +18,9 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
+const { expect } = require("chai");
 const freshdesk = require("..");
+
 
 describe("module test", function () {
 	it("should export Freshdesk constructor", () => {

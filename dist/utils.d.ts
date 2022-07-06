@@ -7,7 +7,7 @@ export function makeRequest(method: any, auth: any, url: any, qs: any, data: any
  * @param {Object}  data    Parsed response of the Freshdesk API
  */
 export class FreshdeskError extends Error {
-    constructor(message: any, data: any, res: any);
+    constructor(message: any, data: any, res: any, req: any);
     message: any;
     stack: string;
     data: any;
@@ -34,4 +34,4 @@ export function isNil(value: any): boolean;
  * @return {boolean}          Returns `true` if value is a `function`; else `false`.
  */
 export function isFunction(value: any): boolean;
-export function createResponseHandler(cb: any): (error: any, response: any, body: any) => any;
+export function createResponseHandler(cb: any): (error: any, response: any, body: any, request: any) => any;

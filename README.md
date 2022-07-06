@@ -134,6 +134,16 @@ asyncFreshdesk.getTicketAsync(21)
 
 ```
 
+## Testing & mocking
+
+Note that `node-freshdesk-api` is using [Undici](https://github.com/nodejs/undici) as an HTTP client, which is not based on Node.js `net` module. As a result, it is not compatible with popular `nock` mocking library. When mocking `node-freshdesk-api` interactions, make sure to use built-in Undici [mocking functionality](https://github.com/nodejs/undici/blob/main/docs/api/MockPool.md).
+
+Alternatively, you can use tests of `node-freshdesk-api` itself as an example.
+
+The only exception are forms with attachments (field `attachments` is set and is an array) - these requests are handled using `form-data` library, use `net` module and need to be mocked with `nock`.
+
+You can also use a mock server (such as [Pactum](https://github.com/pactumjs/pactum)) for completely client-agnostic server mocking. 
+
 ## Use with Webpack
 
 Here is a part of `webpack.config`:

@@ -18,12 +18,20 @@ http://spdx.org/licenses/MIT
 
 "use strict";
 
-const nock = require("nock");
+const { expect } = require("chai");
 
 const Freshdesk = require("../lib/client");
+const { MockAgent, setGlobalDispatcher } = require("undici");
 
 describe("api.solutions", function () {
 	const freshdesk = new Freshdesk("https://test.freshdesk.com", "TESTKEY");
+	let client
+	beforeEach(() => {
+		const mockAgent = new MockAgent()
+		mockAgent.disableNetConnect()
+		setGlobalDispatcher(mockAgent)
+		client = mockAgent.get("https://test.freshdesk.com")
+	})
 
 	describe("create a solution category", () => {
 		it("should send a POST request to /api/v2/solutions/categories", (done) => {
@@ -41,8 +49,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.post(`/api/v2/solutions/categories`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories",
+					method: 'POST',
+				})
 				.reply(200, res);
 
 			freshdesk.createSolutionCategory(data, (err, data) => {
@@ -71,8 +82,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.post(`/api/v2/solutions/categories/3/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3/es",
+					method: 'POST',
+				})
 				.reply(200, res);
 
 			freshdesk.createTranslatedSolutionCategory(
@@ -102,8 +116,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.put(`/api/v2/solutions/categories/3`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3",
+					method: 'PUT',
+				})
 				.reply(200, res);
 
 			freshdesk.updateSolutionCategory(id, data, (err, data) => {
@@ -129,8 +146,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.put(`/api/v2/solutions/categories/3/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3/es",
+					method: 'PUT',
+				})
 				.reply(200, res);
 
 			freshdesk.updateTranslatedSolutionCategory(
@@ -159,8 +179,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/categories/3`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getSolutionCategory(id, (err, data) => {
@@ -185,8 +208,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/categories/3/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3/es",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getTranslatedSolutionCategory(id, language_code, (err, data) => {
@@ -211,8 +237,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/categories`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.listAllSolutionCategories((err, data) => {
@@ -230,8 +259,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.delete(`/api/v2/solutions/categories/3`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3",
+					method: 'DELETE',
+				})
 				.reply(204, res);
 
 			freshdesk.deleteSolutionCategory(id, (err, data) => {
@@ -262,8 +294,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.post(`/api/v2/solutions/categories/3/folders`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3/folders",
+					method: 'POST',
+				})
 				.reply(200, res);
 
 			freshdesk.createSolutionFolder(id, data, (err, data) => {
@@ -294,8 +329,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.post(`/api/v2/solutions/folders/4/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/4/es",
+					method: 'POST',
+				})
 				.reply(200, res);
 
 			freshdesk.createTranslatedSolutionFolder(
@@ -332,8 +370,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.put(`/api/v2/solutions/folders/3`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/3",
+					method: 'PUT',
+				})
 				.reply(200, res);
 
 			freshdesk.updateSolutionFolder(id, data, (err, data) => {
@@ -362,8 +403,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.put(`/api/v2/solutions/folders/3/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/3/es",
+					method: 'PUT',
+				})
 				.reply(200, res);
 
 			freshdesk.updateTranslatedSolutionFolder(
@@ -394,8 +438,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/folders/4`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/4",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getSolutionFolder(id, (err, data) => {
@@ -422,8 +469,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/folders/4/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/4/es",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getTranslatedSolutionFolder(id, language_code, (err, data) => {
@@ -451,8 +501,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/categories/3/folders`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/categories/3/folders",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.listAllSolutionCategoryFolders(id, (err, data) => {
@@ -470,8 +523,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.delete(`/api/v2/solutions/folders/3`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/3",
+					method: 'DELETE',
+				})
 				.reply(204, res);
 
 			freshdesk.deleteSolutionFolder(id, (err, data) => {
@@ -517,8 +573,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.post(`/api/v2/solutions/folders/4/articles`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/4/articles",
+					method: 'POST',
+				})
 				.reply(200, res);
 
 			freshdesk.createSolutionArticle(id, data, (err, data) => {
@@ -562,8 +621,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.post(`/api/v2/solutions/articles/2/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/articles/2/es",
+					method: 'POST',
+				})
 				.reply(200, res);
 
 			freshdesk.createTranslatedSolutionArticle(
@@ -608,8 +670,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.put(`/api/v2/solutions/articles/2`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/articles/2",
+					method: 'PUT',
+				})
 				.reply(200, res);
 
 			freshdesk.updateSolutionArticle(id, data, (err, data) => {
@@ -646,8 +711,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.put(`/api/v2/solutions/articles/2/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/articles/2/es",
+					method: 'PUT',
+				})
 				.reply(200, res);
 
 			freshdesk.updateTranslatedSolutionArticle(
@@ -687,8 +755,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/articles/2`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/articles/2",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getSolutionArticle(id, (err, data) => {
@@ -724,8 +795,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/articles/2/es`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/articles/2/es",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.getTranslatedSolutionArticle(id, language_code, (err, data) => {
@@ -765,8 +839,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/solutions/folders/4/articles`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/folders/4/articles",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.listAllSolutionFolderArticles(id, (err, data) => {
@@ -784,8 +861,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.delete(`/api/v2/solutions/articles/2`)
+			client
+				.intercept({
+					path: "/api/v2/solutions/articles/2",
+					method: 'DELETE',
+				})
 				.reply(204, res);
 
 			freshdesk.deleteSolutionArticle(id, (err, data) => {
@@ -843,8 +923,11 @@ describe("api.solutions", function () {
 
 			// SET UP expected request
 
-			nock("https://test.freshdesk.com")
-				.get(`/api/v2/search/solutions?term=sample`)
+			client
+				.intercept({
+					path: "/api/v2/search/solutions?term=sample",
+					method: 'GET',
+				})
 				.reply(200, res);
 
 			freshdesk.searchSolutionArticles(term, (err, data) => {
